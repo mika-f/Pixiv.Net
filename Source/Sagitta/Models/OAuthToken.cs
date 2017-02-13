@@ -27,5 +27,8 @@ namespace Sagitta.Models
 
         [JsonProperty("device_token")]
         public string DeviceToken { get; set; }
+
+        [JsonProperty("user")]
+        public Me User { get; set; }
     }
 }

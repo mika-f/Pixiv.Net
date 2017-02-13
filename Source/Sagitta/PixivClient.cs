@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using Sagitta.Clients;
 using Sagitta.Exceptions;
 
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
 namespace Sagitta
 {
     public class PixivClient
@@ -26,6 +28,11 @@ namespace Sagitta
         ///     Access Authorization API.
         /// </summary>
         public AuthorizationClient OAuth { get; private set; }
+
+        /// <summary>
+        ///     Access pixiv Spotlight (pixivision) API.
+        /// </summary>
+        public SpotlightClient Spotlight { get; private set; }
 
         /// <summary>
         ///     Constructor
@@ -45,6 +52,7 @@ namespace Sagitta
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "PixivIOSApp/6.5.2 (iOS 10.2.1; iPhone7,2)");
 
             OAuth = new AuthorizationClient(this);
+            Spotlight = new SpotlightClient(this);
         }
 
         internal async Task<T> GetAsync<T>(string url, Dictionary<string, string> parameters, bool requireAuth = true)
