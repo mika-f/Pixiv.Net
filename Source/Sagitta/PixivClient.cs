@@ -8,17 +8,24 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 
+using Sagitta.Clients;
 using Sagitta.Exceptions;
 
 namespace Sagitta
 {
     public class PixivClient
     {
-        private readonly string _clientId;
-        private readonly string _clientSecret;
         private readonly HttpClient _httpClient;
+        internal string ClientId { get; }
+        internal string ClientSecret { get; }
 
         public string AccessToken { get; internal set; }
+        public string RefreshToken { get; internal set; }
+
+        /// <summary>
+        ///     Access Authorization API.
+        /// </summary>
+        public AuthorizationClient OAuth { get; private set; }
 
         /// <summary>
         ///     Constructor
@@ -27,8 +34,8 @@ namespace Sagitta
         /// <param name="clientSecret">Client Secret</param>
         public PixivClient(string clientId, string clientSecret)
         {
-            _clientId = clientId;
-            _clientSecret = clientSecret;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
 
             // 2017/02/13
             _httpClient = new HttpClient();
@@ -36,6 +43,8 @@ namespace Sagitta
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", "6.5.2");
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "PixivIOSApp/6.5.2 (iOS 10.2.1; iPhone7,2)");
+
+            OAuth = new AuthorizationClient(this);
         }
 
         internal async Task<T> GetAsync<T>(string url, Dictionary<string, string> parameters, bool requireAuth = true)
