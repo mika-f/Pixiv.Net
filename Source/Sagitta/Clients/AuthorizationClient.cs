@@ -27,7 +27,10 @@ namespace Sagitta.Clients
                 {"password", password}
             };
 
-            return await PixivClient.PostAsync<OAuthToken>("https://app-api.pixiv.net/auth/token", parameters, false);
+            var response = await PixivClient.PostAsync<OAuthResponse>("https://oauth.secure.pixiv.net/auth/token", parameters, false);
+            if (response != null)
+                PixivClient.AccessToken = response.Response.AccessToken;
+            return response?.Response;
         }
     }
 }
