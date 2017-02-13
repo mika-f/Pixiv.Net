@@ -2,4 +2,15 @@ Sagitta
 ----
 pixiv API wrapper for .NET.  
 
-**Note**: This library doesn't contains Client ID and Client Secret.
+
+## Usage
+
+### Authorization
+
+**Note**: This library doesn't contains pixiv's Client ID and Client Secret.
+
+```csharp
+var client = new Sagitta.PixivClient("CLIENT_ID", "CLIENT_SECRET");
+var tokens = await client.OAuth.TokenAsync("username", "password");
+```
+
