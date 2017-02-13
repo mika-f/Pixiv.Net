@@ -25,7 +25,12 @@ namespace Sagitta
         public string RefreshToken { get; internal set; }
 
         /// <summary>
-        ///     Access Authorization API.
+        ///     Access notification API.
+        /// </summary>
+        public NotificationClient Notification { get; private set; }
+
+        /// <summary>
+        ///     Access authorization API.
         /// </summary>
         public AuthorizationClient OAuth { get; private set; }
 
@@ -51,6 +56,7 @@ namespace Sagitta
             _httpClient.DefaultRequestHeaders.Add("App-Version", "6.5.2");
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "PixivIOSApp/6.5.2 (iOS 10.2.1; iPhone7,2)");
 
+            Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
             Spotlight = new SpotlightClient(this);
         }
