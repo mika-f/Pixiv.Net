@@ -3,6 +3,15 @@
 pixiv API wrapper for .NET.  
 
 
+## Platforms
+Sagitta has been created as .NET Standard 1.4.  
+.NET Standard 1.4 supports below platforms:
+
+* .NET Core 1.0
+* .NET Framework 4.6.1
+* Mono/Xamarin
+* UWP 10.0
+
 ## Usage
 
 Import namespaces.
