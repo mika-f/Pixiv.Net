@@ -11,16 +11,16 @@ namespace Sagitta.Clients
 
         public async Task<IllustsRoot> RecommendedAsync(bool includeRankingIllusts = false, string filter = "", int maxBookmarkId = 0, int offset = 0)
         {
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"include_ranking_illusts", includeRankingIllusts.ToString().ToLower()}
+                new KeyValuePair<string, string>("include_ranking_illusts", includeRankingIllusts.ToString().ToLower())
             };
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add("filter", filter);
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
             if (maxBookmarkId > 0)
-                parameters.Add("max_bookmark_id", maxBookmarkId.ToString());
+                parameters.Add(new KeyValuePair<string, string>("max_bookmark_id", maxBookmarkId.ToString()));
             if (offset > 0)
-                parameters.Add("offset", offset.ToString());
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             return await PixivClient.GetAsync<IllustsRoot>("https://app-api.pixiv.net/v1/manga/recommended", parameters);
         }
     }

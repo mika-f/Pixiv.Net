@@ -13,7 +13,7 @@ namespace Sagitta.Enum
 
     public static class DurationExt
     {
-        public static string ToParameterStr(this Duration obj)
+        internal static string ToParameterStr(this Duration obj)
         {
             switch (obj)
             {

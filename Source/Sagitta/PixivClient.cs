@@ -20,7 +20,7 @@ namespace Sagitta
         private readonly HttpClient _httpClient;
         internal string ClientId { get; }
         internal string ClientSecret { get; }
-        internal static Dictionary<string, string> EmptyParameter => new Dictionary<string, string>();
+        internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();
 
         public string AccessToken { get; internal set; }
         public string RefreshToken { get; internal set; }
@@ -29,6 +29,11 @@ namespace Sagitta
         ///     Access application information API.
         /// </summary>
         public ApplicationInfoClient ApplicationInfo { get; set; }
+
+        /// <summary>
+        ///     Access illustration API.
+        /// </summary>
+        public IllustClient Illust { get; set; }
 
         /// <summary>
         ///     Access manga API.
@@ -88,6 +93,7 @@ namespace Sagitta
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "PixivIOSApp/6.5.2 (iOS 10.2.1; iPhone7,2)");
 
             ApplicationInfo = new ApplicationInfoClient(this);
+            Illust = new IllustClient(this);
             Manga = new MangaClient(this);
             Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
@@ -98,7 +104,7 @@ namespace Sagitta
             Walkthrough = new WalkthroughClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, Dictionary<string, string> parameters, bool requireAuth = true)
+        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
                 throw new PixivException("No access token available. Need authentication first.");
@@ -110,7 +116,7 @@ namespace Sagitta
             return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
         }
 
-        internal async Task<T> PostAsync<T>(string url, Dictionary<string, string> parameters, bool requireAuth = true)
+        internal async Task<T> PostAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
                 throw new PixivException("No access token available. Need authentication first.");

@@ -20,9 +20,9 @@ namespace Sagitta.Clients
         public async Task<Autocomplete> Autocomplete(string word)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"word", word}
+                new KeyValuePair<string, string>("word", word)
             };
             return await PixivClient.GetAsync<Autocomplete>("https://app-api.pixiv.net/v1/search/autocomplete", parameters);
         }
@@ -43,18 +43,18 @@ namespace Sagitta.Clients
             Ensure.NotNullOrWhitespace(word, nameof(word));
             if (target == SearchTarget.Text || target == SearchTarget.Keyword)
                 throw new NotSupportedException($"`{nameof(target)}`: {target} is not supported.");
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"search_target", target.ToParameterStr()},
-                {"sort", order.ToParameterString()},
-                {"word", word}
+                new KeyValuePair<string, string>("search_target", target.ToParameterStr()),
+                new KeyValuePair<string, string>("sort", order.ToParameterString()),
+                new KeyValuePair<string, string>("word", word)
             };
             if (duration.HasValue)
-                parameters.Add("duration", duration.Value.ToParameterStr());
+                parameters.Add(new KeyValuePair<string, string>("duration", duration.Value.ToParameterStr()));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add("filter", filter);
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
             if (offset > 0)
-                parameters.Add("offset", offset.ToString());
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
             return await PixivClient.GetAsync<IllustsRoot>("https://app-api.pixiv.net/v1/search/illust", parameters);
         }
@@ -65,18 +65,18 @@ namespace Sagitta.Clients
             Ensure.NotNullOrWhitespace(word, nameof(word));
             if (target == SearchTarget.TitleAndCaption || target == SearchTarget.ExactMatchForTags)
                 throw new NotSupportedException($"`{nameof(target)}`: {target} is not supported.");
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"search_target", target.ToParameterStr()},
-                {"sort", order.ToParameterString()},
-                {"word", word}
+                new KeyValuePair<string, string>("search_target", target.ToParameterStr()),
+                new KeyValuePair<string, string>("sort", order.ToParameterString()),
+                new KeyValuePair<string, string>("word", word)
             };
             if (duration.HasValue)
-                parameters.Add("duration", duration.Value.ToParameterStr());
+                parameters.Add(new KeyValuePair<string, string>("duration", duration.Value.ToParameterStr()));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add("filter", filter);
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
             if (offset > 0)
-                parameters.Add("offset", offset.ToString());
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
             return await PixivClient.GetAsync<NovelsRoot>("https://app-api.pixiv.net/v1/search/novel", parameters);
         }
@@ -84,12 +84,12 @@ namespace Sagitta.Clients
         public async Task<UserPreviewsRoot> UserAsync(string word, int offset = 0)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"word", word}
+                new KeyValuePair<string, string>("word", word)
             };
             if (offset > 0)
-                parameters.Add("offset", offset.ToString());
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
             return await PixivClient.GetAsync<UserPreviewsRoot>("https://app-api.pixiv.net/v1/search/user", parameters);
         }

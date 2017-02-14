@@ -13,9 +13,9 @@ namespace Sagitta.Clients
         public async Task<UgoiraMetadata> MetadataAsync(int illustId)
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"illust_id", illustId.ToString()}
+                new KeyValuePair<string, string>("illust_id", illustId.ToString())
             };
             var response = await PixivClient.GetAsync<UgoiraMetadataResponse>("https://app-api.pixiv.net/v1/ugoira/metadata", parameters);
             return response?.Metadata;

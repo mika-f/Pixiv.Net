@@ -32,7 +32,7 @@ namespace Sagitta.Enum
 
     public static class SearchTargetExt
     {
-        public static string ToParameterStr(this SearchTarget obj)
+        internal static string ToParameterStr(this SearchTarget obj)
         {
             switch (obj)
             {

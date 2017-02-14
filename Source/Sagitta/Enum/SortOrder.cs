@@ -13,7 +13,7 @@ namespace Sagitta.Enum
 
     public static class SortOrderExt
     {
-        public static string ToParameterString(this SortOrder obj)
+        internal static string ToParameterString(this SortOrder obj)
         {
             switch (obj)
             {

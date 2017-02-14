@@ -14,13 +14,14 @@ namespace Sagitta.Clients
         {
             Ensure.NotNullOrWhitespace(category, nameof(category));
 
-            var parameters = new Dictionary<string, string>
+            var parameters = new List<KeyValuePair<string, string>>
             {
-                {"category", category},
-                {"offset", offset.ToString()}
+                new KeyValuePair<string, string>("category", category)
             };
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add("filter", filter);
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
 
             return await PixivClient.GetAsync<SpotlightArticles>("https://app-api.pixiv.net/v1/spotlight/articles", parameters);
         }

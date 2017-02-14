@@ -11,9 +11,9 @@ namespace Sagitta.Clients
 
         public async Task<TrendingTags> IllustAsync(string filter = "")
         {
-            var parameters = new Dictionary<string, string>();
+            var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add("filter", filter);
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
             return await PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/illust", parameters);
         }
 
@@ -25,9 +25,9 @@ namespace Sagitta.Clients
         /// <returns></returns>
         public async Task<TrendingTags> NovelAsync(string filter = "")
         {
-            var parameters = new Dictionary<string, string>();
+            var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add("filter", filter);
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
             return await PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/novel", parameters);
         }
     }
