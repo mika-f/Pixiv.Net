@@ -51,6 +51,11 @@ namespace Sagitta
         public SpotlightClient Spotlight { get; private set; }
 
         /// <summary>
+        ///     Access trending tags API.
+        /// </summary>
+        public TrendingTagsClient TrendingTags { get; set; }
+
+        /// <summary>
         ///     Access ugoira API.
         /// </summary>
         public UgoiraClient Ugoira { get; private set; }
@@ -82,6 +87,7 @@ namespace Sagitta
             Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
             Spotlight = new SpotlightClient(this);
+            TrendingTags = new TrendingTagsClient(this);
             Ugoira = new UgoiraClient(this);
             Walkthrough = new WalkthroughClient(this);
         }
