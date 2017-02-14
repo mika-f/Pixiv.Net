@@ -18,13 +18,13 @@ namespace Sagitta.Enum
             switch (obj)
             {
                 case Duration.LastDay:
-                    return "last_day";
+                    return "within_last_day";
 
                 case Duration.LastWeek:
-                    return "last_week";
+                    return "within_last_week";
 
                 case Duration.LastMonth:
-                    return "last_month";
+                    return "within_last_month";
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(obj), obj, null);

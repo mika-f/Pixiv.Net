@@ -20,7 +20,7 @@ namespace Sagitta
         private readonly HttpClient _httpClient;
         internal string ClientId { get; }
         internal string ClientSecret { get; }
-        internal Dictionary<string, string> EmptyParameter => new Dictionary<string, string>();
+        internal static Dictionary<string, string> EmptyParameter => new Dictionary<string, string>();
 
         public string AccessToken { get; internal set; }
         public string RefreshToken { get; internal set; }
@@ -126,10 +126,14 @@ namespace Sagitta
         {
             if (response.IsSuccessStatusCode)
                 return;
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
-                throw new UnauthorizedException(response);
-            if (response.StatusCode == HttpStatusCode.BadRequest)
-                throw new BadRequestException(response);
+            switch (response.StatusCode)
+            {
+                case HttpStatusCode.Unauthorized:
+                    throw new UnauthorizedException(response);
+
+                case HttpStatusCode.BadRequest:
+                    throw new BadRequestException(response);
+            }
             response.EnsureSuccessStatusCode();
         }
     }
