@@ -1,9 +1,11 @@
-﻿namespace Sagitta.Models
+﻿namespace Sagitta.Enum
 {
     public enum IllustType
     {
         Illust,
 
-        Manga
+        Manga,
+
+        Ugoira
     }
 }

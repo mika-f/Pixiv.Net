@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 
 namespace Sagitta.Models
 {
-    public class SpotlightArticles
+    public class UserPreviewsRoot
     {
-        [JsonProperty("spotlight_articles")]
-        public IEnumerable<SpotlightArticle> Articles { get; set; }
+        [JsonProperty("user_previews")]
+        public IEnumerable<UserPreview> UserPreviews { get; set; }
 
         [JsonProperty("next_url")]
         public string NextUrl { get; set; }

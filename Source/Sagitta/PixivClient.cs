@@ -46,6 +46,11 @@ namespace Sagitta
         public AuthorizationClient OAuth { get; private set; }
 
         /// <summary>
+        ///     Access search API.
+        /// </summary>
+        public SearchClient Search { get; set; }
+
+        /// <summary>
         ///     Access pixiv Spotlight (pixivision) API.
         /// </summary>
         public SpotlightClient Spotlight { get; private set; }
@@ -86,6 +91,7 @@ namespace Sagitta
             Manga = new MangaClient(this);
             Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
+            Search = new SearchClient(this);
             Spotlight = new SpotlightClient(this);
             TrendingTags = new TrendingTagsClient(this);
             Ugoira = new UgoiraClient(this);

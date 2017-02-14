@@ -7,6 +7,6 @@ namespace Sagitta.Models
     public class TrendingTags
     {
         [JsonProperty("trend_tags")]
-        public IList<TrendingTag> Tags { get; set; }
+        public IEnumerable<TrendingTag> Tags { get; set; }
     }
 }

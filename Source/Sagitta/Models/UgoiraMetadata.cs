@@ -16,6 +16,6 @@ namespace Sagitta.Models
         public ZipUrls ZipUrls { get; set; }
 
         [JsonProperty("frames")]
-        public IList<Frame> Frames { get; set; }
+        public IEnumerable<Frame> Frames { get; set; }
     }
 }

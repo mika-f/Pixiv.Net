@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
+using Sagitta.Enum;
+
 namespace Sagitta.Models
 {
     public class Illust
@@ -31,10 +33,10 @@ namespace Sagitta.Models
         public User User { get; set; }
 
         [JsonProperty("tags")]
-        public IList<Tag> Tags { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
 
         [JsonProperty("tools")]
-        public IList<string> Tools { get; set; }
+        public IEnumerable<string> Tools { get; set; }
 
         [JsonProperty("create_date")]
         [JsonConverter(typeof(IsoDateTimeConverter))]
@@ -56,7 +58,7 @@ namespace Sagitta.Models
         public MetaSinglePage MetaSinglePage { get; set; }
 
         [JsonProperty("meta_pages")]
-        public IList<MetaPage> MetaPages { get; set; }
+        public IEnumerable<MetaPage> MetaPages { get; set; }
 
         [JsonProperty("total_view")]
         public int TotalView { get; set; }
