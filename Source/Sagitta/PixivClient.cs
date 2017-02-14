@@ -45,6 +45,11 @@ namespace Sagitta
         public SpotlightClient Spotlight { get; private set; }
 
         /// <summary>
+        ///     Access ugoira API.
+        /// </summary>
+        public UgoiraClient Ugoira { get; private set; }
+
+        /// <summary>
         ///     Constructor
         /// </summary>
         /// <param name="clientId">Client ID</param>
@@ -65,6 +70,7 @@ namespace Sagitta
             Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
             Spotlight = new SpotlightClient(this);
+            Ugoira = new UgoiraClient(this);
         }
 
         internal async Task<T> GetAsync<T>(string url, Dictionary<string, string> parameters, bool requireAuth = true)

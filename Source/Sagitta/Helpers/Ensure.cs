@@ -16,5 +16,11 @@ namespace Sagitta.Helpers
             if (string.IsNullOrWhiteSpace(str))
                 throw new ArgumentException("String cannot be empty", name);
         }
+
+        public static void GreaterThanZero(int obj, string name)
+        {
+            if (obj < 0)
+                throw new ArgumentException("Int cannot less than zero.", name);
+        }
     }
 }
