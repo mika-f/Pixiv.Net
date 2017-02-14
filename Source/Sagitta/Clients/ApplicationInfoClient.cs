@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using Sagitta.Models;
 
@@ -12,8 +11,7 @@ namespace Sagitta.Clients
         // ReSharper disable once InconsistentNaming
         public async Task<ApplicationInfo> iOSAsync()
         {
-            var response = await PixivClient.GetAsync<ApplicationInfoResponse>("https://app-api.pixiv.net/v1/application-info/ios",
-                                                                               new Dictionary<string, string>());
+            var response = await PixivClient.GetAsync<ApplicationInfoResponse>("https://app-api.pixiv.net/v1/application-info/ios", PixivClient.EmptyParameter);
             return response.ApplicationInfo;
         }
     }

@@ -20,6 +20,7 @@ namespace Sagitta
         private readonly HttpClient _httpClient;
         internal string ClientId { get; }
         internal string ClientSecret { get; }
+        internal Dictionary<string, string> EmptyParameter => new Dictionary<string, string>();
 
         public string AccessToken { get; internal set; }
         public string RefreshToken { get; internal set; }
@@ -55,6 +56,11 @@ namespace Sagitta
         public UgoiraClient Ugoira { get; private set; }
 
         /// <summary>
+        ///     Access walkthrough API.
+        /// </summary>
+        public WalkthroughClient Walkthrough { get; set; }
+
+        /// <summary>
         ///     Constructor
         /// </summary>
         /// <param name="clientId">Client ID</param>
@@ -77,6 +83,7 @@ namespace Sagitta
             OAuth = new AuthorizationClient(this);
             Spotlight = new SpotlightClient(this);
             Ugoira = new UgoiraClient(this);
+            Walkthrough = new WalkthroughClient(this);
         }
 
         internal async Task<T> GetAsync<T>(string url, Dictionary<string, string> parameters, bool requireAuth = true)

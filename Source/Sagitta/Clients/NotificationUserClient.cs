@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using Sagitta.Models;
 
@@ -11,7 +10,7 @@ namespace Sagitta.Clients
 
         public async Task<Notification> TopicAsync()
         {
-            return await PixivClient.GetAsync<Notification>("https://app-api.pixiv.net/v1/notification/user/topic", new Dictionary<string, string>());
+            return await PixivClient.GetAsync<Notification>("https://app-api.pixiv.net/v1/notification/user/topic", PixivClient.EmptyParameter);
         }
     }
 }
