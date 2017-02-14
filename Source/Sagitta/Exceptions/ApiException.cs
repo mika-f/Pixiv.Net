@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace Sagitta.Exceptions
 {
-    internal abstract class ApiException : PixivException
+    public abstract class ApiException : PixivException
     {
         public HttpResponseMessage Response { get; }
         public abstract HttpStatusCode StatusCode { get; }

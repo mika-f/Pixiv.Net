@@ -30,6 +30,11 @@ namespace Sagitta
         public ApplicationInfoClient ApplicationInfo { get; set; }
 
         /// <summary>
+        ///     Access manga API.
+        /// </summary>
+        public MangaClient Manga { get; private set; }
+
+        /// <summary>
         ///     Access notification API.
         /// </summary>
         public NotificationClient Notification { get; private set; }
@@ -67,6 +72,7 @@ namespace Sagitta
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "PixivIOSApp/6.5.2 (iOS 10.2.1; iPhone7,2)");
 
             ApplicationInfo = new ApplicationInfoClient(this);
+            Manga = new MangaClient(this);
             Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
             Spotlight = new SpotlightClient(this);
@@ -102,7 +108,9 @@ namespace Sagitta
             if (response.IsSuccessStatusCode)
                 return;
             if (response.StatusCode == HttpStatusCode.Unauthorized)
-                throw new AuthorizationException(response);
+                throw new UnauthorizedException(response);
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+                throw new BadRequestException(response);
             response.EnsureSuccessStatusCode();
         }
     }
