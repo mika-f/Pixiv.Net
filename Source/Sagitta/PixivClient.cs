@@ -41,6 +41,11 @@ namespace Sagitta
         public MangaClient Manga { get; private set; }
 
         /// <summary>
+        ///     Access mute API.
+        /// </summary>
+        public MuteClient Mute { get; set; }
+
+        /// <summary>
         ///     Access notification API.
         /// </summary>
         public NotificationClient Notification { get; private set; }
@@ -95,6 +100,7 @@ namespace Sagitta
             ApplicationInfo = new ApplicationInfoClient(this);
             Illust = new IllustClient(this);
             Manga = new MangaClient(this);
+            Mute = new MuteClient(this);
             Notification = new NotificationClient(this);
             OAuth = new AuthorizationClient(this);
             Search = new SearchClient(this);
