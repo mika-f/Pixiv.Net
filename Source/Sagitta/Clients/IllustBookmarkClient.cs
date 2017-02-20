@@ -15,6 +15,8 @@ namespace Sagitta.Clients
         public async Task AddAsync(int illustId, Restrict restrict = Restrict.Public, string[] tags = null)
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
+            Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
+
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("illust_id", illustId.ToString()),
@@ -36,14 +38,15 @@ namespace Sagitta.Clients
             await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/illust/bookmark/delete", parameters);
         }
 
-        public async Task<BookmarkDetailRoot> DetailAsync(int illustId)
+        public async Task<BookmarkDetail> DetailAsync(int illustId)
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("illust_id", illustId.ToString())
             };
-            return await PixivClient.GetAsync<BookmarkDetailRoot>("https://app-api.pixiv.net/v2/illust/bookmark/detail", parameters);
+            var response = await PixivClient.GetAsync<BookmarkDetailRoot>("https://app-api.pixiv.net/v2/illust/bookmark/detail", parameters);
+            return response?.BookmarkDetail;
         }
 
         public async Task<BookmarkUsers> UsersAsync(int illustId, int offset = 0)

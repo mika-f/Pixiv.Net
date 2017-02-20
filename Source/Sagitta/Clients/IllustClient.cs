@@ -13,7 +13,7 @@ namespace Sagitta.Clients
 {
     public class IllustClient : ApiClient
     {
-        public IllustBookmarkClient Bookmark { get; set; }
+        public IllustBookmarkClient Bookmark { get; private set; }
 
         public IllustClient(PixivClient pixivClient) : base(pixivClient)
         {
@@ -70,8 +70,7 @@ namespace Sagitta.Clients
 
         public async Task<IllustsRoot> NewAsync(IllustType contentType, string filter = "", int maxIllustId = 0)
         {
-            if (contentType == IllustType.Ugoira)
-                throw new NotSupportedException($"{nameof(contentType)}: {contentType} is not supported.");
+            Ensure.InvalidEnumValue(contentType == IllustType.Ugoira, nameof(contentType));
 
             var parameters = new List<KeyValuePair<string, string>>
             {

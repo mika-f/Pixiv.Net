@@ -22,5 +22,11 @@ namespace Sagitta.Helpers
             if (obj < 0)
                 throw new ArgumentException("Int cannot less than zero.", name);
         }
+
+        public static void InvalidEnumValue(bool cond, string name)
+        {
+            if (cond)
+                throw new NotSupportedException($"{name}: Not supported value");
+        }
     }
 }
