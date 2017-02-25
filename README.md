@@ -30,6 +30,9 @@ var client = new PixivClient("CLIENT_ID", "CLIENT_SECRET");
 
 // Login
 var tokens = await client.OAuth.TokenAsync("username", "password");
+
+// Login (No login alerts)
+var tokens = await client.OAuth.TokenAsync("username", "password", lastTokens.DeviceToken);
 ```
 
 ### Illust
