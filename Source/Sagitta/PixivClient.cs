@@ -28,12 +28,12 @@ namespace Sagitta
         /// <summary>
         ///     Access application information API.
         /// </summary>
-        public ApplicationInfoClient ApplicationInfo { get; set; }
+        public ApplicationInfoClient ApplicationInfo { get; private set; }
 
         /// <summary>
         ///     Access illustration API.
         /// </summary>
-        public IllustClient Illust { get; set; }
+        public IllustClient Illust { get; private set; }
 
         /// <summary>
         ///     Access manga API.
@@ -43,12 +43,17 @@ namespace Sagitta
         /// <summary>
         ///     Access mute API.
         /// </summary>
-        public MuteClient Mute { get; set; }
+        public MuteClient Mute { get; private set; }
 
         /// <summary>
         ///     Access notification API.
         /// </summary>
         public NotificationClient Notification { get; private set; }
+
+        /// <summary>
+        ///     Access novel API.
+        /// </summary>
+        public NovelClient Novel { get; private set; }
 
         /// <summary>
         ///     Access authorization API.
@@ -58,7 +63,7 @@ namespace Sagitta
         /// <summary>
         ///     Access search API.
         /// </summary>
-        public SearchClient Search { get; set; }
+        public SearchClient Search { get; private set; }
 
         /// <summary>
         ///     Access pixiv Spotlight (pixivision) API.
@@ -68,7 +73,7 @@ namespace Sagitta
         /// <summary>
         ///     Access trending tags API.
         /// </summary>
-        public TrendingTagsClient TrendingTags { get; set; }
+        public TrendingTagsClient TrendingTags { get; private set; }
 
         /// <summary>
         ///     Access ugoira API.
@@ -78,7 +83,7 @@ namespace Sagitta
         /// <summary>
         ///     Access walkthrough API.
         /// </summary>
-        public WalkthroughClient Walkthrough { get; set; }
+        public WalkthroughClient Walkthrough { get; private set; }
 
         /// <summary>
         ///     Constructor
@@ -102,6 +107,7 @@ namespace Sagitta
             Manga = new MangaClient(this);
             Mute = new MuteClient(this);
             Notification = new NotificationClient(this);
+            Novel = new NovelClient(this);
             OAuth = new AuthorizationClient(this);
             Search = new SearchClient(this);
             Spotlight = new SpotlightClient(this);
