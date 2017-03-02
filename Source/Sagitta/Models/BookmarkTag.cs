@@ -9,5 +9,8 @@ namespace Sagitta.Models
 
         [JsonProperty("is_registered")]
         public bool IsRegistered { get; set; }
+
+        [JsonProperty("count")]
+        public int Count { get; set; }
     }
 }

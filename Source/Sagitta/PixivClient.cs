@@ -81,6 +81,11 @@ namespace Sagitta
         public UgoiraClient Ugoira { get; private set; }
 
         /// <summary>
+        ///     Access user API.
+        /// </summary>
+        public UserClient User { get; private set; }
+
+        /// <summary>
         ///     Access walkthrough API.
         /// </summary>
         public WalkthroughClient Walkthrough { get; private set; }
@@ -113,6 +118,7 @@ namespace Sagitta
             Spotlight = new SpotlightClient(this);
             TrendingTags = new TrendingTagsClient(this);
             Ugoira = new UgoiraClient(this);
+            User = new UserClient(this);
             Walkthrough = new WalkthroughClient(this);
         }
 
