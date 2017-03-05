@@ -50,6 +50,16 @@ var illusts = await client.Illust.RankingAsync(RankingMode.Day);
 await pixivClient.Illust.Bookmark.AddAsync(61463577, tags: new string[] {"艦これ", "ゆるい艦これ"});
 ```
 
+### Novel
+
+```csharp
+var novel = await client.Novel.DetailAsync(61717139);
+
+// Recommends
+var novels = await client.Novel.RecommendedAsync();
+```
+
+
 ### Search
 
 **Note**: Sort by popularity can only be used premium users.
