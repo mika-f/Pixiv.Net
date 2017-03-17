@@ -86,11 +86,13 @@ namespace Sagitta.Clients
         }
 
         // TODO: Fix response type.
-        public async Task<UserPreviewsRoot> ListAsync(string filter = "")
+        public async Task<UserPreviewsRoot> ListAsync(string filter = "", int offset = 0)
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             return await PixivClient.GetAsync<UserPreviewsRoot>("https://app-api.pixiv.net/v2/user/list", parameters);
         }
 
@@ -108,7 +110,7 @@ namespace Sagitta.Clients
             return await PixivClient.GetAsync<NovelsRoot>("https://app-api.pixiv.net/v1/user/novels", parameters);
         }
 
-        public async Task<UserPreviewsRoot> Recommended(string filter = "", int offset = 0)
+        public async Task<UserPreviewsRoot> RecommendedAsync(string filter = "", int offset = 0)
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
@@ -119,7 +121,7 @@ namespace Sagitta.Clients
             return await PixivClient.GetAsync<UserPreviewsRoot>("https://app-api.pixiv.net/v1/user/recommended", parameters);
         }
 
-        public async Task<UserPreviewsRoot> Related(int seedUserId, string filter = "")
+        public async Task<UserPreviewsRoot> RelatedAsync(int seedUserId, string filter = "")
         {
             Ensure.GreaterThanZero(seedUserId, nameof(seedUserId));
 
@@ -134,12 +136,12 @@ namespace Sagitta.Clients
         }
 
         // me/state
-        public async Task<StateRoot> MyState()
+        public async Task<StateRoot> MyStateAsync()
         {
             return await PixivClient.GetAsync<StateRoot>("https://app-api.pixiv.net/v1/user/me/state", PixivClient.EmptyParameter);
         }
 
-        public async Task<UserPreviewsRoot> Mypixiv(int userId, int offset = 0)
+        public async Task<UserPreviewsRoot> MypixivAsync(int userId, int offset = 0)
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 

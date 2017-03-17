@@ -91,6 +91,11 @@ namespace Sagitta
         public WalkthroughClient Walkthrough { get; private set; }
 
         /// <summary>
+        ///     Get pixiv images.
+        /// </summary>
+        public ImageClient Image { get; private set; }
+
+        /// <summary>
         ///     Constructor
         /// </summary>
         /// <param name="clientId">Client ID</param>
@@ -120,6 +125,7 @@ namespace Sagitta
             Ugoira = new UgoiraClient(this);
             User = new UserClient(this);
             Walkthrough = new WalkthroughClient(this);
+            Image = new ImageClient(this);
         }
 
         internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)

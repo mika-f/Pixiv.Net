@@ -2,16 +2,10 @@
 
 namespace Sagitta.Models
 {
-    public class Me
+    public class Me : UserMini
     {
-        [JsonProperty("profile_image_urls")]
-        public MyProfileImageUrls ProfileImageUrls { get; set; }
-
         [JsonProperty("id")]
-        public string IdStr { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        public new string Id { get; set; }
 
         [JsonProperty("account")]
         public string Account { get; set; }

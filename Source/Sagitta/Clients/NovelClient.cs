@@ -22,13 +22,15 @@ namespace Sagitta.Clients
             Marker = new NovelMarkerClient(pixivClient);
         }
 
-        public async Task<CommentsRoot> CommentsAsync(int novelId)
+        public async Task<CommentsRoot> CommentsAsync(int novelId, int offset = 0)
         {
             Ensure.GreaterThanZero(novelId, nameof(novelId));
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("novel_id", novelId.ToString())
             };
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             return await PixivClient.GetAsync<CommentsRoot>("https://app-api.pixiv.net/v1/novel/comments", parameters);
         }
 
