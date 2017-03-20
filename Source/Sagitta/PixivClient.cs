@@ -18,6 +18,8 @@ namespace Sagitta
     public class PixivClient
     {
         private readonly HttpClient _httpClient;
+        public static string AppVersion => "6.6.2";
+        public static string OsVersion => "10.2.1";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
         internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();
@@ -93,7 +95,7 @@ namespace Sagitta
         /// <summary>
         ///     Get pixiv images.
         /// </summary>
-        public ImageClient Image { get; private set; }
+        public FileClient File { get; private set; }
 
         /// <summary>
         ///     Constructor
@@ -105,12 +107,12 @@ namespace Sagitta
             ClientId = clientId;
             ClientSecret = clientSecret;
 
-            // 2017/02/13
+            // 2017/03/20
             _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.Add("App-OS-Version", "10.2.1");
+            _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
-            _httpClient.DefaultRequestHeaders.Add("App-Version", "6.5.2");
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", "PixivIOSApp/6.5.2 (iOS 10.2.1; iPhone7,2)");
+            _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone7,2)");
 
             ApplicationInfo = new ApplicationInfoClient(this);
             Illust = new IllustClient(this);
@@ -125,7 +127,7 @@ namespace Sagitta
             Ugoira = new UgoiraClient(this);
             User = new UserClient(this);
             Walkthrough = new WalkthroughClient(this);
-            Image = new ImageClient(this);
+            File = new FileClient(this);
         }
 
         internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
