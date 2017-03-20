@@ -20,11 +20,26 @@ namespace Sagitta.Models
         [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime? Birth { get; set; }
 
+        [JsonProperty("birth_day")]
+        public string BirthDay { get; set; }
+
+        [JsonProperty("birth_year")]
+        public int BirthYear { get; set; }
+
         [JsonProperty("region")]
         public string Region { get; set; }
 
+        [JsonProperty("address_id")]
+        public int AddressId { get; set; }
+
+        [JsonProperty("country_code")]
+        public string CountryCode { get; set; }
+
         [JsonProperty("job")]
         public string Job { get; set; }
+
+        [JsonProperty("job_id")]
+        public int JobId { get; set; }
 
         [JsonProperty("total_follow_users")]
         public int TotalFollowUsers { get; set; }
@@ -58,5 +73,8 @@ namespace Sagitta.Models
 
         [JsonProperty("is_premium")]
         public bool IsPremium { get; set; }
+
+        [JsonProperty("is_using_custom_profile_image")]
+        public bool IsUsingCustomProfileImage { get; set; }
     }
 }
