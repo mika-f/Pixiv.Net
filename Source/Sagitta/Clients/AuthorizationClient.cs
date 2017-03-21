@@ -36,10 +36,8 @@ namespace Sagitta.Clients
             return response?.Response;
         }
 
-        public async Task<OAuthToken> RefreshAsync(string username, string password, string refreshToken, string deviceToken = "pixiv")
+        public async Task<OAuthToken> RefreshAsync(string refreshToken, string deviceToken = "pixiv")
         {
-            Ensure.NotNullOrWhitespace(username, nameof(username));
-            Ensure.NotNullOrWhitespace(password, nameof(password));
             Ensure.NotNullOrWhitespace(refreshToken, nameof(refreshToken));
             Ensure.NotNullOrWhitespace(deviceToken, nameof(deviceToken));
 
@@ -50,9 +48,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("refresh_token", refreshToken),
                 new KeyValuePair<string, string>("device_token", deviceToken),
                 new KeyValuePair<string, string>("get_secure_url", "true"),
-                new KeyValuePair<string, string>("grant_type", "refresh_token"),
-                new KeyValuePair<string, string>("username", username),
-                new KeyValuePair<string, string>("password", password)
+                new KeyValuePair<string, string>("grant_type", "refresh_token")
             };
 
             var response = await PixivClient.PostAsync<OAuthResponse>("https://oauth.secure.pixiv.net/auth/token", parameters, false);
