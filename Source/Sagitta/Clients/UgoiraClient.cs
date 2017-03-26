@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -17,7 +18,7 @@ namespace Sagitta.Clients
             {
                 new KeyValuePair<string, string>("illust_id", illustId.ToString())
             };
-            var response = await PixivClient.GetAsync<UgoiraMetadataResponse>("https://app-api.pixiv.net/v1/ugoira/metadata", parameters);
+            var response = await PixivClient.GetAsync<UgoiraMetadataResponse>("https://app-api.pixiv.net/v1/ugoira/metadata", parameters).Stay();
             return response?.Metadata;
         }
     }

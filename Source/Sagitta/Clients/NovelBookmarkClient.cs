@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Sagitta.Enum;
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -25,7 +26,7 @@ namespace Sagitta.Clients
             if (tags != null)
                 parameters.AddRange(tags.Select(tag => new KeyValuePair<string, string>("tags[]", tag)));
 
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/novel/bookmark/add", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/novel/bookmark/add", parameters).Stay();
         }
 
         public async Task DeleteAsync(int novelId)
@@ -37,7 +38,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("novel_id", novelId.ToString())
             };
 
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/novel/bookmark/delete", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/novel/bookmark/delete", parameters).Stay();
         }
 
         public async Task<BookmarkDetail> DetailAsync(int novelId)
@@ -49,11 +50,11 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("novel_id", novelId.ToString())
             };
 
-            var response = await PixivClient.GetAsync<BookmarkDetailRoot>("https://app-api.pixiv.net/v2/novel/bookmark/detail", parameters);
-            return response.BookmarkDetail;
+            var response = await PixivClient.GetAsync<BookmarkDetailResponse>("https://app-api.pixiv.net/v2/novel/bookmark/detail", parameters).Stay();
+            return response?.BookmarkDetail;
         }
 
-        public async Task<BookmarkUsers> UsersAsync(int novelId)
+        public Task<BookmarkUsers> UsersAsync(int novelId)
         {
             Ensure.GreaterThanZero(novelId, nameof(novelId));
 
@@ -62,7 +63,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("novel_id", novelId.ToString())
             };
 
-            return await PixivClient.GetAsync<BookmarkUsers>("https://app-api.pixiv.net/v1/novel/bookmark/users", parameters);
+            return PixivClient.GetAsync<BookmarkUsers>("https://app-api.pixiv.net/v1/novel/bookmark/users", parameters);
         }
     }
 }

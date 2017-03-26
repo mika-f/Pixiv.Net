@@ -7,12 +7,6 @@ using Sagitta.Enum;
 
 namespace Sagitta.Models
 {
-    public class BookmarkDetailRoot
-    {
-        [JsonProperty("bookmark_detail")]
-        public BookmarkDetail BookmarkDetail { get; set; }
-    }
-
     public class BookmarkDetail
     {
         [JsonProperty("is_bookmarked")]

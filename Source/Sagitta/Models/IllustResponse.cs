@@ -2,7 +2,7 @@
 
 namespace Sagitta.Models
 {
-    public class IllustRoot
+    internal class IllustResponse
     {
         [JsonProperty("illust")]
         public Illust Illust { get; set; }

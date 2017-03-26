@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -20,7 +21,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("novel_id", novelId.ToString()),
                 new KeyValuePair<string, string>("page", page.ToString())
             };
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/novel/marker/add", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/novel/marker/add", parameters).Stay();
         }
 
         public async Task DeleteAsync(int novelId)
@@ -31,7 +32,7 @@ namespace Sagitta.Clients
             {
                 new KeyValuePair<string, string>("novel_id", novelId.ToString())
             };
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/novel/marker/delete", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/novel/marker/delete", parameters).Stay();
         }
     }
 }

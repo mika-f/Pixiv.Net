@@ -18,6 +18,6 @@ namespace Sagitta.Models
         public DateTime Date { get; set; }
 
         [JsonProperty("user")]
-        public UserMini User { get; set; }
+        public UserBase User { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Sagitta.Enum;
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -25,7 +26,7 @@ namespace Sagitta.Clients
             if (tags != null)
                 parameters.AddRange(tags.Select(tag => new KeyValuePair<string, string>("tags[]", tag)));
 
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/illust/bookmark/add", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/illust/bookmark/add", parameters).Stay();
         }
 
         public async Task DeleteAsync(int illustId)
@@ -35,7 +36,7 @@ namespace Sagitta.Clients
             {
                 new KeyValuePair<string, string>("illust_id", illustId.ToString())
             };
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/illust/bookmark/delete", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v2/illust/bookmark/delete", parameters).Stay();
         }
 
         public async Task<BookmarkDetail> DetailAsync(int illustId)
@@ -45,7 +46,7 @@ namespace Sagitta.Clients
             {
                 new KeyValuePair<string, string>("illust_id", illustId.ToString())
             };
-            var response = await PixivClient.GetAsync<BookmarkDetailRoot>("https://app-api.pixiv.net/v2/illust/bookmark/detail", parameters);
+            var response = await PixivClient.GetAsync<BookmarkDetailResponse>("https://app-api.pixiv.net/v2/illust/bookmark/detail", parameters).Stay();
             return response?.BookmarkDetail;
         }
 
@@ -58,7 +59,7 @@ namespace Sagitta.Clients
             };
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
-            return await PixivClient.GetAsync<BookmarkUsers>("https://app-api.pixiv.net/v1/illust/bookmark/users", parameters);
+            return await PixivClient.GetAsync<BookmarkUsers>("https://app-api.pixiv.net/v1/illust/bookmark/users", parameters).Stay();
         }
     }
 }

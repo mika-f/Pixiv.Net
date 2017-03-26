@@ -8,9 +8,9 @@ namespace Sagitta.Clients
     {
         public WalkthroughClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<IllustsRoot> IllustsAsync()
+        public Task<IllustCollection> IllustsAsync()
         {
-            return await PixivClient.GetAsync<IllustsRoot>("https://app-api.pixiv.net/v1/walkthrough/illusts", PixivClient.EmptyParameter, false);
+            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/walkthrough/illusts", PixivClient.EmptyParameter, false);
         }
     }
 }

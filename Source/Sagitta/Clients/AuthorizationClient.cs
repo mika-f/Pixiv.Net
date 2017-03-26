@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -8,10 +9,7 @@ namespace Sagitta.Clients
 {
     public class AuthorizationClient : ApiClient
     {
-        public AuthorizationClient(PixivClient pixivClient) : base(pixivClient)
-        {
-
-        }
+        public AuthorizationClient(PixivClient pixivClient) : base(pixivClient) {}
 
         public async Task<OAuthToken> TokenAsync(string username, string password, string deviceToken = "pixiv")
         {
@@ -30,7 +28,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("password", password)
             };
 
-            var response = await PixivClient.PostAsync<OAuthResponse>("https://oauth.secure.pixiv.net/auth/token", parameters, false);
+            var response = await PixivClient.PostAsync<OAuthResponse>("https://oauth.secure.pixiv.net/auth/token", parameters, false).Stay();
             if (response != null)
                 PixivClient.AccessToken = response.Response.AccessToken;
             return response?.Response;
@@ -51,7 +49,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("grant_type", "refresh_token")
             };
 
-            var response = await PixivClient.PostAsync<OAuthResponse>("https://oauth.secure.pixiv.net/auth/token", parameters, false);
+            var response = await PixivClient.PostAsync<OAuthResponse>("https://oauth.secure.pixiv.net/auth/token", parameters, false).Stay();
             if (response != null)
                 PixivClient.AccessToken = response.Response.AccessToken;
             return response?.Response;

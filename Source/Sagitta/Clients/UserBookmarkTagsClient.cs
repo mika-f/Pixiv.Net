@@ -11,7 +11,7 @@ namespace Sagitta.Clients
     {
         public UserBookmarkTagsClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<BookmarkTags> IllustAsync(Restrict restrict = Restrict.Public, int offset = 0)
+        public Task<BookmarkTags> IllustAsync(Restrict restrict = Restrict.Public, int offset = 0)
         {
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
 
@@ -22,10 +22,10 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return await PixivClient.GetAsync<BookmarkTags>("https://app-api.pixiv.net/v1/user/bookmark-tags/illust", parameters);
+            return PixivClient.GetAsync<BookmarkTags>("https://app-api.pixiv.net/v1/user/bookmark-tags/illust", parameters);
         }
 
-        public async Task<BookmarkTags> NovelAsync(Restrict restrict = Restrict.Public, int offset = 0)
+        public Task<BookmarkTags> NovelAsync(Restrict restrict = Restrict.Public, int offset = 0)
         {
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
 
@@ -36,7 +36,7 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return await PixivClient.GetAsync<BookmarkTags>("https://app-api.pixiv.net/v1/user/bookmark-tags/novel", parameters);
+            return PixivClient.GetAsync<BookmarkTags>("https://app-api.pixiv.net/v1/user/bookmark-tags/novel", parameters);
         }
     }
 }

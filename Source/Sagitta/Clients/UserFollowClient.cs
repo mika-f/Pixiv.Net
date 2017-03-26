@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using Sagitta.Enum;
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -21,7 +22,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("user_id", userId.ToString()),
                 new KeyValuePair<string, string>("restrict", restrict.ToParameterStr())
             };
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/user/follow/add", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/user/follow/add", parameters).Stay();
         }
 
         public async Task DeleteAsync(int userId)
@@ -32,7 +33,7 @@ namespace Sagitta.Clients
             {
                 new KeyValuePair<string, string>("user_id", userId.ToString())
             };
-            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/user/follow/delete", parameters);
+            await PixivClient.PostAsync<VoidClass>("https://app-api.pixiv.net/v1/user/follow/delete", parameters).Stay();
         }
     }
 }

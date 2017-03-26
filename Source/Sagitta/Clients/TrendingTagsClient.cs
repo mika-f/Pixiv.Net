@@ -9,12 +9,12 @@ namespace Sagitta.Clients
     {
         public TrendingTagsClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<TrendingTags> IllustAsync(string filter = "")
+        public Task<TrendingTags> IllustAsync(string filter = "")
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            return await PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/illust", parameters);
+            return PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/illust", parameters);
         }
 
         /// <summary>
@@ -23,12 +23,12 @@ namespace Sagitta.Clients
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        public async Task<TrendingTags> NovelAsync(string filter = "")
+        public Task<TrendingTags> NovelAsync(string filter = "")
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            return await PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/novel", parameters);
+            return PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/novel", parameters);
         }
     }
 }

@@ -2,12 +2,6 @@
 
 namespace Sagitta.Models
 {
-    public class ApplicationInfoResponse
-    {
-        [JsonProperty("application_info")]
-        public ApplicationInfo ApplicationInfo { get; set; }
-    }
-
     public class ApplicationInfo
     {
         [JsonProperty("latest_version")]

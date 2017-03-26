@@ -154,7 +154,7 @@ namespace Sagitta
             return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
         }
 
-        private void HandleErrors(HttpResponseMessage response)
+        private static void HandleErrors(HttpResponseMessage response)
         {
             if (response.IsSuccessStatusCode)
                 return;

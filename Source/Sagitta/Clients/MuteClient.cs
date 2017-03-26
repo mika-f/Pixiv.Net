@@ -8,9 +8,9 @@ namespace Sagitta.Clients
     {
         public MuteClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<MuteList> ListAsync()
+        public Task<MuteList> ListAsync()
         {
-            return await PixivClient.GetAsync<MuteList>("https://app-api.pixiv.net/v1/mute/list", PixivClient.EmptyParameter);
+            return PixivClient.GetAsync<MuteList>("https://app-api.pixiv.net/v1/mute/list", PixivClient.EmptyParameter);
         }
     }
 }

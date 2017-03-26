@@ -11,8 +11,8 @@ namespace Sagitta.Clients
     {
         public UserBookmarksClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<IllustsRoot> IllustAsync(int userId, string filter = "", int maxBookmarkId = 0, Restrict restrict = Restrict.Public,
-                                                   string tag = "")
+        public Task<IllustCollection> IllustAsync(int userId, string filter = "", int maxBookmarkId = 0, Restrict restrict = Restrict.Public,
+                                                  string tag = "")
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
@@ -29,10 +29,10 @@ namespace Sagitta.Clients
             if (!string.IsNullOrWhiteSpace(tag))
                 parameters.Add(new KeyValuePair<string, string>("tag", tag));
 
-            return await PixivClient.GetAsync<IllustsRoot>("https://app-api.pixiv.net/v1/user/bookmarks/illust", parameters);
+            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/bookmarks/illust", parameters);
         }
 
-        public async Task<NovelsRoot> NovelAsync(int userId, int maxBookmarkId = 0, Restrict restrict = Restrict.Public, string tag = "")
+        public Task<NovelCollection> NovelAsync(int userId, int maxBookmarkId = 0, Restrict restrict = Restrict.Public, string tag = "")
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
@@ -47,7 +47,7 @@ namespace Sagitta.Clients
             if (!string.IsNullOrWhiteSpace(tag))
                 parameters.Add(new KeyValuePair<string, string>("tag", tag));
 
-            return await PixivClient.GetAsync<NovelsRoot>("https://app-api.pixiv.net/v1/user/bookmarks/novel", parameters);
+            return PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/bookmarks/novel", parameters);
         }
     }
 }

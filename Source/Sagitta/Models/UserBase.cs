@@ -2,7 +2,7 @@
 
 namespace Sagitta.Models
 {
-    public class UserMini
+    public class UserBase
     {
         [JsonProperty("id")]
         public int Id { get; set; }

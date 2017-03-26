@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
@@ -11,7 +12,8 @@ namespace Sagitta.Clients
         // ReSharper disable once InconsistentNaming
         public async Task<ApplicationInfo> iOSAsync()
         {
-            var response = await PixivClient.GetAsync<ApplicationInfoResponse>("https://app-api.pixiv.net/v1/application-info/ios", PixivClient.EmptyParameter);
+            var response =
+                await PixivClient.GetAsync<ApplicationInfoResponse>("https://app-api.pixiv.net/v1/application-info/ios", PixivClient.EmptyParameter).Stay();
             return response.ApplicationInfo;
         }
     }

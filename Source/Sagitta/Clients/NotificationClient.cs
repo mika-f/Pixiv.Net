@@ -2,7 +2,7 @@
 {
     public class NotificationClient : ApiClient
     {
-        public NotificationUserClient User { get; private set; }
+        public NotificationUserClient User { get; }
 
         public NotificationClient(PixivClient pixivClient) : base(pixivClient)
         {

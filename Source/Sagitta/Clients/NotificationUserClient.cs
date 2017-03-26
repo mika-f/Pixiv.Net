@@ -8,9 +8,9 @@ namespace Sagitta.Clients
     {
         public NotificationUserClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<Notification> TopicAsync()
+        public Task<Notification> TopicAsync()
         {
-            return await PixivClient.GetAsync<Notification>("https://app-api.pixiv.net/v1/notification/user/topic", PixivClient.EmptyParameter);
+            return PixivClient.GetAsync<Notification>("https://app-api.pixiv.net/v1/notification/user/topic", PixivClient.EmptyParameter);
         }
     }
 }

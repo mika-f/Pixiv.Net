@@ -3,6 +3,8 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
+
 namespace Sagitta.Clients
 {
     public class FileClient : ApiClient
@@ -21,8 +23,8 @@ namespace Sagitta.Clients
 
         public async Task<Stream> GetAsync(string url)
         {
-            var response = await _httpClient.GetAsync(url);
-            return await response.Content.ReadAsStreamAsync();
+            var response = await _httpClient.GetAsync(url).Stay();
+            return await response.Content.ReadAsStreamAsync().Stay();
         }
     }
 }

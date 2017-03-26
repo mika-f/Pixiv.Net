@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Sagitta.Enum;
@@ -17,14 +16,14 @@ namespace Sagitta.Clients
         /// </summary>
         /// <param name="word">Partial word</param>
         /// <returns></returns>
-        public async Task<Autocomplete> Autocomplete(string word)
+        public Task<Autocomplete> Autocomplete(string word)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("word", word)
             };
-            return await PixivClient.GetAsync<Autocomplete>("https://app-api.pixiv.net/v1/search/autocomplete", parameters);
+            return PixivClient.GetAsync<Autocomplete>("https://app-api.pixiv.net/v1/search/autocomplete", parameters);
         }
 
         /// <summary>
@@ -37,12 +36,11 @@ namespace Sagitta.Clients
         /// <param name="filter"></param>
         /// <param name="offset">Offset index</param>
         /// <returns></returns>
-        public async Task<IllustsRoot> IllustAsync(string word, SearchTarget target = SearchTarget.PartialMatchForTags, SortOrder order = SortOrder.DateAsc,
-                                                   Duration? duration = null, string filter = "", int offset = 0)
+        public Task<IllustCollection> IllustAsync(string word, SearchTarget target = SearchTarget.PartialMatchForTags, SortOrder order = SortOrder.DateAsc,
+                                                  Duration? duration = null, string filter = "", int offset = 0)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
-            if (target == SearchTarget.Text || target == SearchTarget.Keyword)
-                throw new NotSupportedException($"`{nameof(target)}`: {target} is not supported.");
+            Ensure.InvalidEnumValue(target == SearchTarget.Text || target == SearchTarget.Keyword, nameof(target));
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("search_target", target.ToParameterStr()),
@@ -56,15 +54,14 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return await PixivClient.GetAsync<IllustsRoot>("https://app-api.pixiv.net/v1/search/illust", parameters);
+            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/search/illust", parameters);
         }
 
-        public async Task<NovelsRoot> NovelAsync(string word, SearchTarget target = SearchTarget.PartialMatchForTags, SortOrder order = SortOrder.DateAsc,
-                                                 Duration? duration = null, string filter = "", int offset = 0)
+        public Task<NovelCollection> NovelAsync(string word, SearchTarget target = SearchTarget.PartialMatchForTags, SortOrder order = SortOrder.DateAsc,
+                                                Duration? duration = null, string filter = "", int offset = 0)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
-            if (target == SearchTarget.TitleAndCaption || target == SearchTarget.ExactMatchForTags)
-                throw new NotSupportedException($"`{nameof(target)}`: {target} is not supported.");
+            Ensure.InvalidEnumValue(target == SearchTarget.TitleAndCaption || target == SearchTarget.ExactMatchForTags, nameof(target));
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("search_target", target.ToParameterStr()),
@@ -78,10 +75,10 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return await PixivClient.GetAsync<NovelsRoot>("https://app-api.pixiv.net/v1/search/novel", parameters);
+            return PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/search/novel", parameters);
         }
 
-        public async Task<UserPreviewsRoot> UserAsync(string word, int offset = 0)
+        public Task<UserPreviewCollection> UserAsync(string word, int offset = 0)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
             var parameters = new List<KeyValuePair<string, string>>
@@ -91,7 +88,7 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return await PixivClient.GetAsync<UserPreviewsRoot>("https://app-api.pixiv.net/v1/search/user", parameters);
+            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/search/user", parameters);
         }
     }
 }

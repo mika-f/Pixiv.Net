@@ -10,7 +10,7 @@ namespace Sagitta.Clients
     {
         public SpotlightClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<SpotlightArticles> ArticlesAsync(string category, int offset = 0, string filter = "")
+        public Task<SpotlightArticles> ArticlesAsync(string category, int offset = 0, string filter = "")
         {
             Ensure.NotNullOrWhitespace(category, nameof(category));
 
@@ -23,7 +23,7 @@ namespace Sagitta.Clients
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
 
-            return await PixivClient.GetAsync<SpotlightArticles>("https://app-api.pixiv.net/v1/spotlight/articles", parameters);
+            return PixivClient.GetAsync<SpotlightArticles>("https://app-api.pixiv.net/v1/spotlight/articles", parameters);
         }
     }
 }

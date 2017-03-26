@@ -9,7 +9,7 @@ namespace Sagitta.Clients
     {
         public MangaClient(PixivClient pixivClient) : base(pixivClient) {}
 
-        public async Task<IllustsRoot> RecommendedAsync(bool includeRankingIllusts = false, string filter = "", int maxBookmarkId = 0, int offset = 0)
+        public Task<IllustCollection> RecommendedAsync(bool includeRankingIllusts = false, string filter = "", int maxBookmarkId = 0, int offset = 0)
         {
             var parameters = new List<KeyValuePair<string, string>>
             {
@@ -21,7 +21,7 @@ namespace Sagitta.Clients
                 parameters.Add(new KeyValuePair<string, string>("max_bookmark_id", maxBookmarkId.ToString()));
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
-            return await PixivClient.GetAsync<IllustsRoot>("https://app-api.pixiv.net/v1/manga/recommended", parameters);
+            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/manga/recommended", parameters);
         }
     }
 }
