@@ -21,7 +21,7 @@ namespace Sagitta.Clients
             Bookmark = new IllustBookmarkClient(pixivClient);
         }
 
-        public Task<CommentsRoot> CommentAsync(int illustId, bool includeTotalComments = true, int offset = 0)
+        public Task<CommentCollection> CommentAsync(int illustId, bool includeTotalComments = true, int offset = 0)
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
             var parameters = new List<KeyValuePair<string, string>>
@@ -32,7 +32,7 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return PixivClient.GetAsync<CommentsRoot>("https://app-api.pixiv.net/v1/illust/comments", parameters);
+            return PixivClient.GetAsync<CommentCollection>("https://app-api.pixiv.net/v1/illust/comments", parameters);
         }
 
         public async Task<Illust> DetailAsync(int illustId)

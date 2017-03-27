@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 
 using Sagitta.Clients;
 using Sagitta.Exceptions;
+using Sagitta.Extensions;
+using Sagitta.Models;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
@@ -130,7 +132,7 @@ namespace Sagitta
             File = new FileClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> GetAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
                 throw new PixivException("No access token available. Need authentication first.");
@@ -139,10 +141,14 @@ namespace Sagitta
             url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
             var response = await _httpClient.GetAsync(url);
             HandleErrors(response);
-            return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+
+            var obj = JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync().Stay());
+            if (obj is Cursorable)
+                (obj as Cursorable).PixivClient = this;
+            return obj;
         }
 
-        internal async Task<T> PostAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
                 throw new PixivException("No access token available. Need authentication first.");

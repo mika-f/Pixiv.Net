@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Sagitta.Models
 {
-    public class IllustCollection
+    public class IllustCollection : Cursorable<IllustCollection>
     {
         /// <summary>
         ///     Illusts
@@ -18,11 +18,5 @@ namespace Sagitta.Models
         /// </summary>
         [JsonProperty("ranking_illusts")]
         public IEnumerable<Illust> RankingIllusts { get; set; }
-
-        /// <summary>
-        ///     Next page's query url.
-        /// </summary>
-        [JsonProperty("next_url")]
-        public string NextUrl { get; set; }
     }
 }

@@ -4,12 +4,9 @@ using Newtonsoft.Json;
 
 namespace Sagitta.Models
 {
-    public class NovelCollection
+    public class NovelCollection : Cursorable<NovelCollection>
     {
         [JsonProperty("novels")]
         public IEnumerable<Novel> Novels { get; set; }
-
-        [JsonProperty("next_url")]
-        public string NextUrl { get; set; }
     }
 }
