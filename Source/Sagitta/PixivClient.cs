@@ -138,7 +138,8 @@ namespace Sagitta
                 throw new PixivException("No access token available. Need authentication first.");
             if (requireAuth)
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-            url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
+            if (parameters.Any())
+                url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
             var response = await _httpClient.GetAsync(url);
             HandleErrors(response);
 
