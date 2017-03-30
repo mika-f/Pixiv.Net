@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Sagitta.Enum;
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
@@ -32,6 +33,18 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             return PixivClient.GetAsync<CommentCollection>("https://app-api.pixiv.net/v1/novel/comments", parameters);
+        }
+
+        public async Task<Novel> DetailAsync(int novelId)
+        {
+            Ensure.GreaterThanZero(novelId, nameof(novelId));
+            var parameters = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("novel_id", novelId.ToString())
+            };
+
+            var response = await PixivClient.GetAsync<NovelResponse>("https://app-api.pixiv.net/v2/novel/detail", parameters).Stay();
+            return response?.Novel;
         }
 
         public Task<NovelCollection> FollowAsync(Restrict restrict = Restrict.Public, int offset = 0, string filter = "")
