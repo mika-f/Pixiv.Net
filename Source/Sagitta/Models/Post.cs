@@ -48,6 +48,7 @@ namespace Sagitta.Models
         [JsonProperty("visible")]
         public bool IsVisible { get; set; }
 
+        // Note: given 'illust/detail' only.
         [JsonProperty("total_comments")]
         public int TotalComments { get; set; }
 

@@ -18,5 +18,8 @@ namespace Sagitta.Models
         /// </summary>
         [JsonProperty("ranking_illusts")]
         public IEnumerable<Illust> RankingIllusts { get; set; }
+
+        [JsonProperty("contest_exists")]
+        public bool IsContestExists { get; set; }
     }
 }

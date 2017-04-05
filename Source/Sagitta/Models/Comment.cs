@@ -19,5 +19,8 @@ namespace Sagitta.Models
 
         [JsonProperty("user")]
         public UserBase User { get; set; }
+
+        [JsonProperty("parent_comment")]
+        public Comment ParentComment { get; set; }
     }
 }

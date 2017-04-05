@@ -20,8 +20,8 @@ namespace Sagitta
     public class PixivClient
     {
         private readonly HttpClient _httpClient;
-        public static string AppVersion => "6.6.2";
-        public static string OsVersion => "10.2.1";
+        public static string AppVersion => "6.7.1";
+        public static string OsVersion => "10.3.1";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
         internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();
@@ -32,72 +32,72 @@ namespace Sagitta
         /// <summary>
         ///     Access application information API.
         /// </summary>
-        public ApplicationInfoClient ApplicationInfo { get; private set; }
+        public ApplicationInfoClient ApplicationInfo { get; }
 
         /// <summary>
         ///     Access illustration API.
         /// </summary>
-        public IllustClient Illust { get; private set; }
+        public IllustClient Illust { get; }
 
         /// <summary>
         ///     Access manga API.
         /// </summary>
-        public MangaClient Manga { get; private set; }
+        public MangaClient Manga { get; }
 
         /// <summary>
         ///     Access mute API.
         /// </summary>
-        public MuteClient Mute { get; private set; }
+        public MuteClient Mute { get; }
 
         /// <summary>
         ///     Access notification API.
         /// </summary>
-        public NotificationClient Notification { get; private set; }
+        public NotificationClient Notification { get; }
 
         /// <summary>
         ///     Access novel API.
         /// </summary>
-        public NovelClient Novel { get; private set; }
+        public NovelClient Novel { get; }
 
         /// <summary>
         ///     Access authorization API.
         /// </summary>
-        public AuthorizationClient OAuth { get; private set; }
+        public AuthorizationClient OAuth { get; }
 
         /// <summary>
         ///     Access search API.
         /// </summary>
-        public SearchClient Search { get; private set; }
+        public SearchClient Search { get; }
 
         /// <summary>
         ///     Access pixiv Spotlight (pixivision) API.
         /// </summary>
-        public SpotlightClient Spotlight { get; private set; }
+        public SpotlightClient Spotlight { get; }
 
         /// <summary>
         ///     Access trending tags API.
         /// </summary>
-        public TrendingTagsClient TrendingTags { get; private set; }
+        public TrendingTagsClient TrendingTags { get; }
 
         /// <summary>
         ///     Access ugoira API.
         /// </summary>
-        public UgoiraClient Ugoira { get; private set; }
+        public UgoiraClient Ugoira { get; }
 
         /// <summary>
         ///     Access user API.
         /// </summary>
-        public UserClient User { get; private set; }
+        public UserClient User { get; }
 
         /// <summary>
         ///     Access walkthrough API.
         /// </summary>
-        public WalkthroughClient Walkthrough { get; private set; }
+        public WalkthroughClient Walkthrough { get; }
 
         /// <summary>
         ///     Get pixiv images.
         /// </summary>
-        public FileClient File { get; private set; }
+        public FileClient File { get; }
 
         /// <summary>
         ///     Constructor
