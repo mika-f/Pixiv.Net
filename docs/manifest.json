@@ -1,0 +1,1425 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Users/mikazuki/Documents/GitHub/Sagitta/Source/Sagitta.Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "IjrR2VuuCts1bSv0+aqsYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "09q7OBKfqblLOzpoSMEqOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "xVlQaX7Tk85omoiWv3O+Ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "+rk7qGHB4D5S9xmGg/cYTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.ApiClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.ApiClient.html",
+          "hash": "l2LE3ueVECk9rhpRZO6Uww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.ApplicationInfoClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.ApplicationInfoClient.html",
+          "hash": "SF4Tz3BvrdDvLKboa8YoQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.AuthenticationClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.AuthenticationClient.html",
+          "hash": "tAs/mprebH4ijWlKqnQ/VQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.FileClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.FileClient.html",
+          "hash": "69aT65YEKM0ZT5M0eRnJyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.Illust.BookmarkClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.Illust.BookmarkClient.html",
+          "hash": "wUgjHd7bZJSzYghM55cdXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.Illust.CommentClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.Illust.CommentClient.html",
+          "hash": "T/n4QPqAuh3lFy8tsLHGkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.Illust.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.Illust.html",
+          "hash": "GD2ZplSpbHkAUEZ4zWrRvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.IllustClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.IllustClient.html",
+          "hash": "lmlhWOZf9rV4B4SQdY0giA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.IllustSeriesClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.IllustSeriesClient.html",
+          "hash": "RqSluBinl2wugXavBx2G5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.LiveClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.LiveClient.html",
+          "hash": "oUGQABnLefbwO3AFrEf6iQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.MangaClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.MangaClient.html",
+          "hash": "N46tTTcR946eicdEI5Z69Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.MuteClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.MuteClient.html",
+          "hash": "7AEbRb+kg0NRboFC/D5WGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.NotificationClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.NotificationClient.html",
+          "hash": "8nm19yyGHz++t2qyd1wMBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.NovelClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.NovelClient.html",
+          "hash": "VUd45qsaW/50stvn/0NQRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.Search.BookmarkRangesClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.Search.BookmarkRangesClient.html",
+          "hash": "mFkDOAxT3mmjJybypSwdpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.Search.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.Search.html",
+          "hash": "JO6mziuM3sndSxqx12rwKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.SearchClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.SearchClient.html",
+          "hash": "o2AuQQxjmsmTyuQWQEGghA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.SpotlightClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.SpotlightClient.html",
+          "hash": "yQfTMyhs4vw8JiB1QEw5gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.TrendingTagsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.TrendingTagsClient.html",
+          "hash": "MygKyirpXyPqvmOQWW2BQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.BookmarkTagsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.BookmarkTagsClient.html",
+          "hash": "zRCCTR+KgGQz3SSePYDQMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.BookmarksClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.BookmarksClient.html",
+          "hash": "aIlIS4Oo4IVnCm2cSA2Bbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.BrowsingHistory.IllustClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.BrowsingHistory.IllustClient.html",
+          "hash": "D0v4akr8yaNer0CqUYhJ5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.BrowsingHistory.NovelClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.BrowsingHistory.NovelClient.html",
+          "hash": "xR82hoyaMsGfJu9RQhDkcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.BrowsingHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.BrowsingHistory.html",
+          "hash": "sZ48XTCgjhH9CSahMxFpSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.BrowsingHistoryClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.BrowsingHistoryClient.html",
+          "hash": "DsWklG1xYiuB57Oakihutw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.FollowClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.FollowClient.html",
+          "hash": "wySrsIMmLAGOW5qtLwR+xA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.MeClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.MeClient.html",
+          "hash": "jmiJBDsySP8SVWUA+10sLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.ProfileClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.ProfileClient.html",
+          "hash": "K/dIGEcfFkCthuqvkub7Fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.WorkspaceClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.WorkspaceClient.html",
+          "hash": "e6cYbDOpnOKSLyml7hrspQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.User.html",
+          "hash": "JZT4uvQWjRqAPem01iyOUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.UserClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.UserClient.html",
+          "hash": "J+Y7cvpYHn4+wQgo0ouTmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.WalkthroughClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.WalkthroughClient.html",
+          "hash": "ihPuvcT4KX+OO1aDHZn2uQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Clients.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Clients.html",
+          "hash": "9MfGp/BFfW3bGwdo6LYYzg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.Gender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.Gender.html",
+          "hash": "8HosrRJwKwppDO0QKVp6zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.IllustType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.IllustType.html",
+          "hash": "M8NLeK/IrhNctUeTKz4M9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.ListType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.ListType.html",
+          "hash": "t7YgKa9+OXarH/IW2oWWNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.RankingMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.RankingMode.html",
+          "hash": "8QXNAbxn7eLuTN5nWUwC9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.Restrict.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.Restrict.html",
+          "hash": "PfuZ5mlUQlUPOFO63nJKPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.SearchTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.SearchTarget.html",
+          "hash": "5sECLYFZVSv6hqJhyv5gGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.SortOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.SortOrder.html",
+          "hash": "UlJO287UyScKOApm6Rhgcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Enum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Enum.html",
+          "hash": "Jf9+rtqV8cn1f5K2gF81Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Exceptions.ApiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Exceptions.ApiException.html",
+          "hash": "eukZMOITAiI0ix8Hyj3Tqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Exceptions.BadRequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Exceptions.BadRequestException.html",
+          "hash": "1vZLwgIjAt828C0B+en+Qw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Exceptions.PixivException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Exceptions.PixivException.html",
+          "hash": "4CMvnrsxuGDXKCih3xj7Og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Exceptions.UnauthorizedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Exceptions.UnauthorizedException.html",
+          "hash": "RrnexeEzuM0UusQX15SD9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Exceptions.html",
+          "hash": "jJU3cyStLB95vMUYiA/HTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.GenderExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.GenderExtension.html",
+          "hash": "wlhY5AcIA9dt6U2AVyFq2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.IllustTypeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.IllustTypeExtension.html",
+          "hash": "gsm6hS8Oxxq2npn4sZqngQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.ListTypeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.ListTypeExtension.html",
+          "hash": "Vlodqx6o9FsRLNNFItNW1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.RankingModeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.RankingModeExtension.html",
+          "hash": "I4xWnDw+SHmSmelxvq81Ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.RestrictExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.RestrictExtension.html",
+          "hash": "DAcGL5lTatAnuXRWxeksLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.SearchTargetExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.SearchTargetExtension.html",
+          "hash": "SrcMAZ73L+LEBcxhWLBAfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.SortOrderExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.SortOrderExtension.html",
+          "hash": "kH/01lX/XbC/nzgsVApOVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.TaskExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.TaskExtension.html",
+          "hash": "HEv2Ea1/QXU/wQ+aDDgT8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Extensions.html",
+          "hash": "Degi2+7CBjYSgMpjfp7nNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Address.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Address.html",
+          "hash": "Y9Xq4sCbMlNMSmmK+MmUpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.ApplicationInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.ApplicationInfo.html",
+          "hash": "YSbeFtLqevXgT4ZByuJDUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.BookmarkDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.BookmarkDetail.html",
+          "hash": "zAL4qKOGb9hwCmWoLSrzFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.BookmarkDetailTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.BookmarkDetailTag.html",
+          "hash": "8LzT85NuwJlxoemPHp9B/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.BookmarkRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.BookmarkRange.html",
+          "hash": "N4JcO5NM3Wj/NycDsAY52Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.BookmarkTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.BookmarkTag.html",
+          "hash": "rFpbOUuOZn568QcH4ne6Og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.BookmarkTagCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.BookmarkTagCollection.html",
+          "hash": "slxxenarTZnKuB8akrAxDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Comment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Comment.html",
+          "hash": "KVO1v3cYQlmBh9TKxAMFXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.CommentCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.CommentCollection.html",
+          "hash": "luLBg2qakeZnAcCMlWXyPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Country.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Country.html",
+          "hash": "PwOkyplvu5ZES1JBYuGklw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Cursorable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Cursorable-1.html",
+          "hash": "xxAfFS11BYEHmv3a/3okjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.ICursorable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.ICursorable.html",
+          "hash": "UAtvDIolef4qQGsuvF8BCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Illust.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Illust.html",
+          "hash": "c6zXJS9bnS874gk3hUnvfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.IllustCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.IllustCollection.html",
+          "hash": "c80fxkqg2Wl1sXyTXmY0xQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.IllustSeries.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.IllustSeries.html",
+          "hash": "9hLTYtgpQiDxqfEQHmtW5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.IllustSeriesCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.IllustSeriesCollection.html",
+          "hash": "AM+9cc0V3qCttQ09rBBvjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.IllustSeriesContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.IllustSeriesContext.html",
+          "hash": "LsLazOaqzkRIkuChyxgAoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.ImageUrls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.ImageUrls.html",
+          "hash": "uUY+Sc18C2iWhL+E2dBIiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Job.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Job.html",
+          "hash": "gIheX+YbSEUikQ7FpBsBJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Live.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Live.html",
+          "hash": "Z+rdB30TN3A6DDQBnsOs1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveCollection.html",
+          "hash": "s70WHct0WaqnoHHcuLu91w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.MarkedNovel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.MarkedNovel.html",
+          "hash": "d0vYt4823Br8sduddP+kIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.MarkerCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.MarkerCollection.html",
+          "hash": "gOYny7raab2FIkDxGz9DNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.MetaSinglePage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.MetaSinglePage.html",
+          "hash": "8hEhwabiCyuTaIsHkKuxAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.MuteList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.MuteList.html",
+          "hash": "1LzECA0MYOI+pPuM3rGx5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.MutedTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.MutedTag.html",
+          "hash": "WkMehphLEoyOKCuSYDeLNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.NotificationSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.NotificationSettings.html",
+          "hash": "HOFXyQ0zCINcOSDWU6PvsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.NotificationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.NotificationType.html",
+          "hash": "0/a4FRf5qPWrtM1FG4XVdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Novel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Novel.html",
+          "hash": "Mum7MNW+ywL7Adk/msQj2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.NovelCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.NovelCollection.html",
+          "hash": "2frCQwGFV7GDhJqh2h69Ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.NovelMarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.NovelMarker.html",
+          "hash": "y+wfeSyMdVZ3CejmspeK+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.NovelText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.NovelText.html",
+          "hash": "vr7/pE4+nFV8xuM3LyWDSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Owner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Owner.html",
+          "hash": "lViNDVuy6hJQL6BzN5XkNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Profile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Profile.html",
+          "hash": "ubzdu+8DUkzrLs/++Lm66g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.ProfileImageUrls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.ProfileImageUrls.html",
+          "hash": "XK/C5wKMkrj4ea61nlDa0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.ProfilePresets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.ProfilePresets.html",
+          "hash": "vEoLMrcRFkTGUkMe/c1RyA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.ProfilePublicity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.ProfilePublicity.html",
+          "hash": "29cQOBV7YGtppSStYbr3aA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Series.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Series.html",
+          "hash": "DJgwAhL+YGl037cLf/u+sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.SpotlightArticle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.SpotlightArticle.html",
+          "hash": "ihwSmwlTT9Ar4GDD0kmYcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.SpotlightArticleCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.SpotlightArticleCollection.html",
+          "hash": "9yyN5emEVpO5MQ2KTjKK3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Tag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Tag.html",
+          "hash": "VCaxTC71Cx+FY45bJ6Zk5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Tokens.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Tokens.html",
+          "hash": "J3zUBi5wLxnFlSNawA5WBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.TrendingTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.TrendingTag.html",
+          "hash": "aJr+OZYSfcWIGdoybkbQhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.User.html",
+          "hash": "BvmcF7AGD6HBtMTn826Bjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.UserCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.UserCollection.html",
+          "hash": "3RrjWGCa6hWvHi+cljDd3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.UserDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.UserDetail.html",
+          "hash": "2bW3IiliJfOYP0r6UrxAIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.UserPreview.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.UserPreview.html",
+          "hash": "qXLKLEneXiqEdx3sVxLGrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.UserPreviewCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.UserPreviewCollection.html",
+          "hash": "nQBEWDDF3AoqLtJRhAibxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.UserState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.UserState.html",
+          "hash": "IrpOTnMUpy3c16ve3Agh8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Work.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Work.html",
+          "hash": "F/xa6X08UYZfufvXyOqs3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.Workspace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.Workspace.html",
+          "hash": "dCA9sQRx6XsUNIBwX+T4Pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.html",
+          "hash": "pP2yezxHHyjIinfeu3L3vQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.PixivClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.PixivClient.html",
+          "hash": "G7YJUwbVkefqWdubcOFgag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.html",
+          "hash": "rqVmxYVgx82+9ixM0oU0LA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "frPhYrQNBQaUaDETExYPLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "frPdeW5hGroGiyexwMQIhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
