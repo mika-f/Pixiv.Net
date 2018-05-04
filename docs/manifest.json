@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "IjrR2VuuCts1bSv0+aqsYQ=="
+          "hash": "ZhMuqm2gR72XqZXMzDYL4w=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "09q7OBKfqblLOzpoSMEqOQ=="
+          "hash": "D0ARKb6Xi1vJbPEF7yvcNQ=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "+rk7qGHB4D5S9xmGg/cYTw=="
+          "hash": "rmkwQth+lYry3aGpb+9wFw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.ApiClient.html",
-          "hash": "l2LE3ueVECk9rhpRZO6Uww=="
+          "hash": "RbWUOBENTlzN/c/Oz6T7WQ=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.ApplicationInfoClient.html",
-          "hash": "SF4Tz3BvrdDvLKboa8YoQQ=="
+          "hash": "zHDDoM2DrK0hAH3oZ9yx3A=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.AuthenticationClient.html",
-          "hash": "tAs/mprebH4ijWlKqnQ/VQ=="
+          "hash": "8ejOgDPaoMdrTAuX/AdllQ=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.FileClient.html",
-          "hash": "69aT65YEKM0ZT5M0eRnJyg=="
+          "hash": "QrtMRKBkCKnfC9S1XuWyrg=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.Illust.BookmarkClient.html",
-          "hash": "wUgjHd7bZJSzYghM55cdXA=="
+          "hash": "l2RqV8vMCJi/O5xsa8S0Yg=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.Illust.CommentClient.html",
-          "hash": "T/n4QPqAuh3lFy8tsLHGkw=="
+          "hash": "GTNuyFL0jR0wYyiK1uADbg=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.IllustClient.html",
-          "hash": "lmlhWOZf9rV4B4SQdY0giA=="
+          "hash": "PasS0YTjrUCTrsEBoLlK6g=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.IllustSeriesClient.html",
-          "hash": "RqSluBinl2wugXavBx2G5g=="
+          "hash": "yboC+cXOgxItPSW4ZG4OoA=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.LiveClient.html",
-          "hash": "oUGQABnLefbwO3AFrEf6iQ=="
+          "hash": "q3JroVQ1Zus7iqvpRx656A=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.MangaClient.html",
-          "hash": "N46tTTcR946eicdEI5Z69Q=="
+          "hash": "pXv05YeU7+/g1G5IEnFlsA=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.MuteClient.html",
-          "hash": "7AEbRb+kg0NRboFC/D5WGg=="
+          "hash": "oWMEiWTh10Uhxvil2VCScg=="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.NotificationClient.html",
-          "hash": "8nm19yyGHz++t2qyd1wMBQ=="
+          "hash": "ro2WdOPATxF3YTVjbYdRHA=="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.NovelClient.html",
-          "hash": "VUd45qsaW/50stvn/0NQRQ=="
+          "hash": "q3+nB9EDMHwL0xwiCdL85A=="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.Search.BookmarkRangesClient.html",
-          "hash": "mFkDOAxT3mmjJybypSwdpA=="
+          "hash": "qxJdMHbqKeVZJhyiMqgK3Q=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.SearchClient.html",
-          "hash": "o2AuQQxjmsmTyuQWQEGghA=="
+          "hash": "SUMyc9Xv+SHfkCyuAoWAiw=="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.SpotlightClient.html",
-          "hash": "yQfTMyhs4vw8JiB1QEw5gw=="
+          "hash": "ehIh9X3M7MfYcgGjZhJc7A=="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.TrendingTagsClient.html",
-          "hash": "MygKyirpXyPqvmOQWW2BQw=="
+          "hash": "tHCZJRMaefYsOJw6mjk0zA=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.BookmarkTagsClient.html",
-          "hash": "zRCCTR+KgGQz3SSePYDQMA=="
+          "hash": "v8sxGh2P8DBXF/990XmUaQ=="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.BookmarksClient.html",
-          "hash": "aIlIS4Oo4IVnCm2cSA2Bbg=="
+          "hash": "oQJcToaMrynuxFKYzxkVEQ=="
         }
       },
       "is_incremental": false,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.BrowsingHistory.IllustClient.html",
-          "hash": "D0v4akr8yaNer0CqUYhJ5A=="
+          "hash": "lv33qD3jz84sNHf/g0C69w=="
         }
       },
       "is_incremental": false,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.BrowsingHistory.NovelClient.html",
-          "hash": "xR82hoyaMsGfJu9RQhDkcQ=="
+          "hash": "63rNYLHX4M3gfIG/zgZOKg=="
         }
       },
       "is_incremental": false,
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.BrowsingHistoryClient.html",
-          "hash": "DsWklG1xYiuB57Oakihutw=="
+          "hash": "AnhPcR/GFuml3X45P8mIUA=="
         }
       },
       "is_incremental": false,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.FollowClient.html",
-          "hash": "wySrsIMmLAGOW5qtLwR+xA=="
+          "hash": "MkL83gtbHyTnXYoJbbWAIA=="
         }
       },
       "is_incremental": false,
@@ -369,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.MeClient.html",
-          "hash": "jmiJBDsySP8SVWUA+10sLg=="
+          "hash": "9dspVJdq3iM5l2WB+fUvHw=="
         }
       },
       "is_incremental": false,
@@ -381,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.ProfileClient.html",
-          "hash": "K/dIGEcfFkCthuqvkub7Fg=="
+          "hash": "jgahDy0ywDH1KdQMBhJ37w=="
         }
       },
       "is_incremental": false,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.User.WorkspaceClient.html",
-          "hash": "e6cYbDOpnOKSLyml7hrspQ=="
+          "hash": "QUozHOsEIiTMlhYwJfqaEA=="
         }
       },
       "is_incremental": false,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.UserClient.html",
-          "hash": "J+Y7cvpYHn4+wQgo0ouTmg=="
+          "hash": "gzAPJzo9kjYKzdAsgpNroQ=="
         }
       },
       "is_incremental": false,
@@ -429,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Clients.WalkthroughClient.html",
-          "hash": "ihPuvcT4KX+OO1aDHZn2uQ=="
+          "hash": "GXlk0AdFwRCn3NVYBYPpJQ=="
         }
       },
       "is_incremental": false,
@@ -453,7 +453,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.Gender.html",
-          "hash": "8HosrRJwKwppDO0QKVp6zg=="
+          "hash": "E+gwp2JrOF/ZJFLh+67XIA=="
         }
       },
       "is_incremental": false,
@@ -465,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.IllustType.html",
-          "hash": "M8NLeK/IrhNctUeTKz4M9A=="
+          "hash": "ZeTorzn2NJa8EVdiy61+eg=="
         }
       },
       "is_incremental": false,
@@ -477,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.ListType.html",
-          "hash": "t7YgKa9+OXarH/IW2oWWNg=="
+          "hash": "Xxncf/LTQqpOMZ2NlSSLXA=="
         }
       },
       "is_incremental": false,
@@ -489,7 +489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.RankingMode.html",
-          "hash": "8QXNAbxn7eLuTN5nWUwC9g=="
+          "hash": "rEGPJ9IDKuh2rZ9M3hHi1g=="
         }
       },
       "is_incremental": false,
@@ -501,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.Restrict.html",
-          "hash": "PfuZ5mlUQlUPOFO63nJKPQ=="
+          "hash": "5pgwZfBbPY9tnAHEU+yCyA=="
         }
       },
       "is_incremental": false,
@@ -513,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.SearchTarget.html",
-          "hash": "5sECLYFZVSv6hqJhyv5gGA=="
+          "hash": "6I/Tp5GJNAzKAUTlyUPJZw=="
         }
       },
       "is_incremental": false,
@@ -525,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Enum.SortOrder.html",
-          "hash": "UlJO287UyScKOApm6Rhgcg=="
+          "hash": "Od7cnrXAEeAXiYlTaSU53A=="
         }
       },
       "is_incremental": false,
@@ -549,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Exceptions.ApiException.html",
-          "hash": "eukZMOITAiI0ix8Hyj3Tqw=="
+          "hash": "fJwGjC1Im44fD+8MAw1OiQ=="
         }
       },
       "is_incremental": false,
@@ -561,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Exceptions.BadRequestException.html",
-          "hash": "1vZLwgIjAt828C0B+en+Qw=="
+          "hash": "OB9S+ZeQ3HwhsddbkWDytw=="
         }
       },
       "is_incremental": false,
@@ -573,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Exceptions.PixivException.html",
-          "hash": "4CMvnrsxuGDXKCih3xj7Og=="
+          "hash": "sWSIpm3eSkFHmmVsqhKbUg=="
         }
       },
       "is_incremental": false,
@@ -585,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Exceptions.UnauthorizedException.html",
-          "hash": "RrnexeEzuM0UusQX15SD9Q=="
+          "hash": "ojNQ+Qsu2pcFbGQR5g/TyQ=="
         }
       },
       "is_incremental": false,
@@ -609,7 +609,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.GenderExtension.html",
-          "hash": "wlhY5AcIA9dt6U2AVyFq2w=="
+          "hash": "YZXe7odcv2XO3oANxoM5kw=="
         }
       },
       "is_incremental": false,
@@ -621,7 +621,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.IllustTypeExtension.html",
-          "hash": "gsm6hS8Oxxq2npn4sZqngQ=="
+          "hash": "WH97KLxPKR5cm+FnpHOZgw=="
         }
       },
       "is_incremental": false,
@@ -633,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.ListTypeExtension.html",
-          "hash": "Vlodqx6o9FsRLNNFItNW1A=="
+          "hash": "d7z4DELrrVxm+eLZ5jtTUw=="
         }
       },
       "is_incremental": false,
@@ -645,7 +645,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.RankingModeExtension.html",
-          "hash": "I4xWnDw+SHmSmelxvq81Ng=="
+          "hash": "ltU7vXpprrPlj+xusefRpg=="
         }
       },
       "is_incremental": false,
@@ -657,7 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.RestrictExtension.html",
-          "hash": "DAcGL5lTatAnuXRWxeksLQ=="
+          "hash": "Y1P4XXjcdmCKelAs0zU9ug=="
         }
       },
       "is_incremental": false,
@@ -669,7 +669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.SearchTargetExtension.html",
-          "hash": "SrcMAZ73L+LEBcxhWLBAfw=="
+          "hash": "zK/P2b1H3IlIeVpyI1dvrw=="
         }
       },
       "is_incremental": false,
@@ -681,7 +681,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.SortOrderExtension.html",
-          "hash": "kH/01lX/XbC/nzgsVApOVA=="
+          "hash": "fx36/ahQ3lDq6mP4ecnz6w=="
         }
       },
       "is_incremental": false,
@@ -693,7 +693,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Extensions.TaskExtension.html",
-          "hash": "HEv2Ea1/QXU/wQ+aDDgT8g=="
+          "hash": "e7lSR5+Vk7hOuDRB1OXkrQ=="
         }
       },
       "is_incremental": false,
@@ -717,7 +717,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Address.html",
-          "hash": "Y9Xq4sCbMlNMSmmK+MmUpQ=="
+          "hash": "+07AHVAgJEUievd1LWJmBA=="
         }
       },
       "is_incremental": false,
@@ -729,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.ApplicationInfo.html",
-          "hash": "YSbeFtLqevXgT4ZByuJDUA=="
+          "hash": "Bm4PNLNmAhE0xC6Dwdq7fA=="
         }
       },
       "is_incremental": false,
@@ -741,7 +741,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.BookmarkDetail.html",
-          "hash": "zAL4qKOGb9hwCmWoLSrzFQ=="
+          "hash": "9EPk2rEnXaNUD/8qPu2Afg=="
         }
       },
       "is_incremental": false,
@@ -753,7 +753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.BookmarkDetailTag.html",
-          "hash": "8LzT85NuwJlxoemPHp9B/Q=="
+          "hash": "3uDodysXF4n48iKGtdRTCA=="
         }
       },
       "is_incremental": false,
@@ -765,7 +765,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.BookmarkRange.html",
-          "hash": "N4JcO5NM3Wj/NycDsAY52Q=="
+          "hash": "l+nHdZlK2P8qEYjqHXbX1g=="
         }
       },
       "is_incremental": false,
@@ -777,7 +777,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.BookmarkTag.html",
-          "hash": "rFpbOUuOZn568QcH4ne6Og=="
+          "hash": "QkSpOuSlNRu5vFuJmGZkqw=="
         }
       },
       "is_incremental": false,
@@ -789,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.BookmarkTagCollection.html",
-          "hash": "slxxenarTZnKuB8akrAxDw=="
+          "hash": "CtrQjvcHyq2oMFDfS4dIfg=="
         }
       },
       "is_incremental": false,
@@ -801,7 +801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Comment.html",
-          "hash": "KVO1v3cYQlmBh9TKxAMFXg=="
+          "hash": "+vKxUQQqHEqWInIpFLw+eg=="
         }
       },
       "is_incremental": false,
@@ -813,7 +813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.CommentCollection.html",
-          "hash": "luLBg2qakeZnAcCMlWXyPw=="
+          "hash": "vcKZumzh2siP5/tmBq992Q=="
         }
       },
       "is_incremental": false,
@@ -825,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Country.html",
-          "hash": "PwOkyplvu5ZES1JBYuGklw=="
+          "hash": "fZgdIbGY63uGQVxs+EWlyA=="
         }
       },
       "is_incremental": false,
@@ -837,7 +837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Cursorable-1.html",
-          "hash": "xxAfFS11BYEHmv3a/3okjA=="
+          "hash": "9RDRLnRkUKm0dHiWOuCLxw=="
         }
       },
       "is_incremental": false,
@@ -849,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.ICursorable.html",
-          "hash": "UAtvDIolef4qQGsuvF8BCw=="
+          "hash": "sw38MI7WpfbNBgqel8ucQQ=="
         }
       },
       "is_incremental": false,
@@ -861,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Illust.html",
-          "hash": "c6zXJS9bnS874gk3hUnvfQ=="
+          "hash": "4NDsudqkEsBwOucgqGv4UA=="
         }
       },
       "is_incremental": false,
@@ -873,7 +873,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.IllustCollection.html",
-          "hash": "c80fxkqg2Wl1sXyTXmY0xQ=="
+          "hash": "wXzobzoI+vf+TvPyvDZdvA=="
         }
       },
       "is_incremental": false,
@@ -885,7 +885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.IllustSeries.html",
-          "hash": "9hLTYtgpQiDxqfEQHmtW5g=="
+          "hash": "uLp5VZ6RuFug0/TU1kCt2g=="
         }
       },
       "is_incremental": false,
@@ -897,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.IllustSeriesCollection.html",
-          "hash": "AM+9cc0V3qCttQ09rBBvjg=="
+          "hash": "d96PB8VKJE06zA389PK9og=="
         }
       },
       "is_incremental": false,
@@ -909,7 +909,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.IllustSeriesContext.html",
-          "hash": "LsLazOaqzkRIkuChyxgAoA=="
+          "hash": "kGCGpejsjpMVW+5b6Pzbqg=="
         }
       },
       "is_incremental": false,
@@ -921,7 +921,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.ImageUrls.html",
-          "hash": "uUY+Sc18C2iWhL+E2dBIiw=="
+          "hash": "+RMe+fk19t0k3nMXI25nCg=="
         }
       },
       "is_incremental": false,
@@ -933,7 +933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Job.html",
-          "hash": "gIheX+YbSEUikQ7FpBsBJQ=="
+          "hash": "7jZbT+ELBojMvZqYHFvx9w=="
         }
       },
       "is_incremental": false,
@@ -945,7 +945,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Live.html",
-          "hash": "Z+rdB30TN3A6DDQBnsOs1Q=="
+          "hash": "FeCcYXgesYC3rX25/OcTBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveChat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveChat.html",
+          "hash": "o7WdUpDCo23SVeYxjojcJA=="
         }
       },
       "is_incremental": false,
@@ -957,7 +969,67 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.LiveCollection.html",
-          "hash": "s70WHct0WaqnoHHcuLu91w=="
+          "hash": "YBHcVeyKZ06thZEq74gkfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveIcon.html",
+          "hash": "44srYnDMyonOOZ8Ur1S7MA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveIconSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveIconSet.html",
+          "hash": "vE+IeKNQR2TVSyeyHgQEwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveResponse-1.html",
+          "hash": "E6n5wCDgW0qU0MbOJmWJFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveUser.html",
+          "hash": "hGHM5BuLmDUYofwDRLvVrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.LiveUserIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.LiveUserIcon.html",
+          "hash": "Z2D9chr4YhdB79d18iVTvA=="
         }
       },
       "is_incremental": false,
@@ -969,7 +1041,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.MarkedNovel.html",
-          "hash": "d0vYt4823Br8sduddP+kIw=="
+          "hash": "/oc/yYYDGOQP1bRs+ytaAw=="
         }
       },
       "is_incremental": false,
@@ -981,7 +1053,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.MarkerCollection.html",
-          "hash": "gOYny7raab2FIkDxGz9DNQ=="
+          "hash": "8qE/I5ZsYWjYkV5/8EbTrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Sagitta.Models.MessageFragment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sagitta.Models.MessageFragment.html",
+          "hash": "f30ShUXc654LSLeHjSeIxw=="
         }
       },
       "is_incremental": false,
@@ -993,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.MetaSinglePage.html",
-          "hash": "8hEhwabiCyuTaIsHkKuxAg=="
+          "hash": "8dJDPM53NkfwyisfaQ7k/Q=="
         }
       },
       "is_incremental": false,
@@ -1005,7 +1089,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.MuteList.html",
-          "hash": "1LzECA0MYOI+pPuM3rGx5g=="
+          "hash": "DazHbcYJ1Ks93W0M9C12EA=="
         }
       },
       "is_incremental": false,
@@ -1017,7 +1101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.MutedTag.html",
-          "hash": "WkMehphLEoyOKCuSYDeLNg=="
+          "hash": "pyqnRmqGn+vL75kih8Vqxg=="
         }
       },
       "is_incremental": false,
@@ -1029,7 +1113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.NotificationSettings.html",
-          "hash": "HOFXyQ0zCINcOSDWU6PvsQ=="
+          "hash": "g+SCLQLYhleOOX55zFXkAQ=="
         }
       },
       "is_incremental": false,
@@ -1041,7 +1125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.NotificationType.html",
-          "hash": "0/a4FRf5qPWrtM1FG4XVdw=="
+          "hash": "JHSaIvXGSyLH27TVPXYhHw=="
         }
       },
       "is_incremental": false,
@@ -1053,7 +1137,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Novel.html",
-          "hash": "Mum7MNW+ywL7Adk/msQj2Q=="
+          "hash": "KSctndkZzrhZDNX9h4QNfA=="
         }
       },
       "is_incremental": false,
@@ -1065,7 +1149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.NovelCollection.html",
-          "hash": "2frCQwGFV7GDhJqh2h69Ow=="
+          "hash": "WPFlM7XUW9m2Ctu99loBcQ=="
         }
       },
       "is_incremental": false,
@@ -1077,7 +1161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.NovelMarker.html",
-          "hash": "y+wfeSyMdVZ3CejmspeK+A=="
+          "hash": "m/6Ym9EdDA+nOlvG2ysrjw=="
         }
       },
       "is_incremental": false,
@@ -1089,7 +1173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.NovelText.html",
-          "hash": "vr7/pE4+nFV8xuM3LyWDSw=="
+          "hash": "vA2yRSPJFARxeizyXLODhw=="
         }
       },
       "is_incremental": false,
@@ -1101,7 +1185,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Owner.html",
-          "hash": "lViNDVuy6hJQL6BzN5XkNA=="
+          "hash": "pgTe77O/TjJk4ZAPAc+o3Q=="
         }
       },
       "is_incremental": false,
@@ -1113,7 +1197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Profile.html",
-          "hash": "ubzdu+8DUkzrLs/++Lm66g=="
+          "hash": "HoWzljNudTprbb0A6gLGKg=="
         }
       },
       "is_incremental": false,
@@ -1125,7 +1209,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.ProfileImageUrls.html",
-          "hash": "XK/C5wKMkrj4ea61nlDa0w=="
+          "hash": "6UnY9JL6NZRDobggRKFC8w=="
         }
       },
       "is_incremental": false,
@@ -1137,7 +1221,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.ProfilePresets.html",
-          "hash": "vEoLMrcRFkTGUkMe/c1RyA=="
+          "hash": "l6evYi/r6Z8U5pYMxMcgCg=="
         }
       },
       "is_incremental": false,
@@ -1149,7 +1233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.ProfilePublicity.html",
-          "hash": "29cQOBV7YGtppSStYbr3aA=="
+          "hash": "HjnOi90hde01q8w02zbP4Q=="
         }
       },
       "is_incremental": false,
@@ -1161,7 +1245,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Series.html",
-          "hash": "DJgwAhL+YGl037cLf/u+sw=="
+          "hash": "69gl9ouyJoLL21Rd4zOuMA=="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1257,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.SpotlightArticle.html",
-          "hash": "ihwSmwlTT9Ar4GDD0kmYcA=="
+          "hash": "kKcTjdgINqckJpyxrKpeGw=="
         }
       },
       "is_incremental": false,
@@ -1185,7 +1269,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.SpotlightArticleCollection.html",
-          "hash": "9yyN5emEVpO5MQ2KTjKK3w=="
+          "hash": "Oz+YDvYCMN8Ry/qPd69r3g=="
         }
       },
       "is_incremental": false,
@@ -1197,7 +1281,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Tag.html",
-          "hash": "VCaxTC71Cx+FY45bJ6Zk5A=="
+          "hash": "01k6vUth6lBBH8hSM+B7Ng=="
         }
       },
       "is_incremental": false,
@@ -1209,7 +1293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Tokens.html",
-          "hash": "J3zUBi5wLxnFlSNawA5WBg=="
+          "hash": "/VtDRq9DK4v6SV0NbnS29g=="
         }
       },
       "is_incremental": false,
@@ -1221,7 +1305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.TrendingTag.html",
-          "hash": "aJr+OZYSfcWIGdoybkbQhA=="
+          "hash": "hPgCDH9djJCagEw/8Jb2nw=="
         }
       },
       "is_incremental": false,
@@ -1233,7 +1317,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.User.html",
-          "hash": "BvmcF7AGD6HBtMTn826Bjg=="
+          "hash": "HdjZeF71s0HBhIlk4sOJjg=="
         }
       },
       "is_incremental": false,
@@ -1245,7 +1329,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.UserCollection.html",
-          "hash": "3RrjWGCa6hWvHi+cljDd3Q=="
+          "hash": "R3mEYFdkqO9ZB95HW4yJAQ=="
         }
       },
       "is_incremental": false,
@@ -1257,7 +1341,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.UserDetail.html",
-          "hash": "2bW3IiliJfOYP0r6UrxAIg=="
+          "hash": "piaCi7XWuETLe8yR1Rv+/w=="
         }
       },
       "is_incremental": false,
@@ -1269,7 +1353,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.UserPreview.html",
-          "hash": "qXLKLEneXiqEdx3sVxLGrA=="
+          "hash": "t08idZ3xBBtcfVW27/MHOg=="
         }
       },
       "is_incremental": false,
@@ -1281,7 +1365,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.UserPreviewCollection.html",
-          "hash": "nQBEWDDF3AoqLtJRhAibxw=="
+          "hash": "6qwzzeYSaolWvFZcES3BtQ=="
         }
       },
       "is_incremental": false,
@@ -1293,7 +1377,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.UserState.html",
-          "hash": "IrpOTnMUpy3c16ve3Agh8A=="
+          "hash": "HHzXfu5AGaqMm9b7V0SrDQ=="
         }
       },
       "is_incremental": false,
@@ -1305,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Work.html",
-          "hash": "F/xa6X08UYZfufvXyOqs3A=="
+          "hash": "Gl9TzUJCQxOgwv+a3hR51A=="
         }
       },
       "is_incremental": false,
@@ -1317,7 +1401,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.Workspace.html",
-          "hash": "dCA9sQRx6XsUNIBwX+T4Pw=="
+          "hash": "gPUv+DqQ+EfDescvUm2BhQ=="
         }
       },
       "is_incremental": false,
@@ -1329,7 +1413,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.Models.html",
-          "hash": "pP2yezxHHyjIinfeu3L3vQ=="
+          "hash": "AUmRiFL6RLyEHvIyqdgAJA=="
         }
       },
       "is_incremental": false,
@@ -1341,7 +1425,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sagitta.PixivClient.html",
-          "hash": "G7YJUwbVkefqWdubcOFgag=="
+          "hash": "508piZsVUkqmakaZmFpUfw=="
         }
       },
       "is_incremental": false,
@@ -1365,7 +1449,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "frPhYrQNBQaUaDETExYPLQ=="
+          "hash": "RoIHVFgWTTIT1OoND8sHyA=="
         }
       },
       "is_incremental": false,
@@ -1397,11 +1481,11 @@
           "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         }

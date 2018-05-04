@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 using Sagitta.Enum;
 using Sagitta.Extensions;
+using Sagitta.Helpers;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
@@ -33,6 +34,34 @@ namespace Sagitta.Clients
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
             return await PixivClient.GetAsync<LiveCollection>("https://app-api.pixiv.net/v1/live/list", parameters).Stay();
+        }
+
+        /// <summary>
+        ///     指定された配信の詳細情報を取得します。
+        /// </summary>
+        /// <param name="liveId">配信 ID</param>
+        /// <returns>
+        ///     <see cref="LiveResponse{Live}" />
+        /// </returns>
+        public async Task<LiveResponse<Live>> ShowAsync(long liveId)
+        {
+            Ensure.GreaterThanZero(liveId, nameof(liveId));
+
+            return await PixivClient.GetAsync<LiveResponse<Live>>($"https://sketch.pixiv.net/api/lives/{liveId}", PixivClient.EmptyParameter).Stay();
+        }
+
+        /// <summary>
+        ///     指定された配信のチャットを取得します。
+        /// </summary>
+        /// <param name="liveId">配信 ID</param>
+        /// <returns>
+        ///     <see cref="LiveResponse{LiveChat}" />
+        /// </returns>
+        public async Task<LiveResponse<LiveChat>> ChatAsync(long liveId)
+        {
+            Ensure.GreaterThanZero(liveId, nameof(liveId));
+
+            return await PixivClient.GetAsync<LiveResponse<LiveChat>>($"https://sketch.pixiv.net/api/lives/{liveId}/chat", PixivClient.EmptyParameter).Stay();
         }
     }
 }
