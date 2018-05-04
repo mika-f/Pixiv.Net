@@ -1,31 +1,23 @@
-﻿using System;
-
-namespace Sagitta.Enum
+﻿namespace Sagitta.Enum
 {
+    /// <summary>
+    ///     イラストの種類
+    /// </summary>
     public enum IllustType
     {
+        /// <summary>
+        ///     イラスト
+        /// </summary>
         Illust,
 
+        /// <summary>
+        ///     マンガ
+        /// </summary>
         Manga,
 
+        /// <summary>
+        ///     うごイラ
+        /// </summary>
         Ugoira
-    }
-
-    public static class IllustTypeExt
-    {
-        internal static string ToParameterStr(this IllustType obj)
-        {
-            switch (obj)
-            {
-                case IllustType.Illust:
-                    return "illust";
-
-                case IllustType.Manga:
-                    return "manga";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(obj), obj, null);
-            }
-        }
     }
 }

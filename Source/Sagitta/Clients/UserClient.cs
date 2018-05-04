@@ -1,8 +1,7 @@
-﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Clients.User;
 using Sagitta.Enum;
 using Sagitta.Extensions;
 using Sagitta.Helpers;
@@ -10,31 +9,67 @@ using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     ユーザー関連 API
+    /// </summary>
     public class UserClient : ApiClient
     {
-        public UserBookmarksClient Bookmarks { get; }
-        public UserBookmarkTagsClient BookmarkTags { get; }
-        public UserBrowsingHistoryClient BrowsingHistory { get; }
-        public UserFollowClient Follow { get; }
+        /// <summary>
+        ///     ブックマーク関連 API へのアクセサー
+        /// </summary>
+        public BookmarksClient Bookmarks { get; }
 
-        public UserClient(PixivClient pixivClient) : base(pixivClient)
+        /// <summary>
+        ///     ブックマークタグ関連 API へのアクセサー
+        /// </summary>
+        public BookmarkTagsClient BookmarkTags { get; }
+
+        /// <summary>
+        ///     閲覧履歴関連 API へのアクセサー
+        /// </summary>
+        public BrowsingHistoryClient BrowsingHistory { get; }
+
+        /// <summary>
+        ///     認証ユーザー関連 API へのアクセサー
+        /// </summary>
+        public MeClient Me { get; }
+
+        /// <summary>
+        ///     認証ユーザーのプロフィール関連 API へのアクセサー
+        /// </summary>
+        public ProfileClient Profile { get; }
+
+        /// <summary>
+        ///     作業環境関連 API へのアクセサー
+        /// </summary>
+        public WorkspaceClient Workspace { get; }
+
+        /// <summary>
+        ///     フォロー関連 API へのアクセサー
+        /// </summary>
+        public FollowClient Follow { get; }
+
+        /// <inheritdoc />
+        internal UserClient(PixivClient pixivClient) : base(pixivClient)
         {
-            Bookmarks = new UserBookmarksClient(pixivClient);
-            BookmarkTags = new UserBookmarkTagsClient(pixivClient);
-            BrowsingHistory = new UserBrowsingHistoryClient(pixivClient);
-            Follow = new UserFollowClient(pixivClient);
+            Bookmarks = new BookmarksClient(pixivClient);
+            BookmarkTags = new BookmarkTagsClient(pixivClient);
+            BrowsingHistory = new BrowsingHistoryClient(pixivClient);
+            Me = new MeClient(pixivClient);
+            Profile = new ProfileClient(pixivClient);
+            Workspace = new WorkspaceClient(pixivClient);
+            Follow = new FollowClient(pixivClient);
         }
 
-        public Task<UserDetail> DetailAsync(int userId)
-        {
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("user_id", userId.ToString())
-            };
-            return PixivClient.GetAsync<UserDetail>("https://app-api.pixiv.net/v1/user/detail", parameters);
-        }
-
-        public Task<UserPreviewCollection> FollowerAsync(int userId, string filter = "", int offset = 0)
+        /// <summary>
+        ///     指定したユーザーの詳細情報を取得します。
+        /// </summary>
+        /// <param name="userId">ユーザー ID</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="UserDetail" />
+        /// </returns>
+        public async Task<UserDetail> DetailAsync(long userId, string filter = "")
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
@@ -44,60 +79,66 @@ namespace Sagitta.Clients
             };
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/follower", parameters);
+            return await PixivClient.GetAsync<UserDetail>("https://app-api.pixiv.net/v1/user/detail", parameters).Stay();
         }
 
-        public Task<UserPreviewCollection> FollowingAsync(int userId, Restrict restrict = Restrict.Public, string filter = "", int offset = 0)
+        /// <summary>
+        ///     おすすめユーザーを取得します。
+        /// </summary>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="UserPreviewCollection" />
+        /// </returns>
+        public async Task<UserPreviewCollection> RecommendedAsync(long offset = 0, string filter = "")
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+            if (!string.IsNullOrWhiteSpace(filter))
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+
+            return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/recommended", parameters).Stay();
+        }
+
+        /// <summary>
+        ///     指定したユーザーが投稿したイラスト・マンガを取得します。
+        /// </summary>
+        /// <param name="userId">ユーザー ID</param>
+        /// <param name="type">イラストもしくはマンガ</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="IllustCollection" />
+        /// </returns>
+        public async Task<IllustCollection> IllustsAsync(long userId, IllustType type, long offset = 0, string filter = "")
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
-            Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
+            Ensure.InvalidEnumValue(type == IllustType.Ugoira, nameof(type));
 
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("user_id", userId.ToString()),
-                new KeyValuePair<string, string>("restrict", restrict.ToParameterStr())
+                new KeyValuePair<string, string>("type", type.ToParameter())
             };
-            if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
-
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/following", parameters);
-        }
-
-        public Task<IllustCollection> IllustsAsync(IllustType type, int userId, string filter = "", int offset = 0)
-        {
-            Ensure.InvalidEnumValue(type == IllustType.Ugoira, nameof(type));
-            Ensure.GreaterThanZero(userId, nameof(userId));
-
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("type", type.ToParameterStr()),
-                new KeyValuePair<string, string>("user_id", userId.ToString())
-            };
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/illusts", parameters);
+            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/illusts", parameters).Stay();
         }
 
-        // TODO: Fix response type.
-        public Task<UserPreviewCollection> ListAsync(string filter = "", int offset = 0)
-        {
-            var parameters = new List<KeyValuePair<string, string>>();
-            if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v2/user/list", parameters);
-        }
-
-        public Task<NovelCollection> NovelsAsync(int userId, int offset = 0)
+        /// <summary>
+        ///     指定したユーザーの小説を取得します。
+        /// </summary>
+        /// <param name="userId">ユーザー ID</param>
+        /// <param name="offset">オフセット</param>
+        /// <returns>
+        ///     <see cref="NovelCollection" />
+        /// </returns>
+        public async Task<NovelCollection> NovelsAsync(long userId, long offset = 0)
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
@@ -108,42 +149,47 @@ namespace Sagitta.Clients
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/novels", parameters);
+            return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/novels", parameters).Stay();
         }
 
-        public Task<UserPreviewCollection> RecommendedAsync(string filter = "", int offset = 0)
+        /// <summary>
+        ///     指定したユーザーがフォローしているユーザーを取得します。
+        /// </summary>
+        /// <param name="userId">ユーザー ID</param>
+        /// <param name="restrict">公開制限</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="UserPreviewCollection" />
+        /// </returns>
+        public async Task<UserPreviewCollection> FollowingAsync(long userId, Restrict restrict = Restrict.Public, long offset = 0, string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>();
-            if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
-
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/recommended", parameters);
-        }
-
-        public Task<UserPreviewCollection> RelatedAsync(int seedUserId, string filter = "")
-        {
-            Ensure.GreaterThanZero(seedUserId, nameof(seedUserId));
+            Ensure.GreaterThanZero(userId, nameof(userId));
+            Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
             var parameters = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("seed_user_id", seedUserId.ToString())
+                new KeyValuePair<string, string>("user_id", userId.ToString()),
+                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
             };
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
 
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/related", parameters);
+            return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/following", parameters).Stay();
         }
 
-        // me/state
-        public async Task<UserState> MyStateAsync()
-        {
-            var response = await PixivClient.GetAsync<StateResponse>("https://app-api.pixiv.net/v1/user/me/state", PixivClient.EmptyParameter).Stay();
-            return response?.UserState;
-        }
-
-        public Task<UserPreviewCollection> MypixivAsync(int userId, int offset = 0)
+        /// <summary>
+        ///     指定したユーザーをフォローしているユーザーを取得します。
+        /// </summary>
+        /// <param name="userId">ユーザー ID</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="UserPreviewCollection" />
+        /// </returns>
+        public async Task<UserPreviewCollection> FollowerAsync(long userId, long offset = 0, string filter = "")
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
@@ -153,8 +199,37 @@ namespace Sagitta.Clients
             };
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+            if (!string.IsNullOrWhiteSpace(filter))
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
 
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/mypixiv", parameters);
+            return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/follower", parameters).Stay();
         }
+
+        /// <summary>
+        ///     指定したユーザーのマイピクを取得します。
+        /// </summary>
+        /// <param name="userId">ユーザー ID</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="UserPreviewCollection" />
+        /// </returns>
+        public async Task<UserPreviewCollection> MypixivAsync(long userId, long offset = 0, string filter = "")
+        {
+            Ensure.GreaterThanZero(userId, nameof(userId));
+
+            var parameters = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("user_id", userId.ToString())
+            };
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+            if (!string.IsNullOrWhiteSpace(filter))
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+
+            return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/mypixiv", parameters).Stay();
+        }
+
+        // TODO: /v2/user/list, What is this?
     }
 }

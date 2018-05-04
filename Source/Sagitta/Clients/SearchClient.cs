@@ -1,94 +1,152 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Clients.Search;
 using Sagitta.Enum;
+using Sagitta.Extensions;
 using Sagitta.Helpers;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     検索関連 API
+    /// </summary>
     public class SearchClient : ApiClient
     {
-        public SearchClient(PixivClient pixivClient) : base(pixivClient) {}
-
         /// <summary>
-        ///     Get autocomplete keywords.
+        ///     TODO
         /// </summary>
-        /// <param name="word">Partial word</param>
-        /// <returns></returns>
-        public Task<Autocomplete> Autocomplete(string word)
+        public BookmarkRangesClient BookmarkRanges { get; }
+
+        /// <inheritdoc />
+        internal SearchClient(PixivClient pixivClient) : base(pixivClient)
         {
-            Ensure.NotNullOrWhitespace(word, nameof(word));
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("word", word)
-            };
-            return PixivClient.GetAsync<Autocomplete>("https://app-api.pixiv.net/v1/search/autocomplete", parameters);
+            BookmarkRanges = new BookmarkRangesClient(pixivClient);
         }
 
         /// <summary>
-        ///     Search illusts.
+        ///     オートコンプリートようの文字列一覧を取得します。
         /// </summary>
-        /// <param name="word">Keyword</param>
-        /// <param name="target">Search target.</param>
-        /// <param name="order">Search result order by</param>
-        /// <param name="duration">Search duration. If set to `null`, search all illusts.</param>
-        /// <param name="filter"></param>
-        /// <param name="offset">Offset index</param>
-        /// <returns></returns>
-        public Task<IllustCollection> IllustAsync(string word, SearchTarget target = SearchTarget.PartialMatchForTags, SortOrder order = SortOrder.DateAsc,
-                                                  Duration? duration = null, string filter = "", int offset = 0)
+        /// <param name="word">キーワード</param>
+        /// <returns>
+        ///     <see cref="IEnumerable{String}" />
+        /// </returns>
+        public async Task<IEnumerable<string>> AutocompleteAsync(string word)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
-            Ensure.InvalidEnumValue(target == SearchTarget.Text || target == SearchTarget.Keyword, nameof(target));
+
             var parameters = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("search_target", target.ToParameterStr()),
-                new KeyValuePair<string, string>("sort", order.ToParameterString()),
                 new KeyValuePair<string, string>("word", word)
             };
-            if (duration.HasValue)
-                parameters.Add(new KeyValuePair<string, string>("duration", duration.Value.ToParameterStr()));
-            if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/search/illust", parameters);
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/search/autocomplete", parameters).Stay();
+            return response["search_auto_complete_keywords"].ToObject<IEnumerable<string>>();
         }
 
-        public Task<NovelCollection> NovelAsync(string word, SearchTarget target = SearchTarget.PartialMatchForTags, SortOrder order = SortOrder.DateAsc,
-                                                Duration? duration = null, string filter = "", int offset = 0)
+        /// <summary>
+        ///     指定された条件に従ってイラストの検索を行います。
+        /// </summary>
+        /// <param name="word">検索ワード</param>
+        /// <param name="searchTarget">検索対象</param>
+        /// <param name="sort">ソート順</param>
+        /// <param name="startDate">開始日時 (YYYY-MM-DD)</param>
+        /// <param name="endDate">終了日時 (YYYY-MM-DD)</param>
+        /// <param name="bookmarkNumMin">最小ブックマーク数</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="IllustCollection" />
+        /// </returns>
+        public async Task<IllustCollection> IllustAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "",
+                                                        int bookmarkNumMin = 0, long offset = 0, string filter = "")
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
-            Ensure.InvalidEnumValue(target == SearchTarget.TitleAndCaption || target == SearchTarget.ExactMatchForTags, nameof(target));
+            Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
+            Ensure.InvalidEnumValue(searchTarget == SearchTarget.Text, nameof(searchTarget));
+
             var parameters = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("search_target", target.ToParameterStr()),
-                new KeyValuePair<string, string>("sort", order.ToParameterString()),
-                new KeyValuePair<string, string>("word", word)
+                new KeyValuePair<string, string>("word", word),
+                new KeyValuePair<string, string>("search_target", searchTarget.ToParameter()),
+                new KeyValuePair<string, string>("sort", sort.ToParameter())
             };
-            if (duration.HasValue)
-                parameters.Add(new KeyValuePair<string, string>("duration", duration.Value.ToParameterStr()));
+            if (!string.IsNullOrWhiteSpace(startDate))
+                parameters.Add(new KeyValuePair<string, string>("start_date", startDate));
+            if (!string.IsNullOrWhiteSpace(endDate))
+                parameters.Add(new KeyValuePair<string, string>("end_date", endDate));
+            if (bookmarkNumMin > 0)
+                parameters.Add(new KeyValuePair<string, string>("bookmark_num_min", bookmarkNumMin.ToString()));
+            if (offset > 0)
+                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
+
+            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/search/illust", parameters).Stay();
+        }
+
+        /// <summary>
+        ///     指定された条件に従って小説の検索を行います。
+        /// </summary>
+        /// <param name="word">検索ワード</param>
+        /// <param name="searchTarget">検索対象</param>
+        /// <param name="sort">ソート順</param>
+        /// <param name="startDate">開始日時 (YYYY-MM-DD)</param>
+        /// <param name="endDate">終了日時 (YYYY-MM-DD)</param>
+        /// <param name="bookmarkNumMin">最小ブックマーク数</param>
+        /// <param name="offset">オフセット</param>
+        /// <returns>
+        ///     <see cref="NovelCollection" />
+        /// </returns>
+        public async Task<NovelCollection> NovelAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "",
+                                                      int bookmarkNumMin = 0, long offset = 0)
+        {
+            Ensure.NotNullOrWhitespace(word, nameof(word));
+            Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
+            Ensure.InvalidEnumValue(searchTarget == SearchTarget.Text, nameof(searchTarget));
+
+            var parameters = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("word", word),
+                new KeyValuePair<string, string>("search_target", searchTarget.ToParameter()),
+                new KeyValuePair<string, string>("sort", sort.ToParameter())
+            };
+            if (!string.IsNullOrWhiteSpace(startDate))
+                parameters.Add(new KeyValuePair<string, string>("start_date", startDate));
+            if (!string.IsNullOrWhiteSpace(endDate))
+                parameters.Add(new KeyValuePair<string, string>("end_date", endDate));
+            if (bookmarkNumMin > 0)
+                parameters.Add(new KeyValuePair<string, string>("bookmark_num_min", bookmarkNumMin.ToString()));
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
 
-            return PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/search/novel", parameters);
+            return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/search/novel", parameters).Stay();
         }
 
-        public Task<UserPreviewCollection> UserAsync(string word, int offset = 0)
+        /// <summary>
+        ///     ユーザーを検索します。
+        /// </summary>
+        /// <param name="word">検索ワード</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="UserPreviewCollection" />
+        /// </returns>
+        public async Task<UserPreviewCollection> UserAsync(string word, long offset = 0, string filter = "")
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
+
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("word", word)
             };
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+            if (!string.IsNullOrWhiteSpace(filter))
+                parameters.Add(new KeyValuePair<string, string>("filter", filter));
 
-            return PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/search/user", parameters);
+            return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/search/user", parameters).Stay();
         }
     }
 }

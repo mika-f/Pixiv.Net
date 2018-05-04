@@ -1,34 +1,51 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     トレンドタグ API
+    /// </summary>
     public class TrendingTagsClient : ApiClient
     {
-        public TrendingTagsClient(PixivClient pixivClient) : base(pixivClient) {}
+        /// <inheritdoc />
+        internal TrendingTagsClient(PixivClient pixivClient) : base(pixivClient) { }
 
-        public Task<TrendingTags> IllustAsync(string filter = "")
+        /// <summary>
+        ///     イラストのトレンドタグ一覧を取得します。
+        /// </summary>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="IEnumerable{TrendingTag}" />
+        /// </returns>
+        public async Task<IEnumerable<TrendingTag>> IllustAsync(string filter = "")
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            return PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/illust", parameters);
+
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/trending-tags/illust", parameters).Stay();
+            return response["trending_tags"].ToObject<IEnumerable<TrendingTag>>();
         }
 
         /// <summary>
-        ///     Get trending tags of novels.
-        ///     Note: This API returns *illustrations*.
+        ///     小説のトレンドタグ一覧を取得します。
         /// </summary>
-        /// <param name="filter"></param>
-        /// <returns></returns>
-        public Task<TrendingTags> NovelAsync(string filter = "")
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="IEnumerable{TrendingTag}" />
+        /// </returns>
+        public async Task<IEnumerable<TrendingTag>> NovelAsync(string filter = "")
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            return PixivClient.GetAsync<TrendingTags>("https://app-api.pixiv.net/v1/trending-tags/novel", parameters);
+
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/trending-tags/novel", parameters).Stay();
+            return response["trending_tags"].ToObject<IEnumerable<TrendingTag>>();
         }
     }
 }

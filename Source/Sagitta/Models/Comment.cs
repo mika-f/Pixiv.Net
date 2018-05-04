@@ -5,22 +5,40 @@ using Newtonsoft.Json.Converters;
 
 namespace Sagitta.Models
 {
+    /// <summary>
+    ///     コメント
+    /// </summary>
     public class Comment
     {
+        /// <summary>
+        ///     ID
+        /// </summary>
         [JsonProperty("id")]
         public int Id { get; set; }
 
+        /// <summary>
+        ///     コメント本文
+        /// </summary>
         [JsonProperty("comment")]
-        public string Body { get; set; }
+        public string Text { get; set; }
 
+        /// <summary>
+        ///     投稿日時
+        /// </summary>
         [JsonProperty("date")]
         [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime Date { get; set; }
 
+        /// <summary>
+        ///     投稿者
+        /// </summary>
         [JsonProperty("user")]
-        public UserBase User { get; set; }
+        public User User { get; set; }
 
-        [JsonProperty("parent_comment")]
-        public Comment ParentComment { get; set; }
+        /// <summary>
+        ///     返信があるか
+        /// </summary>
+        [JsonProperty("has_replies")]
+        public bool HasReplies { get; set; }
     }
 }

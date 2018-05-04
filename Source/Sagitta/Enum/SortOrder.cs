@@ -1,34 +1,23 @@
-﻿using System;
-
-namespace Sagitta.Enum
+﻿namespace Sagitta.Enum
 {
+    /// <summary>
+    ///     ソート並び順
+    /// </summary>
     public enum SortOrder
     {
+        /// <summary>
+        ///     日付昇順
+        /// </summary>
         DateAsc,
 
+        /// <summary>
+        ///     日付降順
+        /// </summary>
         DateDesc,
 
+        /// <summary>
+        ///     人気順
+        /// </summary>
         PopularDesc
-    }
-
-    public static class SortOrderExt
-    {
-        internal static string ToParameterString(this SortOrder obj)
-        {
-            switch (obj)
-            {
-                case SortOrder.DateAsc:
-                    return "date_asc";
-
-                case SortOrder.DateDesc:
-                    return "date_desc";
-
-                case SortOrder.PopularDesc:
-                    return "popular_desc";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(obj), obj, null);
-            }
-        }
     }
 }

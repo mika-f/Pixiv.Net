@@ -1,27 +1,38 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     マンガ関連 API
+    /// </summary>
     public class MangaClient : ApiClient
     {
-        public MangaClient(PixivClient pixivClient) : base(pixivClient) {}
+        internal MangaClient(PixivClient pixivClient) : base(pixivClient) { }
 
-        public Task<IllustCollection> RecommendedAsync(bool includeRankingIllusts = false, string filter = "", int maxBookmarkId = 0, int offset = 0)
+        /// <summary>
+        ///     おすすめのマンガ一覧を取得します。
+        /// </summary>
+        /// <param name="bookmarkIllustIds">TODO</param>
+        /// <param name="includeRankingIllusts">ランキング上位のイラストをレスポンスに含むか</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="IllustCollection" />
+        /// </returns>
+        public async Task<IllustCollection> RecommendedAsync(List<long> bookmarkIllustIds, bool includeRankingIllusts = false, string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("include_ranking_illusts", includeRankingIllusts.ToString().ToLower())
-            };
+            var parameters = new List<KeyValuePair<string, string>>();
+            if (bookmarkIllustIds != null)
+                parameters.Add(new KeyValuePair<string, string>("bookmark_illust_ids", string.Join(",", bookmarkIllustIds)));
+            if (includeRankingIllusts)
+                parameters.Add(new KeyValuePair<string, string>("include_ranking_illusts", true.ToString()));
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
-            if (maxBookmarkId > 0)
-                parameters.Add(new KeyValuePair<string, string>("max_bookmark_id", maxBookmarkId.ToString()));
-            if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
-            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/manga/recommended", parameters);
+
+            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/manga/recommended", parameters).Stay();
         }
     }
 }

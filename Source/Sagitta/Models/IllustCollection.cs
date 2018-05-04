@@ -4,22 +4,27 @@ using Newtonsoft.Json;
 
 namespace Sagitta.Models
 {
+    /// <summary>
+    ///     ページング可能なイラストのリスト
+    /// </summary>
     public class IllustCollection : Cursorable<IllustCollection>
     {
         /// <summary>
-        ///     Illusts
+        ///     イラストのリスト
         /// </summary>
         [JsonProperty("illusts")]
         public IEnumerable<Illust> Illusts { get; set; }
 
         /// <summary>
-        ///     Ranking illusts.
-        ///     When set `include_ranking_illusts` to `false` or not set, this object is null.
+        ///     ランキング上位のイラストのリスト
         /// </summary>
         [JsonProperty("ranking_illusts")]
         public IEnumerable<Illust> RankingIllusts { get; set; }
 
-        [JsonProperty("contest_exists")]
-        public bool IsContestExists { get; set; }
+        /// <summary>
+        ///     TODO
+        /// </summary>
+        [JsonProperty("search_span_limit")]
+        public int SearchSpanLimit { get; set; }
     }
 }

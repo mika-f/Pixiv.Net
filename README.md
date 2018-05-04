@@ -1,77 +1,18 @@
 # Sagitta
+![license](https://img.shields.io/github/license/mika-f/Sagitta.svg?style=flat-square)
+
+
 
 pixiv API wrapper for .NET.  
 
+## Documents
 
-## Platforms
-Sagitta has been created as .NET Standard 1.4.  
-.NET Standard 1.4 supports below platforms:
-
-* .NET Core 1.0
-* .NET Framework 4.6.1
-* Mono/Xamarin
-* UWP 10.0
-
-## Usage
-
-Import namespaces.
-
-```csharp
-using Sagitta;
-using Sagitta.Enum;
-```
-
-### Authorization
-
-**Note**: This library doesn't contains pixiv's Client ID and Client Secret.
-
-```csharp
-var client = new PixivClient("CLIENT_ID", "CLIENT_SECRET");
-
-// Login
-var tokens = await client.OAuth.TokenAsync("username", "password");
-
-// Login (No login alerts)
-var tokens = await client.OAuth.TokenAsync("username", "password", lastTokens.DeviceToken);
-```
-
-### Illust
-
-```csharp
-var illust = await client.Illust.DetailAsync(61463577);
-
-// Recommends
-var illusts = await client.Illust.RecommendedAsync();
-
-// Ranking
-var illusts = await client.Illust.RankingAsync(RankingMode.Day);
-
-// Add to bookmark
-await pixivClient.Illust.Bookmark.AddAsync(61463577, tags: new string[] {"艦これ", "ゆるい艦これ"});
-```
-
-### Novel
-
-```csharp
-var novel = await client.Novel.DetailAsync(61717139);
-
-// Recommends
-var novels = await client.Novel.RecommendedAsync();
-```
+https://mochizuki.moe/Sagitta/
 
 
-### Search
+## Donation
 
-**Note**: Sort by popularity can only be used premium users.
+* BTC : `1NFcYczriqTEzVgzfurTMJNbhxPY1vyki9`
+* ETH : `0xDc48d5AF8dCa1284F8770553E6e01beeE510535D`
+* MONA : `MC4x87u1ffmhsRhHof1sHz8UAtNtKCTQut`
 
-```csharp
-var response = await client.Search.IllustAsync("二宮飛鳥", SortOrder.PopularDesc, Duration.LastWeek);
-response.Illusts.First(); // -> Id: 61424296
-```
-
-### Trends
-
-```csharp
-var trends = await client.TrendingTags.IllustAsync();
-var trends = await client.TrendingTags.NovelAsync();
-```

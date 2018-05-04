@@ -1,34 +1,28 @@
-﻿using System;
-
-namespace Sagitta.Enum
+﻿namespace Sagitta.Enum
 {
+    /// <summary>
+    ///     公開制限
+    /// </summary>
     public enum Restrict
     {
+        /// <summary>
+        ///     全て
+        /// </summary>
+        All,
+
+        /// <summary>
+        ///     公開
+        /// </summary>
         Public,
 
+        /// <summary>
+        ///     非公開
+        /// </summary>
         Private,
 
-        All
-    }
-
-    public static class RestrictExt
-    {
-        internal static string ToParameterStr(this Restrict restrict)
-        {
-            switch (restrict)
-            {
-                case Restrict.Public:
-                    return "public";
-
-                case Restrict.Private:
-                    return "private";
-
-                case Restrict.All:
-                    return "all";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(restrict), restrict, null);
-            }
-        }
+        /// <summary>
+        ///     マイピク限定
+        /// </summary>
+        Mypixiv
     }
 }

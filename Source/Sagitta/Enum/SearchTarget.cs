@@ -1,59 +1,33 @@
-﻿using System;
-
-namespace Sagitta.Enum
+﻿namespace Sagitta.Enum
 {
+    /// <summary>
+    ///     検索対象
+    /// </summary>
     public enum SearchTarget
     {
         /// <summary>
-        ///     Search title and caption body.
+        ///     タイトルとキャプション
         /// </summary>
         TitleAndCaption,
 
         /// <summary>
-        ///     Search tags exactly
+        ///     厳密なタグ一致
         /// </summary>
         ExactMatchForTags,
 
         /// <summary>
-        ///     Search tags partiality
+        ///     部分的なタグ一致
         /// </summary>
         PartialMatchForTags,
 
         /// <summary>
-        ///     Search novel's text
+        ///     小説本文
         /// </summary>
         Text,
 
         /// <summary>
-        ///     Search novel's body
+        ///     小説本文
         /// </summary>
         Keyword
-    }
-
-    public static class SearchTargetExt
-    {
-        internal static string ToParameterStr(this SearchTarget obj)
-        {
-            switch (obj)
-            {
-                case SearchTarget.TitleAndCaption:
-                    return "title_and_caption";
-
-                case SearchTarget.ExactMatchForTags:
-                    return "exact_match_for_tags";
-
-                case SearchTarget.PartialMatchForTags:
-                    return "partial_match_for_tags";
-
-                case SearchTarget.Text:
-                    return "text";
-
-                case SearchTarget.Keyword:
-                    return "keyword";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(obj), obj, null);
-            }
-        }
     }
 }

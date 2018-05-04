@@ -5,26 +5,50 @@ using Sagitta.Enum;
 
 namespace Sagitta.Models
 {
+    /// <summary>
+    ///     プロフィールの公開状態
+    /// </summary>
     public class ProfilePublicity
     {
+        /// <summary>
+        ///     性別の公開状態
+        /// </summary>
         [JsonProperty("gender")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Publicity Gender { get; set; }
+        public Restrict Gender { get; set; }
 
+        /// <summary>
+        ///     地域の公開状態
+        /// </summary>
         [JsonProperty("region")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Publicity Region { get; set; }
+        public Restrict Region { get; set; }
 
+        /// <summary>
+        ///     誕生日 (日付) の公開状態
+        /// </summary>
         [JsonProperty("birth_day")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Publicity BirthDay { get; set; }
+        public Restrict BirthDay { get; set; }
 
+        /// <summary>
+        ///     誕生日 (年) の公開情報
+        /// </summary>
         [JsonProperty("birth_year")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Publicity BirthYear { get; set; }
+        public Restrict BirthYear { get; set; }
 
+        /// <summary>
+        ///     職業の公開情報
+        /// </summary>
         [JsonProperty("job")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Publicity Job { get; set; }
+        public Restrict Job { get; set; }
+
+        /// <summary>
+        ///     Pawoo の公開状態 (boolean)
+        /// </summary>
+        [JsonProperty("pawoo")]
+        public bool IsPawooPublic { get; set; }
     }
 }

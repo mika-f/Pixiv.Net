@@ -17,16 +17,22 @@ namespace Sagitta.Helpers
                 throw new ArgumentException("String cannot be empty", name);
         }
 
-        public static void GreaterThanZero(int obj, string name)
+        public static void GreaterThanZero(long obj, string name)
         {
             if (obj < 0)
-                throw new ArgumentException("Int cannot less than zero.", name);
+                throw new ArgumentException("Int64 cannot less than zero.", name);
         }
 
         public static void InvalidEnumValue(bool cond, string name)
         {
             if (cond)
                 throw new NotSupportedException($"{name}: Not supported value");
+        }
+
+        public static void ArraySizeNotZero<T>(T[] obj, string name)
+        {
+            if (obj.Length == 0)
+                throw new ArgumentException("Array is empty", name);
         }
     }
 }

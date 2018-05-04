@@ -5,16 +5,23 @@ using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     アプリケーション情報関連 API
+    /// </summary>
     public class ApplicationInfoClient : ApiClient
     {
-        public ApplicationInfoClient(PixivClient pixivClient) : base(pixivClient) {}
+        /// <inheritdoc />
+        internal ApplicationInfoClient(PixivClient pixivClient) : base(pixivClient) { }
 
         // ReSharper disable once InconsistentNaming
+        /// <summary>
+        ///     Pixiv for iOS の情報を取得します。
+        /// </summary>
+        /// <returns><see cref="ApplicationInfo" /> モデル</returns>
         public async Task<ApplicationInfo> iOSAsync()
         {
-            var response =
-                await PixivClient.GetAsync<ApplicationInfoResponse>("https://app-api.pixiv.net/v1/application-info/ios", PixivClient.EmptyParameter).Stay();
-            return response.ApplicationInfo;
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/application-info/ios", PixivClient.EmptyParameter).Stay();
+            return response["application-info"].ToObject<ApplicationInfo>();
         }
     }
 }

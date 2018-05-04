@@ -1,19 +1,30 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Helpers;
+using Sagitta.Extensions;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     Pixivision (旧 pixiv Spotlight) 関連 API
+    /// </summary>
     public class SpotlightClient : ApiClient
     {
-        public SpotlightClient(PixivClient pixivClient) : base(pixivClient) {}
+        /// <inheritdoc />
+        internal SpotlightClient(PixivClient pixivClient) : base(pixivClient) { }
 
-        public Task<SpotlightArticles> ArticlesAsync(string category, int offset = 0, string filter = "")
+        /// <summary>
+        ///     指定したカテゴリーの Pixivision (旧 pixiv Spotlight) の記事一覧を取得します。
+        /// </summary>
+        /// <param name="category">カテゴリー</param>
+        /// <param name="offset">オフセット</param>
+        /// <param name="filter">フィルター (`for_ios` が有効)</param>
+        /// <returns>
+        ///     <see cref="SpotlightArticleCollection" />
+        /// </returns>
+        public async Task<SpotlightArticleCollection> ArticlesAsync(string category = "all", long offset = 0, string filter = "")
         {
-            Ensure.NotNullOrWhitespace(category, nameof(category));
-
             var parameters = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("category", category)
@@ -23,7 +34,7 @@ namespace Sagitta.Clients
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, string>("filter", filter));
 
-            return PixivClient.GetAsync<SpotlightArticles>("https://app-api.pixiv.net/v1/spotlight/articles", parameters);
+            return await PixivClient.GetAsync<SpotlightArticleCollection>("https://app-api.pixiv.net/v1/spotlight/article", parameters).Stay();
         }
     }
 }

@@ -1,16 +1,27 @@
 ﻿using System.Threading.Tasks;
 
+using Sagitta.Extensions;
 using Sagitta.Models;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     デモンストレーション関連 API へのアクセスを提供します。
+    /// </summary>
     public class WalkthroughClient : ApiClient
     {
-        public WalkthroughClient(PixivClient pixivClient) : base(pixivClient) {}
+        /// <inheritdoc />
+        internal WalkthroughClient(PixivClient pixivClient) : base(pixivClient) { }
 
-        public Task<IllustCollection> IllustsAsync()
+        /// <summary>
+        ///     未ログイン時トップ画面用のイラスト集を取得します。
+        /// </summary>
+        /// <returns>
+        ///     <see cref="IllustCollection" /> (※ページング不可)
+        /// </returns>
+        public async Task<IllustCollection> IllustsAsync()
         {
-            return PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/walkthrough/illusts", PixivClient.EmptyParameter, false);
+            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/walkthrough/illusts", PixivClient.EmptyParameter).Stay();
         }
     }
 }

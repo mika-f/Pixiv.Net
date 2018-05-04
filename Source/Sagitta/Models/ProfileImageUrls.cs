@@ -1,26 +1,13 @@
-﻿using Newtonsoft.Json;
-
-namespace Sagitta.Models
+﻿namespace Sagitta.Models
 {
+    /// <summary>
+    ///     プロフィール画像の URL
+    /// </summary>
     public class ProfileImageUrls
     {
-        [JsonProperty("medium")]
-        public string Medium { get; set; }
-
         /// <summary>
-        ///     16x16
+        ///     中間サイズ (170x170) の画像 URL
         /// </summary>
-        [JsonProperty("px_16x16")]
-        public string Small { get; set; }
-
-        [JsonProperty("px_50x50")]
-        private string MediumInternal
-        {
-            get { return Medium; }
-            set { Medium = value; }
-        }
-
-        [JsonProperty("px_170x170")]
-        public string Large { get; set; }
+        public string Medium { get; set; }
     }
 }

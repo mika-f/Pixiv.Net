@@ -1,69 +1,55 @@
-﻿using System;
-
-namespace Sagitta.Enum
+﻿namespace Sagitta.Enum
 {
     public enum RankingMode
     {
-        Day,
+        /// <summary>
+        ///     デイリーランキング
+        /// </summary>
+        Daily,
 
-        DayManga,
+        /// <summary>
+        ///     デイリーランキング (男性)
+        /// </summary>
+        DailyMale,
 
-        DayMale,
+        /// <summary>
+        ///     デイリーランキング (女性)
+        /// </summary>
+        DailyFemale,
 
-        DayFemale,
+        /// <summary>
+        ///     デイリーランキング (マンガ)
+        /// </summary>
+        DailyManga,
 
-        Week,
+        /// <summary>
+        ///     ウィークリーランキング
+        /// </summary>
+        Weekly,
 
-        WeekOriginal,
+        /// <summary>
+        ///     ウィークリーランキング (オリジナル)
+        /// </summary>
+        WeeklyOriginal,
 
-        WeekRookie,
+        /// <summary>
+        ///     ウィークリーランキング (ルーキー)
+        /// </summary>
+        WeeklyRookie,
 
-        WeekRookieManga,
+        /// <summary>
+        ///     ウィークリーランキング (マンガ)
+        /// </summary>
+        WeeklyManga,
 
-        Month,
+        /// <summary>
+        ///     マンスリーランキング
+        /// </summary>
+        Monthly,
 
-        MonthManga
-    }
-
-    public static class RankingModeExt
-    {
-        internal static string ToParameterStr(this RankingMode obj)
-        {
-            switch (obj)
-            {
-                case RankingMode.Day:
-                    return "day";
-
-                case RankingMode.DayManga:
-                    return "day_manga";
-
-                case RankingMode.DayMale:
-                    return "day_male";
-
-                case RankingMode.DayFemale:
-                    return "day_female";
-
-                case RankingMode.Week:
-                    return "week";
-
-                case RankingMode.WeekOriginal:
-                    return "week_original";
-
-                case RankingMode.WeekRookie:
-                    return "week_rookie";
-
-                case RankingMode.WeekRookieManga:
-                    return "week_rookie_manga";
-
-                case RankingMode.Month:
-                    return "month";
-
-                case RankingMode.MonthManga:
-                    return "month_manga";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(obj), obj, null);
-            }
-        }
+        /// <summary>
+        ///     マンスリーランキング (マンガ)
+        /// </summary>
+        MonthlyManga
     }
 }

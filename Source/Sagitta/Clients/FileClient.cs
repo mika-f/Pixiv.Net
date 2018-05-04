@@ -7,11 +7,15 @@ using Sagitta.Extensions;
 
 namespace Sagitta.Clients
 {
+    /// <summary>
+    ///     画像およびファイルへの間接的なアクセスを提供します。
+    /// </summary>
     public class FileClient : ApiClient
     {
         private readonly HttpClient _httpClient;
 
-        public FileClient(PixivClient pixivClient) : base(pixivClient)
+        /// <inheritdoc />
+        internal FileClient(PixivClient pixivClient) : base(pixivClient)
         {
             _httpClient = new HttpClient();
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", PixivClient.OsVersion);
@@ -21,6 +25,12 @@ namespace Sagitta.Clients
             _httpClient.DefaultRequestHeaders.Referrer = new Uri("https://app-api.pixiv.net/");
         }
 
+        /// <summary>
+        ///     指定した URL の画像を取得します。
+        ///     **Pixiv の画像およびうごイラなどの ZIP ファイルは、指定された方法以外で取得することは出来ません。**
+        /// </summary>
+        /// <param name="url">Pximg URL</param>
+        /// <returns>バイナリ Stream</returns>
         public async Task<Stream> GetAsync(string url)
         {
             var response = await _httpClient.GetAsync(url).Stay();

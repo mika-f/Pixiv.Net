@@ -2,14 +2,20 @@
 
 namespace Sagitta.Models
 {
+    /// <summary>
+    ///     ブックマークタグ
+    /// </summary>
     public class BookmarkTag
     {
+        /// <summary>
+        ///     タグ名
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("is_registered")]
-        public bool IsRegistered { get; set; }
-
+        /// <summary>
+        ///     タグ使用数
+        /// </summary>
         [JsonProperty("count")]
         public int Count { get; set; }
     }
