@@ -80,35 +80,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">UserPreview</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Sagitta.Models.html">Sagitta.Models</a></h6>
   <h6><strong>Assembly</strong>: Sagitta.dll</h6>
   <h5 id="Sagitta_Models_UserPreview_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class UserPreview</code></pre>
+    <pre><code class="lang-csharp hljs">public class UserPreview : object</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -126,8 +102,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;illusts&quot;)]
-public IEnumerable&lt;Illust&gt; Illusts { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Illust&gt; Illusts { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -139,7 +114,7 @@ public IEnumerable&lt;Illust&gt; Illusts { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sagitta.Models.Illust.html">Illust</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Sagitta.Models.Illust.html">Illust</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -158,8 +133,7 @@ public IEnumerable&lt;Illust&gt; Illusts { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;is_muted&quot;)]
-public bool IsMuted { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsMuted { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -202,7 +176,7 @@ public bool IsMuted { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sagitta.Models.Novel.html">Novel</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Sagitta.Models.Novel.html">Novel</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -221,8 +195,7 @@ public bool IsMuted { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;user&quot;)]
-public User User { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public User User { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -327,19 +327,19 @@ references:
   isSpec: "True"
   fullName: Sagitta.Clients.IllustClient.RelatedAsync
   nameWithType: IllustClient.RelatedAsync
-- uid: Sagitta.Clients.IllustClient.Series(System.Int64,System.Int64,System.String)
-  name: Series(Int64, Int64, String)
-  href: api/Sagitta.Clients.IllustClient.html#Sagitta_Clients_IllustClient_Series_System_Int64_System_Int64_System_String_
-  commentId: M:Sagitta.Clients.IllustClient.Series(System.Int64,System.Int64,System.String)
-  fullName: Sagitta.Clients.IllustClient.Series(System.Int64, System.Int64, System.String)
-  nameWithType: IllustClient.Series(Int64, Int64, String)
-- uid: Sagitta.Clients.IllustClient.Series*
-  name: Series
-  href: api/Sagitta.Clients.IllustClient.html#Sagitta_Clients_IllustClient_Series_
-  commentId: Overload:Sagitta.Clients.IllustClient.Series
+- uid: Sagitta.Clients.IllustClient.SeriesAsync(System.Int64,System.Int64,System.String)
+  name: SeriesAsync(Int64, Int64, String)
+  href: api/Sagitta.Clients.IllustClient.html#Sagitta_Clients_IllustClient_SeriesAsync_System_Int64_System_Int64_System_String_
+  commentId: M:Sagitta.Clients.IllustClient.SeriesAsync(System.Int64,System.Int64,System.String)
+  fullName: Sagitta.Clients.IllustClient.SeriesAsync(System.Int64, System.Int64, System.String)
+  nameWithType: IllustClient.SeriesAsync(Int64, Int64, String)
+- uid: Sagitta.Clients.IllustClient.SeriesAsync*
+  name: SeriesAsync
+  href: api/Sagitta.Clients.IllustClient.html#Sagitta_Clients_IllustClient_SeriesAsync_
+  commentId: Overload:Sagitta.Clients.IllustClient.SeriesAsync
   isSpec: "True"
-  fullName: Sagitta.Clients.IllustClient.Series
-  nameWithType: IllustClient.Series
+  fullName: Sagitta.Clients.IllustClient.SeriesAsync
+  nameWithType: IllustClient.SeriesAsync
 - uid: Sagitta.Clients.IllustSeriesClient
   name: IllustSeriesClient
   href: api/Sagitta.Clients.IllustSeriesClient.html
@@ -410,13 +410,13 @@ references:
   commentId: T:Sagitta.Clients.MangaClient
   fullName: Sagitta.Clients.MangaClient
   nameWithType: MangaClient
-- uid: Sagitta.Clients.MangaClient.RecommendedAsync(System.Collections.Generic.List{System.Int64},System.Boolean,System.String)
+- uid: Sagitta.Clients.MangaClient.RecommendedAsync(List{System.Int64},System.Boolean,System.String)
   name: RecommendedAsync(List<Int64>, Boolean, String)
-  href: api/Sagitta.Clients.MangaClient.html#Sagitta_Clients_MangaClient_RecommendedAsync_System_Collections_Generic_List_System_Int64__System_Boolean_System_String_
-  commentId: M:Sagitta.Clients.MangaClient.RecommendedAsync(System.Collections.Generic.List{System.Int64},System.Boolean,System.String)
+  href: api/Sagitta.Clients.MangaClient.html#Sagitta_Clients_MangaClient_RecommendedAsync_List_System_Int64__System_Boolean_System_String_
+  commentId: M:Sagitta.Clients.MangaClient.RecommendedAsync(List{System.Int64},System.Boolean,System.String)
   name.vb: RecommendedAsync(List(Of Int64), Boolean, String)
-  fullName: Sagitta.Clients.MangaClient.RecommendedAsync(System.Collections.Generic.List<System.Int64>, System.Boolean, System.String)
-  fullName.vb: Sagitta.Clients.MangaClient.RecommendedAsync(System.Collections.Generic.List(Of System.Int64), System.Boolean, System.String)
+  fullName: Sagitta.Clients.MangaClient.RecommendedAsync(List<System.Int64>, System.Boolean, System.String)
+  fullName.vb: Sagitta.Clients.MangaClient.RecommendedAsync(List(Of System.Int64), System.Boolean, System.String)
   nameWithType: MangaClient.RecommendedAsync(List<Int64>, Boolean, String)
   nameWithType.vb: MangaClient.RecommendedAsync(List(Of Int64), Boolean, String)
 - uid: Sagitta.Clients.MangaClient.RecommendedAsync*
@@ -1458,17 +1458,17 @@ references:
   commentId: T:Sagitta.Exceptions.ApiException
   fullName: Sagitta.Exceptions.ApiException
   nameWithType: ApiException
-- uid: Sagitta.Exceptions.ApiException.#ctor(System.Net.Http.HttpResponseMessage,System.String)
+- uid: Sagitta.Exceptions.ApiException.#ctor(HttpResponseMessage,System.String)
   name: ApiException(HttpResponseMessage, String)
-  href: api/Sagitta.Exceptions.ApiException.html#Sagitta_Exceptions_ApiException__ctor_System_Net_Http_HttpResponseMessage_System_String_
-  commentId: M:Sagitta.Exceptions.ApiException.#ctor(System.Net.Http.HttpResponseMessage,System.String)
-  fullName: Sagitta.Exceptions.ApiException.ApiException(System.Net.Http.HttpResponseMessage, System.String)
+  href: api/Sagitta.Exceptions.ApiException.html#Sagitta_Exceptions_ApiException__ctor_HttpResponseMessage_System_String_
+  commentId: M:Sagitta.Exceptions.ApiException.#ctor(HttpResponseMessage,System.String)
+  fullName: Sagitta.Exceptions.ApiException.ApiException(HttpResponseMessage, System.String)
   nameWithType: ApiException.ApiException(HttpResponseMessage, String)
-- uid: Sagitta.Exceptions.ApiException.#ctor(System.Net.Http.HttpResponseMessage,System.String,System.Exception)
+- uid: Sagitta.Exceptions.ApiException.#ctor(HttpResponseMessage,System.String,Exception)
   name: ApiException(HttpResponseMessage, String, Exception)
-  href: api/Sagitta.Exceptions.ApiException.html#Sagitta_Exceptions_ApiException__ctor_System_Net_Http_HttpResponseMessage_System_String_System_Exception_
-  commentId: M:Sagitta.Exceptions.ApiException.#ctor(System.Net.Http.HttpResponseMessage,System.String,System.Exception)
-  fullName: Sagitta.Exceptions.ApiException.ApiException(System.Net.Http.HttpResponseMessage, System.String, System.Exception)
+  href: api/Sagitta.Exceptions.ApiException.html#Sagitta_Exceptions_ApiException__ctor_HttpResponseMessage_System_String_Exception_
+  commentId: M:Sagitta.Exceptions.ApiException.#ctor(HttpResponseMessage,System.String,Exception)
+  fullName: Sagitta.Exceptions.ApiException.ApiException(HttpResponseMessage, System.String, Exception)
   nameWithType: ApiException.ApiException(HttpResponseMessage, String, Exception)
 - uid: Sagitta.Exceptions.ApiException.#ctor*
   name: ApiException
@@ -1509,23 +1509,23 @@ references:
   commentId: T:Sagitta.Exceptions.BadRequestException
   fullName: Sagitta.Exceptions.BadRequestException
   nameWithType: BadRequestException
-- uid: Sagitta.Exceptions.BadRequestException.#ctor(System.Net.Http.HttpResponseMessage)
+- uid: Sagitta.Exceptions.BadRequestException.#ctor(HttpResponseMessage)
   name: BadRequestException(HttpResponseMessage)
-  href: api/Sagitta.Exceptions.BadRequestException.html#Sagitta_Exceptions_BadRequestException__ctor_System_Net_Http_HttpResponseMessage_
-  commentId: M:Sagitta.Exceptions.BadRequestException.#ctor(System.Net.Http.HttpResponseMessage)
-  fullName: Sagitta.Exceptions.BadRequestException.BadRequestException(System.Net.Http.HttpResponseMessage)
+  href: api/Sagitta.Exceptions.BadRequestException.html#Sagitta_Exceptions_BadRequestException__ctor_HttpResponseMessage_
+  commentId: M:Sagitta.Exceptions.BadRequestException.#ctor(HttpResponseMessage)
+  fullName: Sagitta.Exceptions.BadRequestException.BadRequestException(HttpResponseMessage)
   nameWithType: BadRequestException.BadRequestException(HttpResponseMessage)
-- uid: Sagitta.Exceptions.BadRequestException.#ctor(System.Net.Http.HttpResponseMessage,System.String)
+- uid: Sagitta.Exceptions.BadRequestException.#ctor(HttpResponseMessage,System.String)
   name: BadRequestException(HttpResponseMessage, String)
-  href: api/Sagitta.Exceptions.BadRequestException.html#Sagitta_Exceptions_BadRequestException__ctor_System_Net_Http_HttpResponseMessage_System_String_
-  commentId: M:Sagitta.Exceptions.BadRequestException.#ctor(System.Net.Http.HttpResponseMessage,System.String)
-  fullName: Sagitta.Exceptions.BadRequestException.BadRequestException(System.Net.Http.HttpResponseMessage, System.String)
+  href: api/Sagitta.Exceptions.BadRequestException.html#Sagitta_Exceptions_BadRequestException__ctor_HttpResponseMessage_System_String_
+  commentId: M:Sagitta.Exceptions.BadRequestException.#ctor(HttpResponseMessage,System.String)
+  fullName: Sagitta.Exceptions.BadRequestException.BadRequestException(HttpResponseMessage, System.String)
   nameWithType: BadRequestException.BadRequestException(HttpResponseMessage, String)
-- uid: Sagitta.Exceptions.BadRequestException.#ctor(System.Net.Http.HttpResponseMessage,System.String,System.Exception)
+- uid: Sagitta.Exceptions.BadRequestException.#ctor(HttpResponseMessage,System.String,Exception)
   name: BadRequestException(HttpResponseMessage, String, Exception)
-  href: api/Sagitta.Exceptions.BadRequestException.html#Sagitta_Exceptions_BadRequestException__ctor_System_Net_Http_HttpResponseMessage_System_String_System_Exception_
-  commentId: M:Sagitta.Exceptions.BadRequestException.#ctor(System.Net.Http.HttpResponseMessage,System.String,System.Exception)
-  fullName: Sagitta.Exceptions.BadRequestException.BadRequestException(System.Net.Http.HttpResponseMessage, System.String, System.Exception)
+  href: api/Sagitta.Exceptions.BadRequestException.html#Sagitta_Exceptions_BadRequestException__ctor_HttpResponseMessage_System_String_Exception_
+  commentId: M:Sagitta.Exceptions.BadRequestException.#ctor(HttpResponseMessage,System.String,Exception)
+  fullName: Sagitta.Exceptions.BadRequestException.BadRequestException(HttpResponseMessage, System.String, Exception)
   nameWithType: BadRequestException.BadRequestException(HttpResponseMessage, String, Exception)
 - uid: Sagitta.Exceptions.BadRequestException.#ctor*
   name: BadRequestException
@@ -1565,11 +1565,11 @@ references:
   commentId: M:Sagitta.Exceptions.PixivException.#ctor(System.String)
   fullName: Sagitta.Exceptions.PixivException.PixivException(System.String)
   nameWithType: PixivException.PixivException(String)
-- uid: Sagitta.Exceptions.PixivException.#ctor(System.String,System.Exception)
+- uid: Sagitta.Exceptions.PixivException.#ctor(System.String,Exception)
   name: PixivException(String, Exception)
-  href: api/Sagitta.Exceptions.PixivException.html#Sagitta_Exceptions_PixivException__ctor_System_String_System_Exception_
-  commentId: M:Sagitta.Exceptions.PixivException.#ctor(System.String,System.Exception)
-  fullName: Sagitta.Exceptions.PixivException.PixivException(System.String, System.Exception)
+  href: api/Sagitta.Exceptions.PixivException.html#Sagitta_Exceptions_PixivException__ctor_System_String_Exception_
+  commentId: M:Sagitta.Exceptions.PixivException.#ctor(System.String,Exception)
+  fullName: Sagitta.Exceptions.PixivException.PixivException(System.String, Exception)
   nameWithType: PixivException.PixivException(String, Exception)
 - uid: Sagitta.Exceptions.PixivException.#ctor*
   name: PixivException
@@ -1584,23 +1584,23 @@ references:
   commentId: T:Sagitta.Exceptions.UnauthorizedException
   fullName: Sagitta.Exceptions.UnauthorizedException
   nameWithType: UnauthorizedException
-- uid: Sagitta.Exceptions.UnauthorizedException.#ctor(System.Net.Http.HttpResponseMessage)
+- uid: Sagitta.Exceptions.UnauthorizedException.#ctor(HttpResponseMessage)
   name: UnauthorizedException(HttpResponseMessage)
-  href: api/Sagitta.Exceptions.UnauthorizedException.html#Sagitta_Exceptions_UnauthorizedException__ctor_System_Net_Http_HttpResponseMessage_
-  commentId: M:Sagitta.Exceptions.UnauthorizedException.#ctor(System.Net.Http.HttpResponseMessage)
-  fullName: Sagitta.Exceptions.UnauthorizedException.UnauthorizedException(System.Net.Http.HttpResponseMessage)
+  href: api/Sagitta.Exceptions.UnauthorizedException.html#Sagitta_Exceptions_UnauthorizedException__ctor_HttpResponseMessage_
+  commentId: M:Sagitta.Exceptions.UnauthorizedException.#ctor(HttpResponseMessage)
+  fullName: Sagitta.Exceptions.UnauthorizedException.UnauthorizedException(HttpResponseMessage)
   nameWithType: UnauthorizedException.UnauthorizedException(HttpResponseMessage)
-- uid: Sagitta.Exceptions.UnauthorizedException.#ctor(System.Net.Http.HttpResponseMessage,System.String)
+- uid: Sagitta.Exceptions.UnauthorizedException.#ctor(HttpResponseMessage,System.String)
   name: UnauthorizedException(HttpResponseMessage, String)
-  href: api/Sagitta.Exceptions.UnauthorizedException.html#Sagitta_Exceptions_UnauthorizedException__ctor_System_Net_Http_HttpResponseMessage_System_String_
-  commentId: M:Sagitta.Exceptions.UnauthorizedException.#ctor(System.Net.Http.HttpResponseMessage,System.String)
-  fullName: Sagitta.Exceptions.UnauthorizedException.UnauthorizedException(System.Net.Http.HttpResponseMessage, System.String)
+  href: api/Sagitta.Exceptions.UnauthorizedException.html#Sagitta_Exceptions_UnauthorizedException__ctor_HttpResponseMessage_System_String_
+  commentId: M:Sagitta.Exceptions.UnauthorizedException.#ctor(HttpResponseMessage,System.String)
+  fullName: Sagitta.Exceptions.UnauthorizedException.UnauthorizedException(HttpResponseMessage, System.String)
   nameWithType: UnauthorizedException.UnauthorizedException(HttpResponseMessage, String)
-- uid: Sagitta.Exceptions.UnauthorizedException.#ctor(System.Net.Http.HttpResponseMessage,System.String,System.Exception)
+- uid: Sagitta.Exceptions.UnauthorizedException.#ctor(HttpResponseMessage,System.String,Exception)
   name: UnauthorizedException(HttpResponseMessage, String, Exception)
-  href: api/Sagitta.Exceptions.UnauthorizedException.html#Sagitta_Exceptions_UnauthorizedException__ctor_System_Net_Http_HttpResponseMessage_System_String_System_Exception_
-  commentId: M:Sagitta.Exceptions.UnauthorizedException.#ctor(System.Net.Http.HttpResponseMessage,System.String,System.Exception)
-  fullName: Sagitta.Exceptions.UnauthorizedException.UnauthorizedException(System.Net.Http.HttpResponseMessage, System.String, System.Exception)
+  href: api/Sagitta.Exceptions.UnauthorizedException.html#Sagitta_Exceptions_UnauthorizedException__ctor_HttpResponseMessage_System_String_Exception_
+  commentId: M:Sagitta.Exceptions.UnauthorizedException.#ctor(HttpResponseMessage,System.String,Exception)
+  fullName: Sagitta.Exceptions.UnauthorizedException.UnauthorizedException(HttpResponseMessage, System.String, Exception)
   nameWithType: UnauthorizedException.UnauthorizedException(HttpResponseMessage, String, Exception)
 - uid: Sagitta.Exceptions.UnauthorizedException.#ctor*
   name: UnauthorizedException
@@ -1774,13 +1774,13 @@ references:
   isSpec: "True"
   fullName: Sagitta.Extensions.TaskExtension.Stay
   nameWithType: TaskExtension.Stay
-- uid: Sagitta.Extensions.TaskExtension.Stay``1(System.Threading.Tasks.Task{``0})
+- uid: Sagitta.Extensions.TaskExtension.Stay``1(Task{``0})
   name: Stay<T>(Task<T>)
-  href: api/Sagitta.Extensions.TaskExtension.html#Sagitta_Extensions_TaskExtension_Stay__1_System_Threading_Tasks_Task___0__
-  commentId: M:Sagitta.Extensions.TaskExtension.Stay``1(System.Threading.Tasks.Task{``0})
+  href: api/Sagitta.Extensions.TaskExtension.html#Sagitta_Extensions_TaskExtension_Stay__1_Task___0__
+  commentId: M:Sagitta.Extensions.TaskExtension.Stay``1(Task{``0})
   name.vb: Stay(Of T)(Task(Of T))
-  fullName: Sagitta.Extensions.TaskExtension.Stay<T>(System.Threading.Tasks.Task<T>)
-  fullName.vb: Sagitta.Extensions.TaskExtension.Stay(Of T)(System.Threading.Tasks.Task(Of T))
+  fullName: Sagitta.Extensions.TaskExtension.Stay<T>(Task<T>)
+  fullName.vb: Sagitta.Extensions.TaskExtension.Stay(Of T)(Task(Of T))
   nameWithType: TaskExtension.Stay<T>(Task<T>)
   nameWithType.vb: TaskExtension.Stay(Of T)(Task(Of T))
 - uid: Sagitta.Models
