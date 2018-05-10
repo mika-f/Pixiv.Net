@@ -81,35 +81,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">ApplicationInfo</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Sagitta.Models.html">Sagitta.Models</a></h6>
   <h6><strong>Assembly</strong>: Sagitta.dll</h6>
   <h5 id="Sagitta_Models_ApplicationInfo_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ApplicationInfo</code></pre>
+    <pre><code class="lang-csharp hljs">public class ApplicationInfo : object</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -127,8 +103,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;notice_exists&quot;)]
-public bool IsNoticeExists { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsNoticeExists { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,8 +134,7 @@ public bool IsNoticeExists { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;notice_important&quot;)]
-public bool IsNoticeImportant { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsNoticeImportant { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -191,8 +165,7 @@ public bool IsNoticeImportant { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;update_available&quot;)]
-public bool IsUpdateAvailable { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsUpdateAvailable { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -223,8 +196,7 @@ public bool IsUpdateAvailable { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;update_required&quot;)]
-public bool IsUpdateRequired { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsUpdateRequired { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -255,8 +227,7 @@ public bool IsUpdateRequired { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;latest_version&quot;)]
-public string LatestVersion { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string LatestVersion { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -287,8 +258,7 @@ public string LatestVersion { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;notice_id&quot;)]
-public string NoticeId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string NoticeId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -319,8 +289,7 @@ public string NoticeId { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;notice_message&quot;)]
-public string NoticeMessage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string NoticeMessage { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -351,8 +320,7 @@ public string NoticeMessage { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;store_url&quot;)]
-public string StoreUrl { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string StoreUrl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -383,8 +351,7 @@ public string StoreUrl { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;update_message&quot;)]
-public string UpdateMessage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string UpdateMessage { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

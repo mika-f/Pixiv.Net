@@ -83,35 +83,11 @@
       <div class="level2"><a class="xref" href="Sagitta.Models.Illust.html">Illust</a></div>
       <div class="level2"><a class="xref" href="Sagitta.Models.Novel.html">Novel</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Sagitta.Models.html">Sagitta.Models</a></h6>
   <h6><strong>Assembly</strong>: Sagitta.dll</h6>
   <h5 id="Sagitta_Models_Work_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Work</code></pre>
+    <pre><code class="lang-csharp hljs">public class Work : object</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -129,8 +105,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;caption&quot;)]
-public string Caption { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Caption { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -161,9 +136,7 @@ public string Caption { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonConverter(typeof (IsoDateTimeConverter))]
-[JsonProperty(&quot;created_date&quot;)]
-public DateTime CreatedAt { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTime CreatedAt { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -175,7 +148,7 @@ public DateTime CreatedAt { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="xref">DateTime</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -194,8 +167,7 @@ public DateTime CreatedAt { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;id&quot;)]
-public long Id { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public long Id { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -226,8 +198,7 @@ public long Id { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;image_urls&quot;)]
-public ImageUrls ImageUrls { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ImageUrls ImageUrls { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -258,8 +229,7 @@ public ImageUrls ImageUrls { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;is_bookmarked&quot;)]
-public bool IsBookmarked { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsBookmarked { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -290,8 +260,7 @@ public bool IsBookmarked { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;is_muted&quot;)]
-public bool IsMuted { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsMuted { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -322,8 +291,7 @@ public bool IsMuted { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;visible&quot;)]
-public bool IsVisible { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsVisible { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -354,8 +322,7 @@ public bool IsVisible { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;page_count&quot;)]
-public int PageCount { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int PageCount { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -386,8 +353,7 @@ public int PageCount { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;restrict&quot;)]
-public int Restrict { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Restrict { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -418,8 +384,7 @@ public int Restrict { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;series&quot;)]
-public Series Series { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Series Series { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -450,8 +415,7 @@ public Series Series { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;tags&quot;)]
-public IEnumerable&lt;Tag&gt; Tags { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Tag&gt; Tags { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -463,7 +427,7 @@ public IEnumerable&lt;Tag&gt; Tags { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sagitta.Models.Tag.html">Tag</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Sagitta.Models.Tag.html">Tag</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -482,8 +446,7 @@ public IEnumerable&lt;Tag&gt; Tags { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;title&quot;)]
-public string Title { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Title { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -514,8 +477,7 @@ public string Title { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_bookmarks&quot;)]
-public int TotalBookmarks { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalBookmarks { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -546,8 +508,7 @@ public int TotalBookmarks { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_comments&quot;)]
-public int TotalComments { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalComments { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -578,8 +539,7 @@ public int TotalComments { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_view&quot;)]
-public int TotalView { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalView { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -610,8 +570,7 @@ public int TotalView { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;user&quot;)]
-public User User { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public User User { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
