@@ -226,7 +226,7 @@ namespace Sagitta.Clients
         /// <returns>
         ///     <see cref="IllustSeriesCollection" />
         /// </returns>
-        public async Task<IllustSeriesCollection> Series(long illustSeriesId, long offset = 0, string filter = "")
+        public async Task<IllustSeriesCollection> SeriesAsync(long illustSeriesId, long offset = 0, string filter = "")
         {
             Ensure.GreaterThanZero(illustSeriesId, nameof(illustSeriesId));
 

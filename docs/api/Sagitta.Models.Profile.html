@@ -81,35 +81,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Profile</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Sagitta.Models.html">Sagitta.Models</a></h6>
   <h6><strong>Assembly</strong>: Sagitta.dll</h6>
   <h5 id="Sagitta_Models_Profile_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Profile</code></pre>
+    <pre><code class="lang-csharp hljs">public class Profile : object</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -127,8 +103,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;address_id&quot;)]
-public int? AddressId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int? AddressId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,8 +134,7 @@ public int? AddressId { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;background_image_url&quot;)]
-public string BackgroundImageUrl { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string BackgroundImageUrl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -191,9 +165,7 @@ public string BackgroundImageUrl { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;birth&quot;)]
-[JsonConverter(typeof (DateTimeConverter))]
-public DateTime? Birth { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTime? Birth { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -205,7 +177,7 @@ public DateTime? Birth { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -224,8 +196,7 @@ public DateTime? Birth { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;birth_day&quot;)]
-public string BirthDay { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string BirthDay { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -256,8 +227,7 @@ public string BirthDay { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;birth_year&quot;)]
-public int? BirthYear { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int? BirthYear { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -288,8 +258,7 @@ public int? BirthYear { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;country_code&quot;)]
-public string CountryCode { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string CountryCode { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -320,9 +289,7 @@ public string CountryCode { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;gender&quot;)]
-[JsonConverter(typeof (StringEnumConverter))]
-public Gender? Gender { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Gender? Gender { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -353,8 +320,7 @@ public Gender? Gender { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;is_premium&quot;)]
-public bool IsPremium { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsPremium { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -385,8 +351,7 @@ public bool IsPremium { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;is_using_custom_profile_image&quot;)]
-public bool IsUsingCustomProfileImage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsUsingCustomProfileImage { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -417,8 +382,7 @@ public bool IsUsingCustomProfileImage { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;job&quot;)]
-public string Job { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Job { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -449,8 +413,7 @@ public string Job { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;job_id&quot;)]
-public int? JobId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int? JobId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -481,8 +444,7 @@ public int? JobId { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;pawoo_url&quot;)]
-public string PawooUrl { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string PawooUrl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -513,8 +475,7 @@ public string PawooUrl { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;region&quot;)]
-public string Region { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Region { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -545,8 +506,7 @@ public string Region { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_follower&quot;)]
-public int TotalFollower { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalFollower { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -577,8 +537,7 @@ public int TotalFollower { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_follow_users&quot;)]
-public int TotalFollowUsers { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalFollowUsers { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -609,8 +568,7 @@ public int TotalFollowUsers { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_illust_bookmarks_public&quot;)]
-public int TotalIllustBookmarksPublic { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalIllustBookmarksPublic { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -641,8 +599,7 @@ public int TotalIllustBookmarksPublic { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_illusts&quot;)]
-public int TotalIllusts { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalIllusts { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -673,8 +630,7 @@ public int TotalIllusts { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_illust_series&quot;)]
-public int TotalIllustSeries { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalIllustSeries { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -705,8 +661,7 @@ public int TotalIllustSeries { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_manga&quot;)]
-public int TotalManga { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalManga { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -737,8 +692,7 @@ public int TotalManga { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_mypixiv_users&quot;)]
-public int TotalMypixivUsers { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalMypixivUsers { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -769,8 +723,7 @@ public int TotalMypixivUsers { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;total_novels&quot;)]
-public int TotalNovels { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalNovels { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -801,8 +754,7 @@ public int TotalNovels { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;twitter_account&quot;)]
-public string TwitterAccount { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string TwitterAccount { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -833,8 +785,7 @@ public string TwitterAccount { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;twitter_url&quot;)]
-public string TwitterUrl { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string TwitterUrl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -865,8 +816,7 @@ public string TwitterUrl { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;webpage&quot;)]
-public string Webpage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Webpage { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
