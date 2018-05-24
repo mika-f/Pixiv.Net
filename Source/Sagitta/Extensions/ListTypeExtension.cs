@@ -20,11 +20,11 @@ namespace Sagitta.Extensions
         {
             switch (obj)
             {
-                case ListType.Public:
-                    return "public";
-
                 case ListType.Following:
                     return "following";
+
+                case ListType.Popular:
+                    return "popular";
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(obj), obj, null);

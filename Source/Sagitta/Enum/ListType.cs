@@ -6,13 +6,13 @@
     public enum ListType
     {
         /// <summary>
-        ///     全て
-        /// </summary>
-        Public,
-
-        /// <summary>
         ///     フォローしているユーザー
         /// </summary>
-        Following
+        Following,
+
+        /// <summary>
+        ///     人気
+        /// </summary>
+        Popular
     }
 }
