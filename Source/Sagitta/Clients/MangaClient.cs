@@ -22,7 +22,7 @@ namespace Sagitta.Clients
         /// <returns>
         ///     <see cref="IllustCollection" />
         /// </returns>
-        public async Task<IllustCollection> RecommendedAsync(List<long> bookmarkIllustIds, bool includeRankingIllusts = false, string filter = "")
+        public async Task<IllustCollection> RecommendedAsync(List<long> bookmarkIllustIds = null, bool includeRankingIllusts = false, string filter = "")
         {
             var parameters = new List<KeyValuePair<string, string>>();
             if (bookmarkIllustIds != null)
