@@ -24,7 +24,7 @@ namespace Sagitta.Clients
         /// <returns>
         ///     <see cref="LiveCollection" />
         /// </returns>
-        public async Task<LiveCollection> ListAsync(IllustType type, long offset = 0)
+        public async Task<LiveCollection> ListAsync(ListType type, long offset = 0)
         {
             var parameters = new List<KeyValuePair<string, string>>
             {
