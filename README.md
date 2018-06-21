@@ -7,7 +7,7 @@ pixiv API wrapper for .NET.
 
 ## Documents
 
-https://mochizuki.moe/Sagitta/
+https://sagitta.mochizuki.moe/
 
 
 ## Donation
