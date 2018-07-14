@@ -2,7 +2,6 @@
 ![license](https://img.shields.io/github/license/mika-f/Sagitta.svg?style=flat-square)
 
 
-
 pixiv API wrapper for .NET.  
 
 ## Documents
