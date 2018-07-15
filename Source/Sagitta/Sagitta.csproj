@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Sagitta</AssemblyName>
     <RootNamespace>Sagitta</RootNamespace>
-    <Version>7.1.8.1</Version>
+    <Version>7.1.8.2</Version>
     <AssemblyVersion>7.1.8.0</AssemblyVersion>
     <Authors>Mikazuki</Authors>
     <RepositoryType>Git</RepositoryType>
