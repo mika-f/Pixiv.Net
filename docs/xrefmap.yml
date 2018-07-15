@@ -378,12 +378,12 @@ references:
   isSpec: "True"
   fullName: Sagitta.Clients.LiveClient.ChatAsync
   nameWithType: LiveClient.ChatAsync
-- uid: Sagitta.Clients.LiveClient.ListAsync(Sagitta.Enum.IllustType,System.Int64)
-  name: ListAsync(IllustType, Int64)
-  href: api/Sagitta.Clients.LiveClient.html#Sagitta_Clients_LiveClient_ListAsync_Sagitta_Enum_IllustType_System_Int64_
-  commentId: M:Sagitta.Clients.LiveClient.ListAsync(Sagitta.Enum.IllustType,System.Int64)
-  fullName: Sagitta.Clients.LiveClient.ListAsync(Sagitta.Enum.IllustType, System.Int64)
-  nameWithType: LiveClient.ListAsync(IllustType, Int64)
+- uid: Sagitta.Clients.LiveClient.ListAsync(Sagitta.Enum.ListType,System.Int64)
+  name: ListAsync(ListType, Int64)
+  href: api/Sagitta.Clients.LiveClient.html#Sagitta_Clients_LiveClient_ListAsync_Sagitta_Enum_ListType_System_Int64_
+  commentId: M:Sagitta.Clients.LiveClient.ListAsync(Sagitta.Enum.ListType,System.Int64)
+  fullName: Sagitta.Clients.LiveClient.ListAsync(Sagitta.Enum.ListType, System.Int64)
+  nameWithType: LiveClient.ListAsync(ListType, Int64)
 - uid: Sagitta.Clients.LiveClient.ListAsync*
   name: ListAsync
   href: api/Sagitta.Clients.LiveClient.html#Sagitta_Clients_LiveClient_ListAsync_
@@ -1284,12 +1284,12 @@ references:
   commentId: F:Sagitta.Enum.ListType.Following
   fullName: Sagitta.Enum.ListType.Following
   nameWithType: ListType.Following
-- uid: Sagitta.Enum.ListType.Public
-  name: Public
-  href: api/Sagitta.Enum.ListType.html#Sagitta_Enum_ListType_Public
-  commentId: F:Sagitta.Enum.ListType.Public
-  fullName: Sagitta.Enum.ListType.Public
-  nameWithType: ListType.Public
+- uid: Sagitta.Enum.ListType.Popular
+  name: Popular
+  href: api/Sagitta.Enum.ListType.html#Sagitta_Enum_ListType_Popular
+  commentId: F:Sagitta.Enum.ListType.Popular
+  fullName: Sagitta.Enum.ListType.Popular
+  nameWithType: ListType.Popular
 - uid: Sagitta.Enum.RankingMode
   name: RankingMode
   href: api/Sagitta.Enum.RankingMode.html
