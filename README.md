@@ -9,6 +9,14 @@ pixiv API wrapper for .NET.
 https://sagitta.mochizuki.moe/
 
 
+## Versioning
+
+The version of Sagitta corresponds to pixiv for iOS.  
+For example:
+
+Sagitta `7.1.8.x` => pixiv for iOS `7.1.8`
+
+
 ## Donation
 
 * BTC : `1NFcYczriqTEzVgzfurTMJNbhxPY1vyki9`
