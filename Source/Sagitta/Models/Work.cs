@@ -45,7 +45,7 @@ namespace Sagitta.Models
         ///     投稿日時
         /// </summary>
         [JsonConverter(typeof(IsoDateTimeConverter))]
-        [JsonProperty("created_date")]
+        [JsonProperty("create_date")]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
