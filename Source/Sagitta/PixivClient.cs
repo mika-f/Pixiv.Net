@@ -24,8 +24,8 @@ namespace Sagitta
     public class PixivClient
     {
         private readonly HttpClient _httpClient;
-        internal static string AppVersion => "7.1.8";
-        internal static string OsVersion => "11.2.6";
+        internal static string AppVersion => "7.1.19";
+        internal static string OsVersion => "11.4.1";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
         internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();

@@ -54,13 +54,14 @@ namespace Sagitta.Clients
         /// <param name="startDate">開始日時 (YYYY-MM-DD)</param>
         /// <param name="endDate">終了日時 (YYYY-MM-DD)</param>
         /// <param name="bookmarkNumMin">最小ブックマーク数</param>
+        /// <param name="bookmarkNumMax">最大ブックマーク数</param>
         /// <param name="offset">オフセット</param>
         /// <param name="filter">フィルター (`for_ios` が有効)</param>
         /// <returns>
         ///     <see cref="IllustCollection" />
         /// </returns>
         public async Task<IllustCollection> IllustAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "",
-                                                        int bookmarkNumMin = 0, long offset = 0, string filter = "")
+                                                        int bookmarkNumMin = 0, int bookmarkNumMax = 0, long offset = 0, string filter = "")
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
@@ -78,6 +79,8 @@ namespace Sagitta.Clients
                 parameters.Add(new KeyValuePair<string, string>("end_date", endDate));
             if (bookmarkNumMin > 0)
                 parameters.Add(new KeyValuePair<string, string>("bookmark_num_min", bookmarkNumMin.ToString()));
+            if (bookmarkNumMax > 0)
+                parameters.Add(new KeyValuePair<string, string>("bookmark_num_max", bookmarkNumMax.ToString()));
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
             if (!string.IsNullOrWhiteSpace(filter))
