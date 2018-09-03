@@ -1,11 +1,9 @@
 #!/bin/bash
 
 # Install .NET Core on Ubuntu 14.04
-wget -q https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
+# cd ..
+wget https://download.microsoft.com/download/E/8/A/E8AF2EE0-5DDA-4420-A395-D1A50EEFD83E/dotnet-sdk-2.1.401-linux-x64.tar.gz
+mkdir dotnet
+tar -zxf dotnet-sdk-2.1.401-linux-x64.tar.gz -C dotnet
 
-sudo apt-get install apt-transport-https
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.1
-
-dotnet build ./Source/Sagitta.Docs/Sagitta.Docs.csproj
+./dotnet/dotnet build ./Source/Sagitta.Docs/Sagitta.Docs.csproj
