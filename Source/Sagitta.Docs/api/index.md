@@ -13,4 +13,3 @@ using Sagitta.Enum;
 var pixivClient = new PixivClient("CLIENT_ID", "CLIENT_SECRET");
 ```
 
-
