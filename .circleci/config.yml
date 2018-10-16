@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: mono:latest
+      - image: mono:5.14
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
