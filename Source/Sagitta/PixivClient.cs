@@ -24,8 +24,8 @@ namespace Sagitta
     public class PixivClient
     {
         private readonly HttpClient _httpClient;
-        internal static string AppVersion => "7.1.19";
-        internal static string OsVersion => "11.4.1";
+        internal static string AppVersion => "7.4.4";
+        internal static string OsVersion => "12.1.2";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
         internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();
@@ -55,9 +55,9 @@ namespace Sagitta
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone9,2)");
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
-            // Initialize accesors
+            // Initialize accessors
             Application = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
             Illust = new IllustClient(this);
@@ -78,8 +78,8 @@ namespace Sagitta
         internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             var obj = (await GetAsync(url, parameters, requireAuth).Stay()).ToObject<T>();
-            if (obj is ICursorable)
-                (obj as ICursorable).PixivClient = this;
+            if (obj is ICursorable cursorable)
+                cursorable.PixivClient = this;
             return obj;
         }
 
@@ -89,7 +89,7 @@ namespace Sagitta
                 throw new PixivException("No access token available. Need authentication first.");
             if (requireAuth)
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-            if (parameters.Any())
+            if (parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
@@ -97,12 +97,12 @@ namespace Sagitta
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<T> PostAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             return (await PostAsync(url, parameters, requireAuth).Stay()).ToObject<T>();
         }
 
-        internal async Task<JObject> PostAsync(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, string>> parameters, bool requireAuth = true)
         {
             if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
                 throw new PixivException("No access token available. Need authentication first.");
@@ -125,8 +125,11 @@ namespace Sagitta
 
                 case HttpStatusCode.BadRequest:
                     throw new BadRequestException(response);
+
+                default:
+                    response.EnsureSuccessStatusCode();
+                    break;
             }
-            response.EnsureSuccessStatusCode();
         }
 
         #region API Accessors
