@@ -7,7 +7,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     通知設定
     /// </summary>
-    public class NotificationSettings
+    public class NotificationSettings : ApiResponse
     {
         /// <summary>
         ///     デバイスが登録済みであるか

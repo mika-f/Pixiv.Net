@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     アプリケーション情報
     /// </summary>
-    public class ApplicationInfo
+    public class ApplicationInfo : ApiResponse
     {
         /// <summary>
         ///     リリースされている最新バージョンの番号

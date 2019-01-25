@@ -16,8 +16,8 @@ namespace Sagitta.Models
         PixivClient PixivClient { set; }
     }
 
-    /// <inheritdoc />
-    public class Cursorable<T> : ICursorable
+    /// <inheritdoc cref="ICursorable" />
+    public class Cursorable<T> : ApiResponse, ICursorable
     {
         /// <summary>
         ///     次のページへのアクセス URL

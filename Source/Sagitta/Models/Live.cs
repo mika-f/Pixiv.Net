@@ -9,7 +9,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     pixiv live
     /// </summary>
-    public class Live
+    public class Live : ApiResponse
     {
         /// <summary>
         ///     配信 ID

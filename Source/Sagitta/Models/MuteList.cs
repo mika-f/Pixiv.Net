@@ -7,7 +7,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     ミュートタグリスト
     /// </summary>
-    public class MuteList
+    public class MuteList : ApiResponse
     {
         /// <summary>
         ///     ミュートしているタグリスト

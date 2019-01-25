@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     小説本文の情報
     /// </summary>
-    public class NovelText
+    public class NovelText : ApiResponse
     {
         /// <summary>
         ///     マーカー

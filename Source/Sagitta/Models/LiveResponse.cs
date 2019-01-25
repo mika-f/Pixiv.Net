@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     pixiv sketch 配信詳細
     /// </summary>
-    public class LiveResponse<T>
+    public class LiveResponse<T> : ApiResponse
     {
         /// <summary>
         ///     <see cref="T" />

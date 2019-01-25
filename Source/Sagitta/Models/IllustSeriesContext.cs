@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     TODO
     /// </summary>
-    public class IllustSeriesContext
+    public class IllustSeriesContext : ApiResponse
     {
         /// <summary>
         ///     並び順

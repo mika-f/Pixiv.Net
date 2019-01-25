@@ -7,7 +7,7 @@ using Sagitta.Enum;
 
 namespace Sagitta.Models
 {
-    public class BookmarkDetail
+    public class BookmarkDetail : ApiResponse
     {
         /// <summary>
         ///     すでにブックマーク済みか

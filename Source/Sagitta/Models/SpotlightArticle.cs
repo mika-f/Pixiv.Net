@@ -8,7 +8,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     Pixivision (旧 pixiv Spotlight) 個別記事
     /// </summary>
-    public class SpotlightArticle
+    public class SpotlightArticle : ApiResponse
     {
         /// <summary>
         ///     ID

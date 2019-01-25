@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     配信ユーザー
     /// </summary>
-    public class LiveUser
+    public class LiveUser : ApiResponse
     {
         /// <summary>
         ///     ユーザー ID

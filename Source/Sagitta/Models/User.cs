@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     ユーザー
     /// </summary>
-    public class User
+    public class User : ApiResponse
     {
         /// <summary>
         ///     ユーザー ID

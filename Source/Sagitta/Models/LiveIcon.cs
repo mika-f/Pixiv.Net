@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     配信ユーザーのアイコン
     /// </summary>
-    public class LiveIcon
+    public class LiveIcon : ApiResponse
     {
         /// <summary>
         ///     幅

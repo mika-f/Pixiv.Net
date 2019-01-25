@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     認証ユーザーの現在の状態
     /// </summary>
-    public class UserState
+    public class UserState : ApiResponse
     {
         /// <summary>
         ///     E-メール認証を終えているかどうか

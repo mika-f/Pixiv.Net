@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     オーナー
     /// </summary>
-    public class Owner
+    public class Owner : ApiResponse
     {
         /// <summary>
         ///     オーナー

@@ -11,7 +11,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     プロフィール
     /// </summary>
-    public class Profile
+    public class Profile : ApiResponse
     {
         /// <summary>
         ///     住所 ID

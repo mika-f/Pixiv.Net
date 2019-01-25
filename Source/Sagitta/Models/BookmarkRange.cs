@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     TODO
     /// </summary>
-    public class BookmarkRange
+    public class BookmarkRange : ApiResponse
     {
         /// <summary>
         ///     TODO

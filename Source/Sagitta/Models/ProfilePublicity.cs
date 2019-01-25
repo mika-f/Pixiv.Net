@@ -8,7 +8,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     プロフィールの公開状態
     /// </summary>
-    public class ProfilePublicity
+    public class ProfilePublicity : ApiResponse
     {
         /// <summary>
         ///     性別の公開状態

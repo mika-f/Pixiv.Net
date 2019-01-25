@@ -8,7 +8,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     配信チャット
     /// </summary>
-    public class LiveChat
+    public class LiveChat : ApiResponse
     {
         /// <summary>
         ///     チャット ID

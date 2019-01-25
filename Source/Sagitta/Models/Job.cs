@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     職業
     /// </summary>
-    public class Job
+    public class Job : ApiResponse
     {
         /// <summary>
         ///     ID

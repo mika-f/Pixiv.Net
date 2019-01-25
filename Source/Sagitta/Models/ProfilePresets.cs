@@ -7,7 +7,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     プロフィールのプリセット情報
     /// </summary>
-    public class ProfilePresets
+    public class ProfilePresets : ApiResponse
     {
         /// <summary>
         ///     住所 (都道府県)

@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     住所
     /// </summary>
-    public class Address
+    public class Address : ApiResponse
     {
         /// <summary>
         ///     ID

@@ -8,7 +8,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     シリーズ
     /// </summary>
-    public class Series
+    public class Series : ApiResponse
     {
         /// <summary>
         ///     ID

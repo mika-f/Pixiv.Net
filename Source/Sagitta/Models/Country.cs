@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     国
     /// </summary>
-    public class Country
+    public class Country : ApiResponse
     {
         /// <summary>
         ///     国コード

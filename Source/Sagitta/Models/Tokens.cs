@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     認証情報
     /// </summary>
-    public class Tokens
+    public class Tokens : ApiResponse
     {
         /// <summary>
         ///     アクセストークン

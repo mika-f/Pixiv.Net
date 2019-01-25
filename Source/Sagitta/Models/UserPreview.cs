@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Sagitta.Models
 {
-    public class UserPreview
+    public class UserPreview : ApiResponse
     {
         /// <summary>
         ///     ユーザー情報
