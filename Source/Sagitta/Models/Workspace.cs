@@ -11,9 +11,7 @@ namespace Sagitta.Models
         ///     コンピュータ
         /// </summary>
         [JsonProperty("pc")]
-
-        // ReSharper disable once InconsistentNaming
-        public string PC { get; set; }
+        public string Pc { get; set; }
 
         /// <summary>
         ///     モニター
