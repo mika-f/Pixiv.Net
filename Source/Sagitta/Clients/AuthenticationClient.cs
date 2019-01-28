@@ -38,7 +38,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("device_token", deviceToken),
                 new KeyValuePair<string, string>("grant_type", "password")
             };
-            var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters, false).Stay();
+            var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters).Stay();
             var tokens = response["response"].ToObject<Tokens>();
             PixivClient.AccessToken = tokens.AccessToken;
             PixivClient.RefreshToken = tokens.RefreshToken;
@@ -68,7 +68,7 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("device_token", deviceToken),
                 new KeyValuePair<string, string>("grant_type", "refresh_token")
             };
-            var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters, false).Stay();
+            var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters).Stay();
             var tokens = response["response"].ToObject<Tokens>();
             PixivClient.AccessToken = tokens.AccessToken;
             PixivClient.RefreshToken = tokens.RefreshToken;

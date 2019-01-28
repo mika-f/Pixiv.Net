@@ -38,7 +38,7 @@ namespace Sagitta.Models
         {
             if (string.IsNullOrWhiteSpace(NextUrl))
                 throw new NotSupportedException("This object does not have URL for next page.");
-            return PixivClient.GetAsync<T>(NextUrl, PixivClient.EmptyParameter, false);
+            return PixivClient.GetAsync<T>(NextUrl, PixivClient.EmptyParameter);
         }
     }
 }

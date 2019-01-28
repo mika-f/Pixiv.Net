@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
@@ -11,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using Sagitta.Clients;
 using Sagitta.Exceptions;
 using Sagitta.Extensions;
+using Sagitta.Handlers;
 using Sagitta.Models;
 
 // ReSharper disable ClassNeverInstantiated.Global
@@ -45,13 +45,14 @@ namespace Sagitta
         /// </summary>
         /// <param name="clientId">Client ID (ライブラリには含まれまていません)</param>
         /// <param name="clientSecret">Client Secret (ライブラリには含まれていません)</param>
-        public PixivClient(string clientId, string clientSecret)
+        /// <param name="handler"></param>
+        public PixivClient(string clientId, string clientSecret, HttpMessageHandler handler = null)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
 
-            // 2018/03/30
-            _httpClient = new HttpClient();
+            // 2019/01/28
+            _httpClient = new HttpClient(handler ?? new OAuth2HttpClientHandler(this));
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
@@ -75,20 +76,16 @@ namespace Sagitta
             File = new FileClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters)
         {
-            var obj = (await GetAsync(url, parameters, requireAuth).Stay()).ToObject<T>();
+            var obj = (await GetAsync(url, parameters).Stay()).ToObject<T>();
             if (obj is ICursorable cursorable)
                 cursorable.PixivClient = this;
             return obj;
         }
 
-        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, string>> parameters)
         {
-            if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
-                throw new PixivException("No access token available. Need authentication first.");
-            if (requireAuth)
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
             if (parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
             var response = await _httpClient.GetAsync(url).Stay();
@@ -97,17 +94,13 @@ namespace Sagitta
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> parameters)
         {
-            return (await PostAsync(url, parameters, requireAuth).Stay()).ToObject<T>();
+            return (await PostAsync(url, parameters).Stay()).ToObject<T>();
         }
 
-        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, string>> parameters)
         {
-            if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
-                throw new PixivException("No access token available. Need authentication first.");
-            if (requireAuth)
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
             var content = new FormUrlEncodedContent(parameters);
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
