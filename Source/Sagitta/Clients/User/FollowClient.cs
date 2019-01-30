@@ -32,7 +32,7 @@ namespace Sagitta.Clients.User
                 new KeyValuePair<string, string>("restrict", restrict.ToParameter())
             };
 
-            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/follow/add", parameters);
+            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/follow/add", parameters).Stay();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Sagitta.Clients.User
 
             var parameters = new List<KeyValuePair<string, string>> {new KeyValuePair<string, string>("user_id", userId.ToString())};
 
-            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/follow/delete", parameters);
+            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/follow/delete", parameters).Stay();
         }
     }
 }

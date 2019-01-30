@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
+
 namespace Sagitta.Clients.User
 {
     /// <summary>
@@ -44,7 +46,7 @@ namespace Sagitta.Clients.User
                 new KeyValuePair<string, string>("pc", pc),
                 new KeyValuePair<string, string>("mouse", mouse)
             };
-            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/workspace/edit", parameters);
+            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/workspace/edit", parameters).Stay();
         }
     }
 }
