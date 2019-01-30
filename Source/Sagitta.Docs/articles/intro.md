@@ -7,7 +7,7 @@ API キーさえ用意すれば、簡単に pixiv の API を使うことが出�
 ## Getting Started
 
 [NuGet](https://nuget.org/packages/Sagitta) から、 Sagitta とその依存ライブラリをプロジェクトへ追加します。  
-追加方法については、(公式ドキュメント)[https://docs.microsoft.com/ja-jp/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli]を参照してください。
+追加方法については、[公式ドキュメント](https://docs.microsoft.com/ja-jp/nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli)を参照してください。
 
 プロジェクトへ追加したら、下記の `using` ステートメントを、 Sagitta を使用したいファイルの先頭へ追加します。
 
