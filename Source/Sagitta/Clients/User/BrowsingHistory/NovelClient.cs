@@ -26,7 +26,7 @@ namespace Sagitta.Clients.User.BrowsingHistory
             var parameters = new List<KeyValuePair<string, string>>();
             parameters.AddRange(parameters.Select(w => new KeyValuePair<string, string>("novel_ids[]", w.ToString())));
 
-            await PixivClient.PostAsync("https://app-api.pixiv.net/v2/user/browsing-history/Novel/add", parameters).Stay();
+            await PixivClient.PostAsync("https://app-api.pixiv.net/v2/user/browsing-history/novel/add", parameters).Stay();
         }
     }
 }
