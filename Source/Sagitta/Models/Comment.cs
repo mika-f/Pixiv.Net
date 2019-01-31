@@ -8,7 +8,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     コメント
     /// </summary>
-    public class Comment
+    public class Comment : ApiResponse
     {
         /// <summary>
         ///     ID
