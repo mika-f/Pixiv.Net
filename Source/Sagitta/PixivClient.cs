@@ -75,7 +75,7 @@ namespace Sagitta
             File = new FileClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters = null)
+        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, object>> parameters = null)
         {
             var obj = (await GetAsync(url, parameters).Stay()).ToObject<T>();
             if (obj is ICursorable cursorable)
@@ -83,27 +83,32 @@ namespace Sagitta
             return obj;
         }
 
-        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, string>> parameters = null)
+        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, object>> parameters = null)
         {
             if (parameters != null && parameters.Count > 0)
-                url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
+                url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
 
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> parameters)
+        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, object>> parameters)
         {
             return (await PostAsync(url, parameters).Stay()).ToObject<T>();
         }
 
-        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, string>> parameters)
+        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            var content = new FormUrlEncodedContent(parameters);
+            var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
+        }
+
+        private static string AsStringValue<T>(T w)
+        {
+            return w is bool ? w.ToString().ToLower() : w.ToString();
         }
 
         private static void HandleErrors(HttpResponseMessage response)
