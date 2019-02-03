@@ -3,50 +3,51 @@
 namespace Sagitta.Models
 {
     /// <summary>
-    ///     認証情報
+    ///     Authorized Information
     /// </summary>
+    // MARKED: 7.4.4
     public class Tokens : ApiResponse
     {
         /// <summary>
-        ///     アクセストークン
+        ///     Access Token
         /// </summary>
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }
 
         /// <summary>
-        ///     有効期間 (秒)
+        ///     Device Token
+        /// </summary>
+        [JsonProperty("device_token")]
+        public string DeviceToken { get; set; }
+
+        /// <summary>
+        ///     Expires in (seconds)
         /// </summary>
         [JsonProperty("expires_in")]
         public int ExpiresIn { get; set; }
 
         /// <summary>
-        ///     認証形式
-        /// </summary>
-        [JsonProperty("token_type")]
-        public string TokenType { get; set; }
-
-        /// <summary>
-        ///     スコープ
-        /// </summary>
-        [JsonProperty("scope")]
-        public string Scope { get; set; }
-
-        /// <summary>
-        ///     リフレッシュトークン
+        ///     Refresh Token
         /// </summary>
         [JsonProperty("refresh_token")]
         public string RefreshToken { get; set; }
 
         /// <summary>
-        ///     認証ユーザー情報
+        ///     Access Scope
         /// </summary>
-        [JsonProperty("user")]
-        public User User { get; set; }
+        [JsonProperty("scope")]
+        public string Scope { get; set; }
 
         /// <summary>
-        ///     デバイストークン
+        ///     OAuth2 token type
         /// </summary>
-        [JsonProperty("device_token")]
-        public string DeviceToken { get; set; }
+        [JsonProperty("token_type")]
+        public string TokenType { get; set; }
+
+        /// <summary>
+        ///     Authorized User
+        /// </summary>
+        [JsonProperty("user")]
+        public Me User { get; set; }
     }
 }

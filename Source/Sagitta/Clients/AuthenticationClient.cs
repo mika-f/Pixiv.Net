@@ -10,6 +10,7 @@ namespace Sagitta.Clients
     /// <summary>
     ///     認証関連 API
     /// </summary>
+    // MARKED: 7.4.4
     public class AuthenticationClient : ApiClient
     {
         /// <inheritdoc />
@@ -36,7 +37,8 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("client_secret", PixivClient.ClientSecret),
                 new KeyValuePair<string, string>("get_secure_url", "true"),
                 new KeyValuePair<string, string>("device_token", deviceToken),
-                new KeyValuePair<string, string>("grant_type", "password")
+                new KeyValuePair<string, string>("grant_type", "password"),
+                new KeyValuePair<string, string>("include_policy", "true")
             };
             var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters).Stay();
             var tokens = response["response"].ToObject<Tokens>();
@@ -66,7 +68,8 @@ namespace Sagitta.Clients
                 new KeyValuePair<string, string>("client_secret", PixivClient.ClientSecret),
                 new KeyValuePair<string, string>("get_secure_url", "true"),
                 new KeyValuePair<string, string>("device_token", deviceToken),
-                new KeyValuePair<string, string>("grant_type", "refresh_token")
+                new KeyValuePair<string, string>("grant_type", "refresh_token"),
+                new KeyValuePair<string, string>("include_policy", "true")
             };
             var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters).Stay();
             var tokens = response["response"].ToObject<Tokens>();
