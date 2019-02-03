@@ -27,12 +27,9 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustSeries>("https://app-api.pixiv.net/v1/illust-series/illust", parameters).Stay();
         }

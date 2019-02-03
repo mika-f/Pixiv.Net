@@ -32,15 +32,15 @@ namespace Sagitta.Clients.User
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameter = new List<KeyValuePair<string, string>>
+            var parameter = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("user_id", userId.ToString()),
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
+                new KeyValuePair<string, object>("user_id", userId),
+                new KeyValuePair<string, object>("restrict", restrict.ToParameter())
             };
             if (!string.IsNullOrWhiteSpace(tag))
-                parameter.Add(new KeyValuePair<string, string>("tag", tag));
+                parameter.Add(new KeyValuePair<string, object>("tag", tag));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameter.Add(new KeyValuePair<string, string>("filter", filter));
+                parameter.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/bookmarks/illust", parameter).Stay();
         }
@@ -60,13 +60,13 @@ namespace Sagitta.Clients.User
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameter = new List<KeyValuePair<string, string>>
+            var parameter = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("user_id", userId.ToString()),
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
+                new KeyValuePair<string, object>("user_id", userId),
+                new KeyValuePair<string, object>("restrict", restrict.ToParameter())
             };
             if (!string.IsNullOrWhiteSpace(tag))
-                parameter.Add(new KeyValuePair<string, string>("tag", tag));
+                parameter.Add(new KeyValuePair<string, object>("tag", tag));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/bookmarks/novel", parameter).Stay();
         }

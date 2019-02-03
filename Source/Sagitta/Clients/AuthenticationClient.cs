@@ -29,16 +29,16 @@ namespace Sagitta.Clients
             Ensure.NotNullOrWhitespace(username, nameof(username));
             Ensure.NotNullOrWhitespace(password, nameof(password));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("username", username),
-                new KeyValuePair<string, string>("password", password),
-                new KeyValuePair<string, string>("client_id", PixivClient.ClientId),
-                new KeyValuePair<string, string>("client_secret", PixivClient.ClientSecret),
-                new KeyValuePair<string, string>("get_secure_url", "true"),
-                new KeyValuePair<string, string>("device_token", deviceToken),
-                new KeyValuePair<string, string>("grant_type", "password"),
-                new KeyValuePair<string, string>("include_policy", "true")
+                new KeyValuePair<string, object>("username", username),
+                new KeyValuePair<string, object>("password", password),
+                new KeyValuePair<string, object>("client_id", PixivClient.ClientId),
+                new KeyValuePair<string, object>("client_secret", PixivClient.ClientSecret),
+                new KeyValuePair<string, object>("get_secure_url", true),
+                new KeyValuePair<string, object>("device_token", deviceToken),
+                new KeyValuePair<string, object>("grant_type", "password"),
+                new KeyValuePair<string, object>("include_policy", true)
             };
             var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters).Stay();
             var tokens = response["response"].ToObject<Tokens>();
@@ -61,15 +61,15 @@ namespace Sagitta.Clients
         {
             Ensure.NotNullOrWhitespace(refreshToken, nameof(refreshToken));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("refresh_token", refreshToken),
-                new KeyValuePair<string, string>("client_id", PixivClient.ClientId),
-                new KeyValuePair<string, string>("client_secret", PixivClient.ClientSecret),
-                new KeyValuePair<string, string>("get_secure_url", "true"),
-                new KeyValuePair<string, string>("device_token", deviceToken),
-                new KeyValuePair<string, string>("grant_type", "refresh_token"),
-                new KeyValuePair<string, string>("include_policy", "true")
+                new KeyValuePair<string, object>("refresh_token", refreshToken),
+                new KeyValuePair<string, object>("client_id", PixivClient.ClientId),
+                new KeyValuePair<string, object>("client_secret", PixivClient.ClientSecret),
+                new KeyValuePair<string, object>("get_secure_url", true),
+                new KeyValuePair<string, object>("device_token", deviceToken),
+                new KeyValuePair<string, object>("grant_type", "refresh_token"),
+                new KeyValuePair<string, object>("include_policy", true)
             };
             var response = await PixivClient.PostAsync("https://oauth.secure.pixiv.net/auth/token", parameters).Stay();
             var tokens = response["response"].ToObject<Tokens>();

@@ -73,12 +73,9 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("user_id", userId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<UserDetail>("https://app-api.pixiv.net/v1/user/detail", parameters).Stay();
         }
@@ -93,11 +90,11 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<UserPreviewCollection> RecommendedAsync(long offset = 0, string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/recommended", parameters).Stay();
         }
@@ -117,15 +114,15 @@ namespace Sagitta.Clients
             Ensure.GreaterThanZero(userId, nameof(userId));
             Ensure.InvalidEnumValue(type == IllustType.Ugoira, nameof(type));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("user_id", userId.ToString()),
-                new KeyValuePair<string, string>("type", type.ToParameter())
+                new KeyValuePair<string, object>("user_id", userId),
+                new KeyValuePair<string, object>("type", type.ToParameter())
             };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/illusts", parameters).Stay();
         }
@@ -142,12 +139,9 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("user_id", userId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/novels", parameters).Stay();
         }
@@ -167,15 +161,15 @@ namespace Sagitta.Clients
             Ensure.GreaterThanZero(userId, nameof(userId));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("user_id", userId.ToString()),
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
+                new KeyValuePair<string, object>("user_id", userId),
+                new KeyValuePair<string, object>("restrict", restrict.ToParameter())
             };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/following", parameters).Stay();
         }
@@ -193,14 +187,11 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("user_id", userId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/follower", parameters).Stay();
         }
@@ -218,14 +209,11 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("user_id", userId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/user/mypixiv", parameters).Stay();
         }

@@ -26,12 +26,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<LiveCollection> ListAsync(ListType type, long offset = 0)
         {
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("list_type", type.ToParameter())
-            };
+            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("list_type", type.ToParameter())};
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<LiveCollection>("https://app-api.pixiv.net/v1/live/list", parameters).Stay();
         }

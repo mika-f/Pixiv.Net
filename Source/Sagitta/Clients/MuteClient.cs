@@ -23,11 +23,7 @@ namespace Sagitta.Clients
         {
             Ensure.ArraySizeNotZero(tags, nameof(tags));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("delete_tags[]", string.Join(",", tags))
-            };
-
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("delete_tags[]", string.Join(",", tags)) };
             await PixivClient.PostAsync("https://app-api.pixiv.net/v1/mute/edit", parameters).Stay();
         }
 

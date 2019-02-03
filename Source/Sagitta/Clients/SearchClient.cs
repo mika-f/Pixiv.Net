@@ -36,10 +36,7 @@ namespace Sagitta.Clients
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("word", word)
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("word", word) };
 
             var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/search/autocomplete", parameters).Stay();
             return response["search_auto_complete_keywords"].ToObject<IEnumerable<string>>();
@@ -67,24 +64,24 @@ namespace Sagitta.Clients
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Text, nameof(searchTarget));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("word", word),
-                new KeyValuePair<string, string>("search_target", searchTarget.ToParameter()),
-                new KeyValuePair<string, string>("sort", sort.ToParameter())
+                new KeyValuePair<string, object>("word", word),
+                new KeyValuePair<string, object>("search_target", searchTarget.ToParameter()),
+                new KeyValuePair<string, object>("sort", sort.ToParameter())
             };
             if (!string.IsNullOrWhiteSpace(startDate))
-                parameters.Add(new KeyValuePair<string, string>("start_date", startDate));
+                parameters.Add(new KeyValuePair<string, object>("start_date", startDate));
             if (!string.IsNullOrWhiteSpace(endDate))
-                parameters.Add(new KeyValuePair<string, string>("end_date", endDate));
+                parameters.Add(new KeyValuePair<string, object>("end_date", endDate));
             if (bookmarkNumMin > 0)
-                parameters.Add(new KeyValuePair<string, string>("bookmark_num_min", bookmarkNumMin.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("bookmark_num_min", bookmarkNumMin));
             if (bookmarkNumMax > 0)
-                parameters.Add(new KeyValuePair<string, string>("bookmark_num_max", bookmarkNumMax.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("bookmark_num_max", bookmarkNumMax));
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/search/illust", parameters).Stay();
         }
@@ -109,20 +106,20 @@ namespace Sagitta.Clients
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Text, nameof(searchTarget));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("word", word),
-                new KeyValuePair<string, string>("search_target", searchTarget.ToParameter()),
-                new KeyValuePair<string, string>("sort", sort.ToParameter())
+                new KeyValuePair<string, object>("word", word),
+                new KeyValuePair<string, object>("search_target", searchTarget.ToParameter()),
+                new KeyValuePair<string, object>("sort", sort.ToParameter())
             };
             if (!string.IsNullOrWhiteSpace(startDate))
-                parameters.Add(new KeyValuePair<string, string>("start_date", startDate));
+                parameters.Add(new KeyValuePair<string, object>("start_date", startDate));
             if (!string.IsNullOrWhiteSpace(endDate))
-                parameters.Add(new KeyValuePair<string, string>("end_date", endDate));
+                parameters.Add(new KeyValuePair<string, object>("end_date", endDate));
             if (bookmarkNumMin > 0)
-                parameters.Add(new KeyValuePair<string, string>("bookmark_num_min", bookmarkNumMin.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("bookmark_num_min", bookmarkNumMin));
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/search/novel", parameters).Stay();
         }
@@ -140,14 +137,11 @@ namespace Sagitta.Clients
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("word", word)
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("word", word) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<UserPreviewCollection>("https://app-api.pixiv.net/v1/search/user", parameters).Stay();
         }
