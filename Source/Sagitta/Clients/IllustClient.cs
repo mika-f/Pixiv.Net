@@ -46,7 +46,7 @@ namespace Sagitta.Clients
 
             var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
             if (lastCommentId > 0)
-                parameters.Add(new KeyValuePair<string, object>("last_illust_id", lastCommentId));
+                parameters.Add(new KeyValuePair<string, object>("last_comment_id", lastCommentId));
 
             return await PixivClient.GetAsync<CommentCollection>("https://app-api.pixiv.net/v2/illust/comments", parameters).Stay();
         }
