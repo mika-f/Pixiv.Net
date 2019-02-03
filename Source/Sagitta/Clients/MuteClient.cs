@@ -39,7 +39,7 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<MuteList> ListAsync()
         {
-            return await PixivClient.GetAsync<MuteList>("https://app-api.pixiv.net/v1/mute/list", PixivClient.EmptyParameter).Stay();
+            return await PixivClient.GetAsync<MuteList>("https://app-api.pixiv.net/v1/mute/list").Stay();
         }
     }
 }

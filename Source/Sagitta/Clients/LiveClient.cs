@@ -47,7 +47,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(liveId, nameof(liveId));
 
-            return await PixivClient.GetAsync<LiveResponse<Live>>($"https://sketch.pixiv.net/api/lives/{liveId}", PixivClient.EmptyParameter).Stay();
+            return await PixivClient.GetAsync<LiveResponse<Live>>($"https://sketch.pixiv.net/api/lives/{liveId}").Stay();
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(liveId, nameof(liveId));
 
-            return await PixivClient.GetAsync<LiveResponse<LiveChat>>($"https://sketch.pixiv.net/api/lives/{liveId}/chat", PixivClient.EmptyParameter).Stay();
+            return await PixivClient.GetAsync<LiveResponse<LiveChat>>($"https://sketch.pixiv.net/api/lives/{liveId}/chat").Stay();
         }
     }
 }

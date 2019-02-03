@@ -8,6 +8,7 @@ namespace Sagitta.Clients
     /// <summary>
     ///     アプリケーション情報関連 API
     /// </summary>
+    // MARKED: 7.4.4
     public class ApplicationInfoClient : ApiClient
     {
         /// <inheritdoc />
@@ -20,7 +21,7 @@ namespace Sagitta.Clients
         /// <returns><see cref="ApplicationInfo" /> モデル</returns>
         public async Task<ApplicationInfo> iOSAsync()
         {
-            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/application-info/ios", PixivClient.EmptyParameter).Stay();
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/application-info/ios").Stay();
             return response["application-info"].ToObject<ApplicationInfo>();
         }
     }

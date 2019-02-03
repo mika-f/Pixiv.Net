@@ -28,7 +28,6 @@ namespace Sagitta
         internal static string OsVersion => "12.1.2";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
-        internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();
 
         /// <summary>
         ///     現在使用しているアクセストークン
@@ -76,7 +75,7 @@ namespace Sagitta
             File = new FileClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters)
+        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters = null)
         {
             var obj = (await GetAsync(url, parameters).Stay()).ToObject<T>();
             if (obj is ICursorable cursorable)
@@ -84,9 +83,9 @@ namespace Sagitta
             return obj;
         }
 
-        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, string>> parameters)
+        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, string>> parameters = null)
         {
-            if (parameters.Count > 0)
+            if (parameters != null && parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
