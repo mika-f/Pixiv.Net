@@ -73,7 +73,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("user_id", userId) };
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
@@ -139,7 +139,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("user_id", userId) };
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
@@ -187,7 +187,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("user_id", userId) };
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
@@ -209,7 +209,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, object>>{new KeyValuePair<string, object>("user_id", userId)};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("user_id", userId) };
             if (offset > 0)
                 parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
