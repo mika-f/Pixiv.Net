@@ -1,6 +1,6 @@
 # Sagitta
 
-Sagitta が、イラスト投稿サービス pixiv のクライアント API ラッパーライブラリーです。  
+Sagitta は、イラスト投稿サービス pixiv のクライアント API ラッパーライブラリです。  
 API キーさえ用意すれば、簡単に pixiv の API を使うことが出来ます。
 
 
