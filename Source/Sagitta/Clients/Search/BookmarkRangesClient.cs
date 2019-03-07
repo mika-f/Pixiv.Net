@@ -29,8 +29,7 @@ namespace Sagitta.Clients.Search
         /// <returns>
         ///     <see cref="IEnumerable{BookmarkRange}" />
         /// </returns>
-        public async Task<IEnumerable<BookmarkRange>> IllustAsync(string word, SortOrder sort, SearchTarget searchTarget, string bookmarkMinNum = "",
-                                                                  string startDate = "", string endDate = "", string filter = "")
+        public async Task<IEnumerable<BookmarkRange>> IllustAsync(string word, SortOrder sort, SearchTarget searchTarget, string bookmarkMinNum = "", string startDate = "", string endDate = "", string filter = "")
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
@@ -68,8 +67,7 @@ namespace Sagitta.Clients.Search
         /// <returns>
         ///     <see cref="IEnumerable{BookmarkRange}" />
         /// </returns>
-        public async Task<IEnumerable<BookmarkRange>> NovelAsync(string word, SortOrder sort, SearchTarget searchTarget, string bookmarkMinNum = "",
-                                                                 string startDate = "", string endDate = "", string filter = "")
+        public async Task<IEnumerable<BookmarkRange>> NovelAsync(string word, SortOrder sort, SearchTarget searchTarget, string bookmarkMinNum = "", string startDate = "", string endDate = "", string filter = "")
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
 

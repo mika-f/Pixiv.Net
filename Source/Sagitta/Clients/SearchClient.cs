@@ -57,8 +57,7 @@ namespace Sagitta.Clients
         /// <returns>
         ///     <see cref="IllustCollection" />
         /// </returns>
-        public async Task<IllustCollection> IllustAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "",
-                                                        int bookmarkNumMin = 0, int bookmarkNumMax = 0, long offset = 0, string filter = "")
+        public async Task<IllustCollection> IllustAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "", int bookmarkNumMin = 0, int bookmarkNumMax = 0, long offset = 0, string filter = "")
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));
@@ -99,8 +98,7 @@ namespace Sagitta.Clients
         /// <returns>
         ///     <see cref="NovelCollection" />
         /// </returns>
-        public async Task<NovelCollection> NovelAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "",
-                                                      int bookmarkNumMin = 0, long offset = 0)
+        public async Task<NovelCollection> NovelAsync(string word, SearchTarget searchTarget, SortOrder sort, string startDate = "", string endDate = "", int bookmarkNumMin = 0, long offset = 0)
         {
             Ensure.NotNullOrWhitespace(word, nameof(word));
             Ensure.InvalidEnumValue(searchTarget == SearchTarget.Keyword, nameof(searchTarget));

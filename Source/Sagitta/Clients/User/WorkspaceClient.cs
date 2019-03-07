@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Sagitta.Extensions;
+
 namespace Sagitta.Clients.User
 {
     /// <summary>
@@ -26,8 +28,7 @@ namespace Sagitta.Clients.User
         /// <param name="comment">その他</param>
         /// <param name="pc">コンピュータ</param>
         /// <param name="mouse">マウス</param>
-        public async Task EditAsync(string printer = "", string desk = "", string scanner = "", string monitor = "", string tool = "", string desktop = "",
-                                    string tablet = "", string music = "", string chair = "", string comment = "", string pc = "", string mouse = "")
+        public async Task EditAsync(string printer = "", string desk = "", string scanner = "", string monitor = "", string tool = "", string desktop = "", string tablet = "", string music = "", string chair = "", string comment = "", string pc = "", string mouse = "")
         {
             var parameters = new List<KeyValuePair<string, object>>
             {
@@ -44,7 +45,7 @@ namespace Sagitta.Clients.User
                 new KeyValuePair<string, object>("pc", pc),
                 new KeyValuePair<string, object>("mouse", mouse)
             };
-            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/workspace/edit", parameters);
+            await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/workspace/edit", parameters).Stay();
         }
     }
 }
