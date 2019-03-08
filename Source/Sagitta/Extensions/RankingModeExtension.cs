@@ -24,7 +24,7 @@ namespace Sagitta.Extensions
                     return "day";
 
                 case RankingMode.DailyMale:
-                    return "day_make";
+                    return "day_male";
 
                 case RankingMode.DailyFemale:
                     return "day_female";
