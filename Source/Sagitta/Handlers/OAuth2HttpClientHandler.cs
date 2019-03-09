@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,13 +11,13 @@ namespace Sagitta.Handlers
 
         public OAuth2HttpClientHandler(PixivClient client)
         {
-            this._client = client;
+            _client = client;
         }
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            if(!string.IsNullOrWhiteSpace(this._client.AccessToken))
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", this._client.AccessToken);
+            if (!string.IsNullOrWhiteSpace(_client.AccessToken))
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _client.AccessToken);
             return base.SendAsync(request, cancellationToken);
         }
     }
