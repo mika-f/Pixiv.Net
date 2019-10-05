@@ -260,5 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 
+# Generated
 log.txt
-docs
+docs/

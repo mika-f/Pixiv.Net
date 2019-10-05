@@ -1,7 +1,13 @@
 # Sagitta
 
-[![License](https://img.shields.io/github/license/mika-f/Sagitta.svg?style=flat-square)](LICENSE)
-[![Sagitta](https://img.shields.io/nuget/v/Sagitta.svg?style=flat-square)](https://nuget.org/packages/Sagitta)
+pixiv API wrapper for .NET Standard.  
+
+
+## NOTES FOR SAGITTA USERS
+
+This project has been renamed from Sagitta to Pixiv.Net.  
+As a result, .NET namespaces have changed.  
+See [docs/MIGRATION.md](docs/MIGRATION.md) for more information about migrate to Pixiv.Net (Sagitta) 7.7.
 
 
 pixiv API wrapper for .NET Standard 2.0.  
@@ -23,12 +29,6 @@ For example, Sagitta `7.1.8.x` is equals to pixiv for iOS `7.1.8`.
 
 
 ## Donation
-
-If this project help you reduce time to develop, you can give me a lunch.
-
-<a href="https://www.patreon.com/mikazuki">
-  <img src="https://static.mochizuki.moe/become_a_patron_button@2x.png" width="160px">
-</a>
 
 Ethereum: `0xC925668E7431d4635Dc9670C934A19c2206b2819`  
 Monacoin: `MC4x87u1ffmhsRhHof1sHz8UAtNtKCTQut`
