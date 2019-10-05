@@ -44,12 +44,9 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
             if (lastCommentId > 0)
-                parameters.Add(new KeyValuePair<string, string>("last_illust_id", lastCommentId.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("last_comment_id", lastCommentId));
 
             return await PixivClient.GetAsync<CommentCollection>("https://app-api.pixiv.net/v2/illust/comments", parameters).Stay();
         }
@@ -65,10 +62,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
 
             var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/illust/detail", parameters).Stay();
             return response["illust"].ToObject<Models.Illust>();
@@ -86,12 +80,9 @@ namespace Sagitta.Clients
         {
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("restrict", restrict.ToParameter()) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v2/illust/follow", parameters).Stay();
         }
@@ -105,9 +96,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<IllustCollection> MypixivAsync(long offset = 0)
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v2/illust/mypixiv", parameters).Stay();
         }
@@ -125,14 +116,11 @@ namespace Sagitta.Clients
         {
             Ensure.InvalidEnumValue(contentType == IllustType.Ugoira, nameof(contentType));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("content_type", contentType.ToParameter())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("content_type", contentType.ToParameter()) };
             if (maxIllustId > 0)
-                parameters.Add(new KeyValuePair<string, string>("max_illust_id", maxIllustId.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("max_illust_id", maxIllustId));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/illust/new", parameters).Stay();
         }
@@ -149,16 +137,13 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<IllustCollection> RankingAsync(RankingMode mode, string date = "", long offset = 0, string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("mode", mode.ToParameter())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("mode", mode.ToParameter()) };
             if (!string.IsNullOrWhiteSpace(date))
-                parameters.Add(new KeyValuePair<string, string>("date", date));
+                parameters.Add(new KeyValuePair<string, object>("date", date));
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/illust/ranking", parameters).Stay();
         }
@@ -174,20 +159,19 @@ namespace Sagitta.Clients
         /// <returns>
         ///     <see cref="IllustCollection" />
         /// </returns>
-        public async Task<IllustCollection> RecommendedAsync(bool includeRankingIllusts = false, long minBookmarkIdForRecentIllust = 0,
-                                                             long maxBookmarkIdForRecommend = 0, long offset = 0, string filter = "")
+        public async Task<IllustCollection> RecommendedAsync(bool includeRankingIllusts = false, long minBookmarkIdForRecentIllust = 0, long maxBookmarkIdForRecommend = 0, long offset = 0, string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (includeRankingIllusts)
-                parameters.Add(new KeyValuePair<string, string>("include_ranking_illusts", "true"));
+                parameters.Add(new KeyValuePair<string, object>("include_ranking_illusts", true));
             if (minBookmarkIdForRecentIllust > 0)
-                parameters.Add(new KeyValuePair<string, string>("min_bookmark_id_for_recent_illusts", minBookmarkIdForRecentIllust.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("min_bookmark_id_for_recent_illusts", minBookmarkIdForRecentIllust));
             if (maxBookmarkIdForRecommend > 0)
-                parameters.Add(new KeyValuePair<string, string>("max_bookmark_id_for_recent_illust", maxBookmarkIdForRecommend.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("max_bookmark_id_for_recent_illust", maxBookmarkIdForRecommend));
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/illust/recommended", parameters).Stay();
         }
@@ -205,14 +189,11 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
             if (seedIllustIds?.Length > 0)
-                parameters.AddRange(seedIllustIds.Select(seedIllustId => new KeyValuePair<string, string>("seed_illust_ids[]", seedIllustId.ToString())));
+                parameters.AddRange(seedIllustIds.Select(seedIllustId => new KeyValuePair<string, object>("seed_illust_ids[]", seedIllustId)));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/illust/related", parameters).Stay();
         }
@@ -230,14 +211,11 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(illustSeriesId, nameof(illustSeriesId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_series_id", illustSeriesId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_series_id", illustSeriesId) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<IllustSeriesCollection>("https://app-api.pixiv.net/v1/illust/series", parameters).Stay();
         }

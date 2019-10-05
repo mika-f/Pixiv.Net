@@ -21,7 +21,7 @@ namespace Sagitta.Clients.User
         /// </returns>
         public async Task<UserState> StateAsync()
         {
-            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/user/me/state", PixivClient.EmptyParameter).Stay();
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/user/me/state").Stay();
             return response["user_state"].ToObject<UserState>();
         }
     }

@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     アイコンセット
     /// </summary>
-    public class LiveIconSet
+    public class LiveIconSet : ApiResponse
     {
         // これらは本当に使われているのか教えて欲しい
 

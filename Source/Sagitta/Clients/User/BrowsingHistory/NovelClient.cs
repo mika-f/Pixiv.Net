@@ -23,10 +23,10 @@ namespace Sagitta.Clients.User.BrowsingHistory
         {
             Ensure.ArraySizeNotZero(novelIds, nameof(novelIds));
 
-            var parameters = new List<KeyValuePair<string, string>>();
-            parameters.AddRange(parameters.Select(w => new KeyValuePair<string, string>("novel_ids[]", w.ToString())));
+            var parameters = new List<KeyValuePair<string, object>>();
+            parameters.AddRange(parameters.Select(w => new KeyValuePair<string, object>("novel_ids[]", w)));
 
-            await PixivClient.PostAsync("https://app-api.pixiv.net/v2/user/browsing-history/Novel/add", parameters).Stay();
+            await PixivClient.PostAsync("https://app-api.pixiv.net/v2/user/browsing-history/novel/add", parameters).Stay();
         }
     }
 }

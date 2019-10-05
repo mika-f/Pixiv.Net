@@ -19,7 +19,7 @@ namespace Sagitta.Clients
         /// <returns></returns>
         public async Task<NotificationSettings> SettingsAsync()
         {
-            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/notification/settings", PixivClient.EmptyParameter).Stay();
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/notification/settings").Stay();
             return response["notification_settings"].ToObject<NotificationSettings>();
         }
     }

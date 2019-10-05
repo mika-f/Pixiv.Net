@@ -9,7 +9,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     投稿作品のベースクラス
     /// </summary>
-    public class Work
+    public class Work : ApiResponse
     {
         /// <summary>
         ///     ID

@@ -21,7 +21,7 @@ namespace Sagitta.Clients
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", PixivClient.OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", PixivClient.AppVersion);
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{PixivClient.AppVersion} (iOS {PixivClient.OsVersion}; iPhone7,2)");
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{PixivClient.AppVersion} (iOS {PixivClient.OsVersion}; iPhone11,2)");
             _httpClient.DefaultRequestHeaders.Referrer = new Uri("https://app-api.pixiv.net/");
         }
 

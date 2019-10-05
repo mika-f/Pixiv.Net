@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     タグモデル
     /// </summary>
-    public class Tag
+    public class Tag : ApiResponse
     {
         /// <summary>
         ///     名前

@@ -26,10 +26,10 @@ namespace Sagitta.Clients.User
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("user_id", userId.ToString()),
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
+                new KeyValuePair<string, object>("user_id", userId),
+                new KeyValuePair<string, object>("restrict", restrict.ToParameter())
             };
 
             await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/follow/add", parameters).Stay();
@@ -43,7 +43,7 @@ namespace Sagitta.Clients.User
         {
             Ensure.GreaterThanZero(userId, nameof(userId));
 
-            var parameters = new List<KeyValuePair<string, string>> {new KeyValuePair<string, string>("user_id", userId.ToString())};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("user_id", userId) };
 
             await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/follow/delete", parameters).Stay();
         }

@@ -28,23 +28,22 @@ namespace Sagitta.Clients.User
         /// <param name="comment">その他</param>
         /// <param name="pc">コンピュータ</param>
         /// <param name="mouse">マウス</param>
-        public async Task EditAsync(string printer = "", string desk = "", string scanner = "", string monitor = "", string tool = "", string desktop = "",
-                                    string tablet = "", string music = "", string chair = "", string comment = "", string pc = "", string mouse = "")
+        public async Task EditAsync(string printer = "", string desk = "", string scanner = "", string monitor = "", string tool = "", string desktop = "", string tablet = "", string music = "", string chair = "", string comment = "", string pc = "", string mouse = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("printer", printer),
-                new KeyValuePair<string, string>("desk", desk),
-                new KeyValuePair<string, string>("scanner", scanner),
-                new KeyValuePair<string, string>("monitor", monitor),
-                new KeyValuePair<string, string>("tool", tool),
-                new KeyValuePair<string, string>("desktop", desktop),
-                new KeyValuePair<string, string>("tablet", tablet),
-                new KeyValuePair<string, string>("music", music),
-                new KeyValuePair<string, string>("chair", chair),
-                new KeyValuePair<string, string>("comment", comment),
-                new KeyValuePair<string, string>("pc", pc),
-                new KeyValuePair<string, string>("mouse", mouse)
+                new KeyValuePair<string, object>("printer", printer),
+                new KeyValuePair<string, object>("desk", desk),
+                new KeyValuePair<string, object>("scanner", scanner),
+                new KeyValuePair<string, object>("monitor", monitor),
+                new KeyValuePair<string, object>("tool", tool),
+                new KeyValuePair<string, object>("desktop", desktop),
+                new KeyValuePair<string, object>("tablet", tablet),
+                new KeyValuePair<string, object>("music", music),
+                new KeyValuePair<string, object>("chair", chair),
+                new KeyValuePair<string, object>("comment", comment),
+                new KeyValuePair<string, object>("pc", pc),
+                new KeyValuePair<string, object>("mouse", mouse)
             };
             await PixivClient.PostAsync("https://app-api.pixiv.net/v1/user/workspace/edit", parameters).Stay();
         }

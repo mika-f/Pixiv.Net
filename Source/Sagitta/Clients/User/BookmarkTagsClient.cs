@@ -30,7 +30,7 @@ namespace Sagitta.Clients.User
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>> {new KeyValuePair<string, string>("restrict", restrict.ToParameter())};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("restrict", restrict.ToParameter()) };
             return await PixivClient.GetAsync<BookmarkTagCollection>("https://app-api.pixiv.net/v1/user/bookmark-tags/illust", parameters).Stay();
         }
 
@@ -48,7 +48,7 @@ namespace Sagitta.Clients.User
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>> {new KeyValuePair<string, string>("restrict", restrict.ToParameter())};
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("restrict", restrict.ToParameter()) };
             return await PixivClient.GetAsync<BookmarkTagCollection>("https://app-api.pixiv.net/v1/user/bookmark-tags/novel", parameters).Stay();
         }
     }

@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     マーキングした小説
     /// </summary>
-    public class MarkedNovel
+    public class MarkedNovel : ApiResponse
     {
         /// <summary>
         ///     小説

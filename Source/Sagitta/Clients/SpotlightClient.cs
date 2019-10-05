@@ -25,14 +25,11 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<SpotlightArticleCollection> ArticlesAsync(string category = "all", long offset = 0, string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("category", category)
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("category", category) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             return await PixivClient.GetAsync<SpotlightArticleCollection>("https://app-api.pixiv.net/v1/spotlight/article", parameters).Stay();
         }

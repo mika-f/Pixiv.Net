@@ -35,7 +35,7 @@ namespace Sagitta.Clients.User
         /// </returns>
         public async Task<IllustCollection> IllustsAsync()
         {
-            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/browsing-history/illusts", PixivClient.EmptyParameter).Stay();
+            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/user/browsing-history/illusts").Stay();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Sagitta.Clients.User
         /// </returns>
         public async Task<NovelCollection> NovelsAsync()
         {
-            return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/browsing-history/novels", PixivClient.EmptyParameter).Stay();
+            return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/user/browsing-history/novels").Stay();
         }
     }
 }

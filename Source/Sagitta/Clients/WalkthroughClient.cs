@@ -21,7 +21,7 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<IllustCollection> IllustsAsync()
         {
-            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/walkthrough/illusts", PixivClient.EmptyParameter, false).Stay();
+            return await PixivClient.GetAsync<IllustCollection>("https://app-api.pixiv.net/v1/walkthrough/illusts").Stay();
         }
     }
 }

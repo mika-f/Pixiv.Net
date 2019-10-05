@@ -28,12 +28,9 @@ namespace Sagitta.Clients
         {
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("restrict", restrict.ToParameter()) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/novel/follow", parameters).Stay();
         }
@@ -47,9 +44,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<MarkerCollection> MarkersAsync(long offset = 0)
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<MarkerCollection>("https://app-api.pixiv.net/v2/novel/markers", parameters).Stay();
         }
@@ -63,9 +60,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<NovelCollection> MypixivAsync(long offset = 0)
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/novel/mypixiv", parameters).Stay();
         }
@@ -79,9 +76,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<NovelCollection> NewAsync(long maxNovelId = 0)
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (maxNovelId > 0)
-                parameters.Add(new KeyValuePair<string, string>("max_novel_id", maxNovelId.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("max_novel_id", maxNovelId));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/novel/new", parameters).Stay();
         }
@@ -97,13 +94,13 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<NovelCollection> RecommendedAsync(bool includeRankingNovels = false, long maxBookmarkIdForRecommend = 0, long offset = 0)
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (includeRankingNovels)
-                parameters.Add(new KeyValuePair<string, string>("include_ranking_novels", "true"));
+                parameters.Add(new KeyValuePair<string, object>("include_ranking_novels", true));
             if (maxBookmarkIdForRecommend > 0)
-                parameters.Add(new KeyValuePair<string, string>("max_bookmark_id_for_recommend", maxBookmarkIdForRecommend.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("max_bookmark_id_for_recommend", maxBookmarkIdForRecommend));
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/novel/recommend", parameters).Stay();
         }
@@ -125,14 +122,11 @@ namespace Sagitta.Clients
             Ensure.InvalidEnumValue(mode == RankingMode.Monthly, nameof(mode));
             Ensure.InvalidEnumValue(mode == RankingMode.MonthlyManga, nameof(mode));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("mode", mode.ToParameter())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("mode", mode.ToParameter()) };
             if (!string.IsNullOrWhiteSpace(date))
-                parameters.Add(new KeyValuePair<string, string>("date", date));
+                parameters.Add(new KeyValuePair<string, object>("date", date));
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<NovelCollection>("https://app-api.pixiv.net/v1/novel/ranking", parameters).Stay();
         }
@@ -148,10 +142,7 @@ namespace Sagitta.Clients
         {
             Ensure.GreaterThanZero(novelId, nameof(novelId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("novel_id", novelId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("novel_id", novelId) };
 
             return await PixivClient.GetAsync<NovelText>("https://app-api.pixiv.net/v1/novel/text", parameters).Stay();
         }

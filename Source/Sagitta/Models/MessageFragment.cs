@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     配信チャットにたいする属性
     /// </summary>
-    public class MessageFragment
+    public class MessageFragment : ApiResponse
     {
         /// <summary>
         ///     チャットタイプ

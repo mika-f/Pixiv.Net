@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     ブックマークタグ
     /// </summary>
-    public class BookmarkTag
+    public class BookmarkTag : ApiResponse
     {
         /// <summary>
         ///     タグ名

@@ -22,7 +22,7 @@ namespace Sagitta.Clients.User
         /// </returns>
         public async Task<ProfilePresets> PresetsAsync()
         {
-            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/user/profile/presets", PixivClient.EmptyParameter).Stay();
+            var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/user/profile/presets").Stay();
             return response["profile_presets"].ToObject<ProfilePresets>();
         }
 

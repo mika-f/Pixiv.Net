@@ -23,9 +23,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<IEnumerable<TrendingTag>> IllustAsync(string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/trending-tags/illust", parameters).Stay();
             return response["trending_tags"].ToObject<IEnumerable<TrendingTag>>();
@@ -40,9 +40,9 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<IEnumerable<TrendingTag>> NovelAsync(string filter = "")
         {
-            var parameters = new List<KeyValuePair<string, string>>();
+            var parameters = new List<KeyValuePair<string, object>>();
             if (!string.IsNullOrWhiteSpace(filter))
-                parameters.Add(new KeyValuePair<string, string>("filter", filter));
+                parameters.Add(new KeyValuePair<string, object>("filter", filter));
 
             var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v1/trending-tags/novel", parameters).Stay();
             return response["trending_tags"].ToObject<IEnumerable<TrendingTag>>();

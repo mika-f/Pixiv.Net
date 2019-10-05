@@ -5,15 +5,13 @@ namespace Sagitta.Models
     /// <summary>
     ///     作業環境
     /// </summary>
-    public class Workspace
-
+    public class Workspace : ApiResponse
     {
         /// <summary>
         ///     コンピュータ
         /// </summary>
         [JsonProperty("pc")]
-        // ReSharper disable once InconsistentNaming
-        public string PC { get; set; }
+        public string Pc { get; set; }
 
         /// <summary>
         ///     モニター

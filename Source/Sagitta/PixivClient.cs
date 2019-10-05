@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
@@ -11,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using Sagitta.Clients;
 using Sagitta.Exceptions;
 using Sagitta.Extensions;
+using Sagitta.Handlers;
 using Sagitta.Models;
 
 // ReSharper disable ClassNeverInstantiated.Global
@@ -24,11 +24,10 @@ namespace Sagitta
     public class PixivClient
     {
         private readonly HttpClient _httpClient;
-        internal static string AppVersion => "7.1.19";
-        internal static string OsVersion => "11.4.1";
+        internal static string AppVersion => "7.4.4";
+        internal static string OsVersion => "12.1.2";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
-        internal static List<KeyValuePair<string, string>> EmptyParameter => new List<KeyValuePair<string, string>>();
 
         /// <summary>
         ///     現在使用しているアクセストークン
@@ -45,19 +44,20 @@ namespace Sagitta
         /// </summary>
         /// <param name="clientId">Client ID (ライブラリには含まれまていません)</param>
         /// <param name="clientSecret">Client Secret (ライブラリには含まれていません)</param>
-        public PixivClient(string clientId, string clientSecret)
+        /// <param name="handler"></param>
+        public PixivClient(string clientId, string clientSecret, HttpMessageHandler handler = null)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
 
-            // 2018/03/30
-            _httpClient = new HttpClient();
+            // 2019/01/28
+            _httpClient = new HttpClient(handler ?? new OAuth2HttpClientHandler(this));
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone9,2)");
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
-            // Initialize accesors
+            // Initialize accessors
             Application = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
             Illust = new IllustClient(this);
@@ -75,43 +75,40 @@ namespace Sagitta
             File = new FileClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, object>> parameters = null)
         {
-            var obj = (await GetAsync(url, parameters, requireAuth).Stay()).ToObject<T>();
-            if (obj is ICursorable)
-                (obj as ICursorable).PixivClient = this;
+            var obj = (await GetAsync(url, parameters).Stay()).ToObject<T>();
+            if (obj is ICursorable cursorable)
+                cursorable.PixivClient = this;
             return obj;
         }
 
-        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, object>> parameters = null)
         {
-            if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
-                throw new PixivException("No access token available. Need authentication first.");
-            if (requireAuth)
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-            if (parameters.Any())
-                url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(w.Value)}"));
+            if (parameters != null && parameters.Count > 0)
+                url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
 
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<T> PostAsync<T>(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            return (await PostAsync(url, parameters, requireAuth).Stay()).ToObject<T>();
+            return (await PostAsync(url, parameters).Stay()).ToObject<T>();
         }
 
-        internal async Task<JObject> PostAsync(string url, List<KeyValuePair<string, string>> parameters, bool requireAuth = true)
+        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            if (requireAuth && string.IsNullOrWhiteSpace(AccessToken))
-                throw new PixivException("No access token available. Need authentication first.");
-            if (requireAuth)
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-            var content = new FormUrlEncodedContent(parameters);
+            var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
+        }
+
+        private static string AsStringValue<T>(T w)
+        {
+            return w is bool ? w.ToString().ToLower() : w.ToString();
         }
 
         private static void HandleErrors(HttpResponseMessage response)
@@ -125,8 +122,11 @@ namespace Sagitta
 
                 case HttpStatusCode.BadRequest:
                     throw new BadRequestException(response);
+
+                default:
+                    response.EnsureSuccessStatusCode();
+                    break;
             }
-            response.EnsureSuccessStatusCode();
         }
 
         #region API Accessors

@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     サイズ別画像 URL モデル
     /// </summary>
-    public class ImageUrls
+    public class ImageUrls : ApiResponse
     {
         /// <summary>
         ///     正方形かつ、中くらいなサイズ (370x370) に加工された画像の URL

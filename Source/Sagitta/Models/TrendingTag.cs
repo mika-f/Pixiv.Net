@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     トレンドタグ
     /// </summary>
-    public class TrendingTag
+    public class TrendingTag : ApiResponse
     {
         /// <summary>
         ///     タグ名

@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     イラストシリーズ
     /// </summary>
-    public class IllustSeries
+    public class IllustSeries : ApiResponse
     {
         /// <summary>
         ///     シリーズ詳細

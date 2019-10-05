@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     ページ毎の画像 URL モデル
     /// </summary>
-    public class MetaSinglePage
+    public class MetaSinglePage : ApiResponse
     {
         /// <summary>
         ///     オリジナルサイズ画像 URL

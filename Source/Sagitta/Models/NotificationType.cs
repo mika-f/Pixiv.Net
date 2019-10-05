@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     通知タイプ
     /// </summary>
-    public class NotificationType
+    public class NotificationType : ApiResponse
     {
         /// <summary>
         ///     ID

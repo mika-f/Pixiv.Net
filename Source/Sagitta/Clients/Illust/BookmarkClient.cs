@@ -25,13 +25,13 @@ namespace Sagitta.Clients.Illust
             Ensure.InvalidEnumValue(restrict == Restrict.All, nameof(restrict));
             Ensure.InvalidEnumValue(restrict == Restrict.Mypixiv, nameof(restrict));
 
-            var parameters = new List<KeyValuePair<string, string>>
+            var parameters = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString()),
-                new KeyValuePair<string, string>("restrict", restrict.ToParameter())
+                new KeyValuePair<string, object>("illust_id", illustId),
+                new KeyValuePair<string, object>("restrict", restrict.ToParameter())
             };
             if (tags?.Length > 0)
-                parameters.Add(new KeyValuePair<string, string>("tags[]", string.Join(",", tags)));
+                parameters.Add(new KeyValuePair<string, object>("tags[]", string.Join(",", tags)));
 
             await PixivClient.PostAsync("https://app-api.pixiv.net/v2/illust/bookmark/add", parameters).Stay();
         }
@@ -47,10 +47,7 @@ namespace Sagitta.Clients.Illust
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
 
             var response = await PixivClient.GetAsync("https://app-api.pixiv.net/v2/illust/bookmark/detail", parameters).Stay();
             return response["bookmark_detail"].ToObject<BookmarkDetail>();
@@ -68,12 +65,9 @@ namespace Sagitta.Clients.Illust
         {
             Ensure.GreaterThanZero(illustId, nameof(illustId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("illust_id", illustId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("illust_id", illustId) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<UserCollection>("https://app-api.pixiv.net/v1/illust/bookmark/users", parameters).Stay();
         }

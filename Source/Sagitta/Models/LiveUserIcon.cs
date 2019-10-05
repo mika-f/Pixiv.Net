@@ -5,7 +5,7 @@ namespace Sagitta.Models
     /// <summary>
     ///     TODO
     /// </summary>
-    public class LiveUserIcon
+    public class LiveUserIcon : ApiResponse
     {
         /// <summary>
         ///     アイコン ID

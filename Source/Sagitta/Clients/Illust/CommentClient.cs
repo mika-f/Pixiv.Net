@@ -27,12 +27,9 @@ namespace Sagitta.Clients.Illust
         {
             Ensure.GreaterThanZero(commentId, nameof(commentId));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("comment_id", commentId.ToString())
-            };
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("comment_id", commentId) };
             if (offset > 0)
-                parameters.Add(new KeyValuePair<string, string>("offset", offset.ToString()));
+                parameters.Add(new KeyValuePair<string, object>("offset", offset));
 
             return await PixivClient.GetAsync<CommentCollection>("https://app-api.pixiv.net/v1/illust/comment/replies", parameters).Stay();
         }

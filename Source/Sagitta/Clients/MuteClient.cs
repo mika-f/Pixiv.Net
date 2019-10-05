@@ -23,11 +23,7 @@ namespace Sagitta.Clients
         {
             Ensure.ArraySizeNotZero(tags, nameof(tags));
 
-            var parameters = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("delete_tags[]", string.Join(",", tags))
-            };
-
+            var parameters = new List<KeyValuePair<string, object>> { new KeyValuePair<string, object>("delete_tags[]", string.Join(",", tags)) };
             await PixivClient.PostAsync("https://app-api.pixiv.net/v1/mute/edit", parameters).Stay();
         }
 
@@ -39,7 +35,7 @@ namespace Sagitta.Clients
         /// </returns>
         public async Task<MuteList> ListAsync()
         {
-            return await PixivClient.GetAsync<MuteList>("https://app-api.pixiv.net/v1/mute/list", PixivClient.EmptyParameter).Stay();
+            return await PixivClient.GetAsync<MuteList>("https://app-api.pixiv.net/v1/mute/list").Stay();
         }
     }
 }
