@@ -1,8 +1,15 @@
 # Sagitta
 ![license](https://img.shields.io/github/license/mika-f/Sagitta.svg?style=flat-square)
 
+pixiv API wrapper for .NET Standard.  
 
-pixiv API wrapper for .NET.  
+
+## NOTES FOR SAGITTA USERS
+
+This project has been renamed from Sagitta to Pixiv.Net.  
+As a result, .NET namespaces have changed.
+See [docs/MIGRATION.md](docs/MIGRATION.md) for more information about migrate to Pixiv.Net (Sagitta) 7.7.
+
 
 ## Documents
 
