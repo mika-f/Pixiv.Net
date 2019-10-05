@@ -3,10 +3,10 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-using Sagitta.Converters;
-using Sagitta.Enum;
+using Pixiv.Converters;
+using Pixiv.Enum;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     /// <summary>
     ///     プロフィール

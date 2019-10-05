@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Enum;
-using Sagitta.Extensions;
-using Sagitta.Helpers;
-using Sagitta.Models;
+using Pixiv.Enum;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
+using Pixiv.Models;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     生放送関連 API

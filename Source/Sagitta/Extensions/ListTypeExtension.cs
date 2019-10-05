@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Sagitta.Enum;
+using Pixiv.Enum;
 
-namespace Sagitta.Extensions
+namespace Pixiv.Extensions
 {
     /// <summary>
     ///     <see cref="ListType" /> 拡張

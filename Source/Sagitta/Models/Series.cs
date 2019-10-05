@@ -3,7 +3,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     /// <summary>
     ///     シリーズ

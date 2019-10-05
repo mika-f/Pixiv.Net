@@ -2,7 +2,7 @@
 
 using Newtonsoft.Json;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     /// <summary>
     ///     ページング可能な Pixivision (旧 pixiv Spotlight) の記事リスト

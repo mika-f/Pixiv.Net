@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Clients.User;
-using Sagitta.Enum;
-using Sagitta.Extensions;
-using Sagitta.Helpers;
-using Sagitta.Models;
+using Pixiv.Clients.User;
+using Pixiv.Enum;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
+using Pixiv.Models;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     ユーザー関連 API

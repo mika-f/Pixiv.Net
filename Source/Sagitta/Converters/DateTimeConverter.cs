@@ -3,7 +3,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Sagitta.Converters
+namespace Pixiv.Converters
 {
     internal class DateTimeConverter : DateTimeConverterBase
     {

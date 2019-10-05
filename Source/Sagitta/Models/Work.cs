@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     /// <summary>
     ///     投稿作品のベースクラス

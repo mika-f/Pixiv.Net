@@ -1,4 +1,4 @@
-﻿namespace Sagitta.Clients
+﻿namespace Pixiv.Clients
 {
     /// <summary>
     ///     API Client ベースクラス

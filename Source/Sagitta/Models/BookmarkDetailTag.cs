@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     /// <summary>
     ///     ブックマーク詳細に関するタグ情報

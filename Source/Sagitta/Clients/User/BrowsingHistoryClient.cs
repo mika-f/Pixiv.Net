@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-using Sagitta.Extensions;
-using Sagitta.Models;
+using Pixiv.Extensions;
+using Pixiv.Models;
 
-namespace Sagitta.Clients.User
+namespace Pixiv.Clients.User
 {
     /// <summary>
     ///     閲覧履歴関連 API

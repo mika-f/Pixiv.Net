@@ -1,4 +1,4 @@
-﻿namespace Sagitta.Enum
+﻿namespace Pixiv.Enum
 {
     /// <summary>
     ///     公開制限

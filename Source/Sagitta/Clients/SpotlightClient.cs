@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Extensions;
-using Sagitta.Models;
+using Pixiv.Extensions;
+using Pixiv.Models;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     Pixivision (旧 pixiv Spotlight) 関連 API

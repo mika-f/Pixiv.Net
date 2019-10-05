@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Sagitta.Exceptions
+namespace Pixiv.Exceptions
 {
     /// <summary>
-    ///     Sagitta 内部で例外が発生した場合に投げられます。
+    ///     Pixiv.Net 内部で例外が発生した場合に投げられます。
     /// </summary>
     public class PixivException : Exception
     {

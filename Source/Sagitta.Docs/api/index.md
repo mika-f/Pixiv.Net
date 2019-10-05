@@ -1,1 +1,1 @@
-# Sagitta API reference index
+# Pixiv.Net API reference index

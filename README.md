@@ -1,4 +1,7 @@
-# Sagitta
+# Pixiv.Net
+
+![license](https://img.shields.io/github/license/mika-f/Pixiv.Net.svg?style=flat-square)
+
 
 pixiv API wrapper for .NET Standard.  
 
@@ -15,8 +18,8 @@ pixiv API wrapper for .NET Standard 2.0.
 
 ## Versioning
 
-The version of Sagitta corresponds to pixiv for iOS.  
-For example, Sagitta `7.1.8.x` is equals to pixiv for iOS `7.1.8`.
+The version of Pixiv.Net corresponds to pixiv for iOS.  
+For example, Pixiv.Net `7.1.8.x` is equals to pixiv for iOS `7.1.8`.
 
 
 ## Contributing

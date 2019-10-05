@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sagitta.Handlers
+namespace Pixiv.Handlers
 {
     internal class OAuth2HttpClientHandler : HttpClientHandler
     {

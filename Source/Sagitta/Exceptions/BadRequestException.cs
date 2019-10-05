@@ -2,10 +2,10 @@
 using System.Net;
 using System.Net.Http;
 
-namespace Sagitta.Exceptions
+namespace Pixiv.Exceptions
 {
     /// <summary>
-    ///     Sagitta 内部で、 HTTP 400 Bad Request が返された場合に発生する例外です。
+    ///     Pixiv.Net 内部で、 HTTP 400 Bad Request が返された場合に発生する例外です。
     /// </summary>
     public class BadRequestException : ApiException
     {

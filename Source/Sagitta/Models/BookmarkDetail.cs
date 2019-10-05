@@ -3,9 +3,9 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-using Sagitta.Enum;
+using Pixiv.Enum;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     public class BookmarkDetail : ApiResponse
     {

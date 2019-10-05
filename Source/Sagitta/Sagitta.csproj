@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Sagitta</AssemblyName>
-    <RootNamespace>Sagitta</RootNamespace>
-    <Version>7.1.8.2</Version>
-    <AssemblyVersion>7.1.8.0</AssemblyVersion>
+    <AssemblyName>Pixiv.Net</AssemblyName>
+    <RootNamespace>Pixiv</RootNamespace>
+    <Version>7.7.3.1</Version>
+    <AssemblyVersion>7.7.3.1</AssemblyVersion>
     <Authors>Mikazuki</Authors>
     <RepositoryType>Git</RepositoryType>
     <PackageProjectUrl>https://sagitta.mochizuki.moe</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/mika-f/Sagitta</RepositoryUrl>
-    <Description>"Sagitta" is pixiv API wrapper for .NET Standard 2.0.</Description>
+    <RepositoryUrl>https://github.com/mika-f/Pixiv.Net</RepositoryUrl>
+    <Description>pixiv API wrapper for .NET Standard 2.0.</Description>
   </PropertyGroup>
 
   <ItemGroup>

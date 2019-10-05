@@ -2,12 +2,15 @@
 using System.Net;
 using System.Net.Http;
 
-namespace Sagitta.Exceptions
+namespace Pixiv.Exceptions
 {
+#pragma warning disable RCS1194 // Implement exception constructors.
+
     /// <summary>
-    ///     Sagitta での API コール時に例外が発生した場合、投げられる例外のベースクラスです。
+    ///     Pixiv.Net での API コール時に例外が発生した場合、投げられる例外のベースクラスです。
     /// </summary>
     public abstract class ApiException : PixivException
+#pragma warning restore RCS1194 // Implement exception constructors.
     {
         /// <summary>
         ///     例外発生時のレスポンス

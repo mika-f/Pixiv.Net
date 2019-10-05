@@ -2,7 +2,7 @@
 
 using Newtonsoft.Json;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     public class UserPreview : ApiResponse
     {

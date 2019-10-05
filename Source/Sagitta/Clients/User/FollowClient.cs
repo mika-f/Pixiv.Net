@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Enum;
-using Sagitta.Extensions;
-using Sagitta.Helpers;
+using Pixiv.Enum;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
 
-namespace Sagitta.Clients.User
+namespace Pixiv.Clients.User
 {
     /// <summary>
     ///     フォロー関連 API

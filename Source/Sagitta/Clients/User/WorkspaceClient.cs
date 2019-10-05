@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Extensions;
+using Pixiv.Extensions;
 
-namespace Sagitta.Clients.User
+namespace Pixiv.Clients.User
 {
     /// <summary>
     ///     作業環境関連 API

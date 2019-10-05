@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sagitta.Helpers
+namespace Pixiv.Helpers
 {
     internal static class Ensure
     {

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Enum;
-using Sagitta.Extensions;
-using Sagitta.Helpers;
-using Sagitta.Models;
+using Pixiv.Enum;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
+using Pixiv.Models;
 
-namespace Sagitta.Clients.User
+namespace Pixiv.Clients.User
 {
     /// <summary>
     ///     ブックマークタグ関連 API

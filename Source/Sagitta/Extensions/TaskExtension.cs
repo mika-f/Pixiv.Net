@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace Sagitta.Extensions
+namespace Pixiv.Extensions
 {
     /// <summary>
     ///     <see cref="Task{TResult}" /> 拡張

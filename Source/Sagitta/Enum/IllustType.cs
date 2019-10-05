@@ -1,4 +1,4 @@
-﻿namespace Sagitta.Enum
+﻿namespace Pixiv.Enum
 {
     /// <summary>
     ///     イラストの種類

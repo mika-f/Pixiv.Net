@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Sagitta.Extensions;
-using Sagitta.Helpers;
-using Sagitta.Models;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
+using Pixiv.Models;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     イラストシリーズ関連 API

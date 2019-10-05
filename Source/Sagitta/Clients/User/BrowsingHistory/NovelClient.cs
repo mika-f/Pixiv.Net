@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using Sagitta.Extensions;
-using Sagitta.Helpers;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
 
-namespace Sagitta.Clients.User.BrowsingHistory
+namespace Pixiv.Clients.User.BrowsingHistory
 {
     /// <summary>
     ///     閲覧履歴 (小説) 関連 API

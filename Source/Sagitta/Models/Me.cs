@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     // MARKED: 7.4.4
     public class Me : ApiResponse

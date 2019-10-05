@@ -3,9 +3,9 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-using Sagitta.Extensions;
+using Pixiv.Extensions;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     画像およびファイルへの間接的なアクセスを提供します。

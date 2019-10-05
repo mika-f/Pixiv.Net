@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http;
 
-namespace Sagitta.Exceptions
+namespace Pixiv.Exceptions
 {
     /// <summary>
     ///     Pixiv に対して、認証エラー (HTTP 401 Unauthorized) が発生した場合に投げられます。

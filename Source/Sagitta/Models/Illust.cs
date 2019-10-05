@@ -2,9 +2,9 @@
 
 using Newtonsoft.Json;
 
-using Sagitta.Enum;
+using Pixiv.Enum;
 
-namespace Sagitta.Models
+namespace Pixiv.Models
 {
     /// <summary>
     ///     イラスト

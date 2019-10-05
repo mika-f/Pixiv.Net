@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-using Sagitta.Extensions;
-using Sagitta.Models;
+using Pixiv.Extensions;
+using Pixiv.Models;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     デモンストレーション関連 API へのアクセスを提供します。

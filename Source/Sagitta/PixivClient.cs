@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
 
-using Sagitta.Clients;
-using Sagitta.Exceptions;
-using Sagitta.Extensions;
-using Sagitta.Handlers;
-using Sagitta.Models;
+using Pixiv.Clients;
+using Pixiv.Exceptions;
+using Pixiv.Extensions;
+using Pixiv.Handlers;
+using Pixiv.Models;
 
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
-namespace Sagitta
+namespace Pixiv
 {
     /// <summary>
     ///     ルートクラス, 全ての API はこのクラスから呼び出します。

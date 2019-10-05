@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using Sagitta.Clients.Illust;
-using Sagitta.Enum;
-using Sagitta.Extensions;
-using Sagitta.Helpers;
-using Sagitta.Models;
+using Pixiv.Clients.Illust;
+using Pixiv.Enum;
+using Pixiv.Extensions;
+using Pixiv.Helpers;
+using Pixiv.Models;
 
-namespace Sagitta.Clients
+namespace Pixiv.Clients
 {
     /// <summary>
     ///     イラスト関連 API
@@ -56,7 +56,7 @@ namespace Sagitta.Clients
         /// </summary>
         /// <param name="illustId">イラスト ID</param>
         /// <returns>
-        ///     <see cref="Models.Illust" />
+        ///     <see cref="Illust" />
         /// </returns>
         public async Task<Models.Illust> DetailAsync(long illustId)
         {
