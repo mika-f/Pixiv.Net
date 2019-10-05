@@ -57,7 +57,7 @@ jobs:
       - run:
           name: Generate documents by docfx
           command: |
-            mono ./docfx/docfx.exe ./Source/Sagitta.Docs/docfx.json
+            mono ./docfx/docfx.exe ./Source/PixivNet.Docs/docfx.json
 
       - run:
           name: Install netlifyctl

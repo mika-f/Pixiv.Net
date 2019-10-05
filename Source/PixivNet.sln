@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sagitta", "Sagitta\Sagitta.csproj", "{775A9F23-7663-4277-BBAD-5163C54FD058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixivNet", "PixivNet\PixivNet.csproj", "{775A9F23-7663-4277-BBAD-5163C54FD058}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{C3B1DEFA-F74C-49AC-8A8C-11624381854A}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sagitta.Docs", "Sagitta.Docs\Sagitta.Docs.csproj", "{BA9E62C3-7618-4D81-905D-E0044A5254C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixivNet.Docs", "PixivNet.Docs\PixivNet.Docs.csproj", "{BA9E62C3-7618-4D81-905D-E0044A5254C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
