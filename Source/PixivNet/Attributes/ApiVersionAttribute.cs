@@ -5,11 +5,13 @@ namespace Pixiv.Attributes
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.Property)]
     internal class ApiVersionAttribute : Attribute
     {
-        public string Version { get; }
+        public string MinVersion { get; }
+        public string MaxVersion { get; }
 
-        public ApiVersionAttribute(string version)
+        public ApiVersionAttribute(string minVersion, string maxVersion)
         {
-            Version = version;
+            MinVersion = minVersion;
+            MaxVersion = maxVersion;
         }
     }
 }

@@ -19,15 +19,17 @@ using Pixiv.Models;
 namespace Pixiv
 {
     /// <summary>
-    ///     ルートクラス, 全ての API はこのクラスから呼び出します。
+    ///     pixiv API client wrapper for .NET Standard 2.1.
+    ///     You can access pixiv APIs using this class's instance.
     /// </summary>
     public class PixivClient
     {
         private readonly HttpClient _httpClient;
-        internal static string AppVersion => "7.4.4";
-        internal static string OsVersion => "12.1.2";
+        internal static string AppVersion => "7.7.7";
+        internal static string OsVersion => "13.1.3";
         internal string ClientId { get; }
         internal string ClientSecret { get; }
+        internal string ClientHash { get; }
 
         /// <summary>
         ///     現在使用しているアクセストークン
@@ -45,10 +47,11 @@ namespace Pixiv
         /// <param name="clientId">Client ID (ライブラリには含まれまていません)</param>
         /// <param name="clientSecret">Client Secret (ライブラリには含まれていません)</param>
         /// <param name="handler"></param>
-        public PixivClient(string clientId, string clientSecret, HttpMessageHandler handler = null)
+        public PixivClient(string clientId, string clientSecret, string clientHash = null, HttpMessageHandler handler = null)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
+            ClientHash = clientHash;
 
             // 2019/01/28
             _httpClient = new HttpClient(handler ?? new OAuth2HttpClientHandler(this));
