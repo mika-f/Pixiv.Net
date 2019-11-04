@@ -31,23 +31,10 @@ namespace Pixiv
         internal string ClientSecret { get; }
         internal string ClientHash { get; }
 
-        /// <summary>
-        ///     現在使用しているアクセストークン
-        /// </summary>
-        public string AccessToken { get; internal set; }
+        public string? AccessToken { get; internal set; }
+        public string? RefreshToken { get; internal set; }
 
-        /// <summary>
-        ///     現在使用しているリフレッシュトークン
-        /// </summary>
-        public string RefreshToken { get; internal set; }
-
-        /// <summary>
-        ///     コンストラクタ
-        /// </summary>
-        /// <param name="clientId">Client ID (ライブラリには含まれまていません)</param>
-        /// <param name="clientSecret">Client Secret (ライブラリには含まれていません)</param>
-        /// <param name="handler"></param>
-        public PixivClient(string clientId, string clientSecret, string clientHash = null, HttpMessageHandler handler = null)
+        public PixivClient(string clientId, string clientSecret, string clientHash, HttpMessageHandler? handler = null)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
