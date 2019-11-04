@@ -11,6 +11,7 @@
     <PackageProjectUrl>https://sagitta.mochizuki.moe</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mika-f/Pixiv.Net</RepositoryUrl>
     <Description>pixiv API wrapper for .NET Standard 2.0.</Description>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
