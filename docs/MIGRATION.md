@@ -7,7 +7,6 @@ This is the document for migrating Sagitta to Pixiv.Net 7.7.
 
 * API naming convention
 * Class names of models
-* Domain for documentations (https://sagitta.mochizuki.moe)
 
 
 ## Changes from Sagitta
@@ -15,3 +14,4 @@ This is the document for migrating Sagitta to Pixiv.Net 7.7.
 * Default namespace changed from `Sagitta` to `Pixiv`.
 * NuGet package name changed from `Sagitta` to `Pixiv.Net`.
   * I really wanted to use PixivSharp, but it was already in use.
+* Domain for documentations changes from `https://sagitta.mochizuki.moe` to `https://pixiv-cs.mochizuki.dev`.

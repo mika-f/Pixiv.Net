@@ -3,7 +3,7 @@
 ![license](https://img.shields.io/github/license/mika-f/Pixiv.Net.svg?style=flat-square)
 
 
-pixiv API wrapper for .NET Standard.  
+Fully-typed pixiv API client wrapper for .NET Standard 2.1.
 
 
 ## NOTES FOR SAGITTA USERS
@@ -13,20 +13,25 @@ As a result, .NET namespaces have changed.
 See [docs/MIGRATION.md](docs/MIGRATION.md) for more information about migrate to Pixiv.Net (Sagitta) 7.7.
 
 
-pixiv API wrapper for .NET Standard 2.0.  
-
 
 ## Versioning
 
-The version of Pixiv.Net corresponds to pixiv for iOS.  
-For example, Pixiv.Net `7.1.8.x` is equals to pixiv for iOS `7.1.8`.
+| Pixiv.NET Version | pixiv API (pixiv for iOS) Version |
+| :---------------: | :-------------------------------: |
+|     `7.7.7.x`     |              `7.7.7`              |
 
+
+## About API Keys
+
+This repository does not contain an API key to access pixiv's API.  
+However, you can use it indirectly by installing the `Pixiv.Net.Shims` package from NuGet.  
+More information about the Shims package can be found [here](https://pixivcs-shims.mochizuki.dev/).
 
 ## Contributing
 
 1. Fork it!
 2. Create your feature branch (`git checkout -b feature/foobar`)
-3. Commit your changes (`git commit -am'Add some foobar'`)
+3. Commit your changes (`git commit -am 'Add some foobar'`)
 4. Push to the branch (`git push origin feature/foobar`)
 5. Create a new Pull Request
 
