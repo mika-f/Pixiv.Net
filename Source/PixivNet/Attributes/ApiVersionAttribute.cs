@@ -10,8 +10,8 @@ namespace Pixiv.Attributes
 
         public ApiVersionAttribute(string? minVersion = null, string? maxVersion = null)
         {
-            MinVersion = minVersion ?? "unspecified";
-            MaxVersion = maxVersion ?? "unspecified";
+            MinVersion = minVersion ?? "0.0.0";
+            MaxVersion = maxVersion ?? "9.9.9";
         }
     }
 }
