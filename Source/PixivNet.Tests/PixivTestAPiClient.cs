@@ -19,7 +19,7 @@ namespace Pixiv.Tests
 
         protected PixivTestAPiClient()
         {
-            _pixivClient = PixivClientFactory.CreateWith("v2", new MockedHttpClientHandler());
+            _pixivClient = PixivClientFactory.CreateWith("v2", new MockedHttpClientHandler($"../../../cassettes/{PixivClient.AppVersion}/cassette"));
         }
 
         protected void ShouldHaveAttributes<T>(Expression<Func<PixivClient, Task<T>>> expression)
