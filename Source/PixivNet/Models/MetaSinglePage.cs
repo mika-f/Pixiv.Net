@@ -1,16 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+
+using Newtonsoft.Json;
+
+using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     ページ毎の画像 URL モデル
-    /// </summary>
     public class MetaSinglePage : ApiResponse
     {
-        /// <summary>
-        ///     オリジナルサイズ画像 URL
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("original_image_url")]
-        public string OriginalImageUrl { get; set; }
+        public Uri? OriginalImageUrl { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

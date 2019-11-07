@@ -1,34 +1,37 @@
-﻿using System;
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    public class ImageUrls : ApiResponse
+    public class MinifiedUser : ApiResponse
     {
 #pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("large")]
-        public Uri Large { get; set; }
+        [JsonProperty("account")]
+        public string Account { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("medium")]
-        public Uri Medium { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("square_medium")]
-        public Uri SquareMedium { get; set; }
+        [JsonProperty("is_followed")]
+        public bool IsFollowed { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("original")]
-        public Uri? Original { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("profile_image_urls")]
+        public ProfileImageUrls ProfileImageUrls { get; set; }
 
 #pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }

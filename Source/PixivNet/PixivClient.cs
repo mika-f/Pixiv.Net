@@ -40,6 +40,7 @@ namespace Pixiv
         public string? RefreshToken { get; internal set; }
 
         public ApplicationInfoClient ApplicationInfo { get; }
+        public WalkthroughClient Walkthrough { get; }
 
         public PixivClient(string clientId, string clientSecret, string clientHash, HttpMessageHandler? handler = null)
         {
@@ -47,7 +48,6 @@ namespace Pixiv
             ClientSecret = clientSecret;
             ClientHash = clientHash;
 
-            // 2019/01/28
             _httpClient = handler != null ? new HttpClient(handler) : new HttpClient();
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
@@ -68,9 +68,9 @@ namespace Pixiv
             Spotlight = new SpotlightClient(this);
             TrendingTags = new TrendingTagsClient(this);
             User = new UserClient(this);
-            Walkthrough = new WalkthroughClient(this);
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
+            Walkthrough = new WalkthroughClient(this);
         }
 
         public void Dispose()
@@ -213,11 +213,6 @@ namespace Pixiv
         ///     ユーザー関連 API へのアクセサー
         /// </summary>
         public UserClient User { get; }
-
-        /// <summary>
-        ///     デモンストレーション関連 API へのアクセサー
-        /// </summary>
-        public WalkthroughClient Walkthrough { get; }
 
         /// <summary>
         ///     Pixiv ファイル関連 API へのアクセサー

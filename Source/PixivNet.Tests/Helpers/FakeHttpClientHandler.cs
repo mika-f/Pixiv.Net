@@ -7,7 +7,7 @@ namespace Pixiv.Tests.Helpers
 {
     internal class FakeHttpClientHandler : HttpClientHandler
     {
-        public HttpRequestMessage LastRequest { get; private set; }
+        public HttpRequestMessage? LastRequest { get; private set; }
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
