@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
@@ -22,7 +26,7 @@ namespace Pixiv
     ///     pixiv API client wrapper for .NET Standard 2.1.
     ///     You can access pixiv APIs using this class's instance.
     /// </summary>
-    public sealed class PixivClient : IDisposable
+    public class PixivClient : IDisposable
     {
         private readonly HttpClient _httpClient;
         internal static string AppVersion => "7.7.7";
@@ -44,7 +48,7 @@ namespace Pixiv
             ClientHash = clientHash;
 
             // 2019/01/28
-            _httpClient = new HttpClient(handler);
+            _httpClient = handler != null ? new HttpClient(handler) : new HttpClient();
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
@@ -83,8 +87,7 @@ namespace Pixiv
         {
             if (parameters != null && parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
-            if (string.IsNullOrWhiteSpace(AccessToken))
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+            ApplyPixivHeaders();
 
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
@@ -100,8 +103,7 @@ namespace Pixiv
         internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, object>> parameters)
         {
             using var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
-            if (string.IsNullOrWhiteSpace(AccessToken))
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+            ApplyPixivHeaders();
 
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
@@ -213,5 +215,31 @@ namespace Pixiv
         // ReSharper restore MemberCanBePrivate.Global
 
         #endregion
+        [SuppressMessage("Security", "CA5351:破られた暗号アルゴリズムを使用しない", Justification = "<保留中>")]
+        private void ApplyPixivHeaders()
+        {
+            // Add X-Client-Hash, X-Client-Time and Authorization Header for Pixiv Authorization Protocol
+            if (!string.IsNullOrWhiteSpace(ClientHash))
+            {
+                // hash algorithm is quoted from https://github.com/akameco/pixiv-app-api/blob/8801410f518a216d8a646ea9db7eb4c451e60275/src/index.ts#L107-L126
+                var localTime = GetCurrentDate().ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
+
+                _httpClient.DefaultRequestHeaders.Add("X-Client-Time", localTime);
+
+                using var md5 = new MD5CryptoServiceProvider();
+                var hash = md5.ComputeHash(Encoding.UTF8.GetBytes($"{localTime}{ClientHash}"));
+                md5.Clear();
+
+                _httpClient.DefaultRequestHeaders.Add("X-Client-Hash", string.Concat(hash.Select(w => w.ToString("x2", null))));
+            }
+
+            if (!string.IsNullOrWhiteSpace(AccessToken))
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+        }
+
+        internal virtual DateTimeOffset GetCurrentDate()
+        {
+            return new DateTimeOffset(DateTime.Now);
+        }
     }
 }

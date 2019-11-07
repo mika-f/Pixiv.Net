@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Pixiv.Net.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 [assembly: InternalsVisibleTo("LINQPadQuery")]
+[assembly: InternalsVisibleTo("Pixiv.Net.Tests")]
