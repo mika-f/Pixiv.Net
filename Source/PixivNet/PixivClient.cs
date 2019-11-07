@@ -40,6 +40,7 @@ namespace Pixiv
         public string? RefreshToken { get; internal set; }
 
         public ApplicationInfoClient ApplicationInfo { get; }
+        public TrendingTagsClient TrendingTags { get; }
         public WalkthroughClient Walkthrough { get; }
 
         public PixivClient(string clientId, string clientSecret, string clientHash, HttpMessageHandler? handler = null)
@@ -66,10 +67,10 @@ namespace Pixiv
             Novel = new NovelClient(this);
             Search = new SearchClient(this);
             Spotlight = new SpotlightClient(this);
-            TrendingTags = new TrendingTagsClient(this);
             User = new UserClient(this);
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
+            TrendingTags = new TrendingTagsClient(this);
             Walkthrough = new WalkthroughClient(this);
         }
 
@@ -203,11 +204,6 @@ namespace Pixiv
         ///     Pixivision (旧 pixiv Spotlight)  関連 API へのアクセサー
         /// </summary>
         public SpotlightClient Spotlight { get; }
-
-        /// <summary>
-        ///     トレンドタグ関連 API へのアクセサー
-        /// </summary>
-        public TrendingTagsClient TrendingTags { get; }
 
         /// <summary>
         ///     ユーザー関連 API へのアクセサー

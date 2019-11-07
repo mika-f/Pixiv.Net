@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -55,6 +56,13 @@ namespace Pixiv.Tests
         {
             var response = await func.Invoke(_pixivClient);
             response.CheckRecursivelyExtendsIsNull();
+        }
+
+        protected async Task ShouldExtendsIsNullObject<T>(Func<PixivClient, Task<IEnumerable<T>>> func) where T : ApiResponse
+        {
+            var collection = await func.Invoke(_pixivClient);
+            foreach (var response in collection)
+                response.CheckRecursivelyExtendsIsNull();
         }
     }
 }
