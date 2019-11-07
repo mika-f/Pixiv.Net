@@ -75,7 +75,19 @@ namespace Pixiv
 
         public void Dispose()
         {
-            _httpClient.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+                _httpClient?.Dispose();
+        }
+
+        ~PixivClient()
+        {
+            Dispose(false);
         }
 
         internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, object>>? parameters = null)
