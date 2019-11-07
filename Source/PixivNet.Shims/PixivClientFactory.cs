@@ -1,8 +1,6 @@
 ﻿using System.Net.Http;
 
-using Pixiv;
-
-namespace PixivNet.Shims
+namespace Pixiv.Shims
 {
     public static class PixivClientFactory
     {

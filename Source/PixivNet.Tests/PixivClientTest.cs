@@ -4,9 +4,8 @@ using System.Threading.Tasks;
 
 using Moq;
 
+using Pixiv.Shims;
 using Pixiv.Tests.Helpers;
-
-using PixivNet.Shims;
 
 using Xunit;
 

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 using Pixiv.Attributes;
 using Pixiv.Models;
+using Pixiv.Shims;
 using Pixiv.Tests.Helpers;
-
-using PixivNet.Shims;
 
 using Xunit;
 
@@ -31,7 +30,7 @@ namespace Pixiv.Tests
             {
                 var attribute = method.GetCustomAttribute<MarkedAsAttribute>();
 
-                Assert.NotNull(attribute); //Method should have `MarkedAs` attribute
+                Assert.NotNull(attribute); // Method should have `MarkedAs` attribute
                 Assert.Equal(PixivClient.AppVersion, attribute!.MarkedAs); // `MarkedAs` value should equals to application version
             }
 
