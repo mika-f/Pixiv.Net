@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
 
 using Pixiv.Clients;
+using Pixiv.Clients.V1;
 using Pixiv.Exceptions;
 using Pixiv.Extensions;
-using Pixiv.Handlers;
-using Pixiv.Models;
 
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
@@ -22,7 +22,7 @@ namespace Pixiv
     ///     pixiv API client wrapper for .NET Standard 2.1.
     ///     You can access pixiv APIs using this class's instance.
     /// </summary>
-    public class PixivClient
+    public sealed class PixivClient : IDisposable
     {
         private readonly HttpClient _httpClient;
         internal static string AppVersion => "7.7.7";
@@ -32,7 +32,10 @@ namespace Pixiv
         internal string ClientHash { get; }
 
         public string? AccessToken { get; internal set; }
+
         public string? RefreshToken { get; internal set; }
+
+        public ApplicationInfoClient ApplicationInfo { get; }
 
         public PixivClient(string clientId, string clientSecret, string clientHash, HttpMessageHandler? handler = null)
         {
@@ -41,7 +44,7 @@ namespace Pixiv
             ClientHash = clientHash;
 
             // 2019/01/28
-            _httpClient = new HttpClient(handler ?? new OAuth2HttpClientHandler(this));
+            _httpClient = new HttpClient(handler);
             _httpClient.DefaultRequestHeaders.Add("App-OS-Version", OsVersion);
             _httpClient.DefaultRequestHeaders.Add("App-OS", "ios");
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
@@ -63,20 +66,26 @@ namespace Pixiv
             User = new UserClient(this);
             Walkthrough = new WalkthroughClient(this);
             File = new FileClient(this);
+            ApplicationInfo = new ApplicationInfoClient(this);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, object>> parameters = null)
+        public void Dispose()
         {
-            var obj = (await GetAsync(url, parameters).Stay()).ToObject<T>();
-            if (obj is ICursorable cursorable)
-                cursorable.PixivClient = this;
-            return obj;
+            _httpClient.Dispose();
         }
 
-        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, object>> parameters = null)
+        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, object>>? parameters = null)
+        {
+            return (await GetAsync(url, parameters).Stay()).ToObject<T>();
+        }
+
+        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, object>>? parameters = null)
         {
             if (parameters != null && parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
+            if (string.IsNullOrWhiteSpace(AccessToken))
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
 
@@ -90,7 +99,10 @@ namespace Pixiv
 
         internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
+            using var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
+            if (string.IsNullOrWhiteSpace(AccessToken))
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
@@ -98,7 +110,7 @@ namespace Pixiv
 
         private static string AsStringValue<T>(T w)
         {
-            return w is bool ? w.ToString().ToLower() : w.ToString();
+            return w is bool ? w.ToString().ToUpperInvariant() : w!.ToString();
         }
 
         private static void HandleErrors(HttpResponseMessage response)
