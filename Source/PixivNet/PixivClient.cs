@@ -91,16 +91,16 @@ namespace Pixiv
             Dispose(false);
         }
 
-        internal async Task<T> GetAsync<T>(string url, List<KeyValuePair<string, object>>? parameters = null)
+        internal async Task<T> GetAsync<T>(string url, bool isRequiredAuthentication, List<KeyValuePair<string, object>>? parameters = null)
         {
-            return (await GetAsync(url, parameters).Stay()).ToObject<T>();
+            return (await GetAsync(url, isRequiredAuthentication, parameters).Stay()).ToObject<T>();
         }
 
-        internal async Task<JObject> GetAsync(string url, List<KeyValuePair<string, object>>? parameters = null)
+        internal async Task<JObject> GetAsync(string url, bool isRequiredAuthentication, List<KeyValuePair<string, object>>? parameters = null)
         {
             if (parameters != null && parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
-            ApplyPixivHeaders();
+            ApplyPixivHeaders(isRequiredAuthentication);
 
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
@@ -108,15 +108,15 @@ namespace Pixiv
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<T> PostAsync<T>(string url, IEnumerable<KeyValuePair<string, object>> parameters)
+        internal async Task<T> PostAsync<T>(string url, bool isRequiredAuthentication, IEnumerable<KeyValuePair<string, object>> parameters)
         {
-            return (await PostAsync(url, parameters).Stay()).ToObject<T>();
+            return (await PostAsync(url, isRequiredAuthentication, parameters).Stay()).ToObject<T>();
         }
 
-        internal async Task<JObject> PostAsync(string url, IEnumerable<KeyValuePair<string, object>> parameters)
+        internal async Task<JObject> PostAsync(string url, bool isRequiredAuthentication, IEnumerable<KeyValuePair<string, object>> parameters)
         {
             using var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
-            ApplyPixivHeaders();
+            ApplyPixivHeaders(isRequiredAuthentication);
 
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
@@ -219,7 +219,7 @@ namespace Pixiv
 
         #endregion
         [SuppressMessage("Security", "CA5351:破られた暗号アルゴリズムを使用しない", Justification = "<保留中>")]
-        private void ApplyPixivHeaders()
+        private void ApplyPixivHeaders(bool isRequiredAuthentication)
         {
             // Add X-Client-Hash, X-Client-Time and Authorization Header for Pixiv Authorization Protocol
             if (!string.IsNullOrWhiteSpace(ClientHash))
@@ -235,6 +235,9 @@ namespace Pixiv
 
                 _httpClient.DefaultRequestHeaders.Add("X-Client-Hash", string.Concat(hash.Select(w => w.ToString("x2", null))));
             }
+
+            if (isRequiredAuthentication && string.IsNullOrWhiteSpace(AccessToken))
+                throw new InvalidOperationException();
 
             if (!string.IsNullOrWhiteSpace(AccessToken))
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);

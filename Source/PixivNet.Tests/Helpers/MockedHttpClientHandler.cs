@@ -38,6 +38,8 @@ namespace Pixiv.Tests.Helpers
         private async Task<HttpResponseMessage> FetchResponseFromRealHttp(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var response = await base.SendAsync(request, cancellationToken);
+            response.EnsureSuccessStatusCode();
+
             var cassette = new Cassette
             {
                 Request = new CassetteRequest

@@ -13,6 +13,7 @@ namespace Pixiv.Clients.V1
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
+        [RequiredAuthentication]
         public async Task<IEnumerable<TrendTag>> IllustAsync(string? filter = "for_ios")
         {
             var parameters = new List<KeyValuePair<string, object>>();
@@ -25,6 +26,7 @@ namespace Pixiv.Clients.V1
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
+        [RequiredAuthentication]
         public async Task<IEnumerable<TrendTag>> NovelAsync(string? filter = "for_ios")
         {
             var parameters = new List<KeyValuePair<string, object>>();
