@@ -1,30 +1,33 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
+using Pixiv.Attributes;
 using Pixiv.Enum;
 
 namespace Pixiv.Models
 {
     public class BookmarkDetail : ApiResponse
     {
-        /// <summary>
-        ///     すでにブックマーク済みか
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("is_bookmarked")]
         public bool IsBookmarked { get; set; }
 
-        /// <summary>
-        ///     タグ情報
-        /// </summary>
-        public IEnumerable<BookmarkDetailTag> Tags { get; set; }
-
-        /// <summary>
-        ///     公開制限
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("restrict")]
         [JsonConverter(typeof(StringEnumConverter))]
         public Restrict Restrict { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("tags")]
+        public IEnumerable<BookmarkTag> Tags { get; set; }
+        
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

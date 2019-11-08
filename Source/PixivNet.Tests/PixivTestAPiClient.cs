@@ -24,7 +24,7 @@ namespace Pixiv.Tests
             _pixivClient.RefreshToken = refreshToken;
         }
 
-        protected void ShouldHaveAttributes<T>(Expression<Func<PixivClient, Task<T>>> expression)
+        protected void ShouldHaveAttributes(Expression<Func<PixivClient, object>> expression)
         {
             var lambda = expression as LambdaExpression;
             var method = ((MethodCallExpression) lambda.Body).Method;
@@ -65,6 +65,19 @@ namespace Pixiv.Tests
             var collection = await func.Invoke(_pixivClient);
             foreach (var response in collection)
                 response.CheckRecursivelyExtendsIsNull();
+        }
+
+        protected async Task ShouldRequestIsSuccess(Func<PixivClient, Task> func)
+        {
+            try
+            {
+                await func.Invoke(_pixivClient);
+                Assert.True(true);
+            }
+            catch (Exception e)
+            {
+                Assert.True(false);
+            }
         }
     }
 }
