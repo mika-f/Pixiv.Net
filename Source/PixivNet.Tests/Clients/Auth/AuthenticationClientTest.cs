@@ -17,5 +17,17 @@ namespace Pixiv.Tests.Clients.Auth
         {
             ShouldHaveAttributes(w => w.Authentication.LoginAsync("", "", ""));
         }
+
+        [Fact]
+        public async Task Refresh_ShouldExtendsIsNullObject()
+        {
+            await ShouldExtendsIsNullObject(w => w.Authentication.RefreshAsync());
+        }
+
+        [Fact]
+        public void Refresh_ShouldHaveAttributes()
+        {
+            ShouldHaveAttributes(w => w.Authentication.RefreshAsync());
+        }
     }
 }
