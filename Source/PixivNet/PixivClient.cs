@@ -45,6 +45,7 @@ namespace Pixiv
 
         public ApplicationInfoClient ApplicationInfo { get; }
         public AuthenticationClient Authentication { get; }
+        public IllustSeriesClient IllustSeries { get; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
         public SpotlightClient Spotlight { get; }
@@ -66,7 +67,6 @@ namespace Pixiv
 
             Application = new ApplicationInfoClient(this);
             Illust = new IllustClient(this);
-            IllustSeries = new IllustSeriesClient(this);
             Live = new LiveClient(this);
             Manga = new MangaClient(this);
             Mute = new MuteClient(this);
@@ -76,6 +76,7 @@ namespace Pixiv
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
+            IllustSeries = new IllustSeriesClient(this);
             SearchV1 = new SearchV1Client(this);
             SearchV2 = new SearchV2Client(this);
             Spotlight = new SpotlightClient(this);
@@ -161,11 +162,6 @@ namespace Pixiv
         ///     イラスト関連 API へのアクセサー
         /// </summary>
         public IllustClient Illust { get; }
-
-        /// <summary>
-        ///     イラストシリーズ関連 API へのアクセサー
-        /// </summary>
-        public IllustSeriesClient IllustSeries { get; }
 
         /// <summary>
         ///     生放送関連 API へのアクセサー

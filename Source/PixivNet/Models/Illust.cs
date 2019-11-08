@@ -91,6 +91,11 @@ namespace Pixiv.Models
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
+        [JsonProperty("total_comments")]
+        public long? TotalComments { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("total_bookmarks")]
         public long TotalBookmarks { get; set; }
 

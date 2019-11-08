@@ -1,22 +1,23 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
+
+using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     イラストシリーズ
-    /// </summary>
     public class IllustSeries : ApiResponse
     {
-        /// <summary>
-        ///     シリーズ詳細
-        /// </summary>
-        [JsonProperty("illust_series_detail")]
-        public Series IllustSeriesDetail { get; set; }
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
 
-        /// <summary>
-        ///     TODO
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("illust_series_context")]
-        public IllustSeriesContext IllustSeriesContext { get; set; }
+        public IllustSeriesContext SeriesContext { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("illust_series_detail")]
+        public IllustSeriesDetail SeriesDetail { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }
