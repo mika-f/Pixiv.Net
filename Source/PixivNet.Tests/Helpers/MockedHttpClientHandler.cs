@@ -142,7 +142,7 @@ namespace Pixiv.Tests.Helpers
             }
 
             var obj = JObject.Parse(json);
-            return RecursiveRedact(obj).ToString();
+            return RecursiveRedact(obj).ToString(Formatting.None);
         }
     }
 }
