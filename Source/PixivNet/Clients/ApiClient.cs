@@ -29,7 +29,7 @@ namespace Pixiv.Clients
             if (!string.IsNullOrWhiteSpace(caller))
                 isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
 
-            return await Client.GetAsync<T>($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay();
+            return (await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay()).ToObject<T>();
         }
 
         public async Task<JObject> GetAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
@@ -39,6 +39,24 @@ namespace Pixiv.Clients
                 isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
 
             return await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay();
+        }
+
+        public async Task<T> PostAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
+        {
+            var isRequiredAuthentication = false;
+            if (!string.IsNullOrWhiteSpace(caller))
+                isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
+
+            return (await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay()).ToObject<T>();
+        }
+
+        public async Task<JObject> PostAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
+        {
+            var isRequiredAuthentication = false;
+            if (!string.IsNullOrWhiteSpace(caller))
+                isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
+
+            return await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay();
         }
     }
 }

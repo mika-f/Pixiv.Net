@@ -91,11 +91,6 @@ namespace Pixiv
             Dispose(false);
         }
 
-        internal async Task<T> GetAsync<T>(string url, bool isRequiredAuthentication, List<KeyValuePair<string, object>>? parameters = null)
-        {
-            return (await GetAsync(url, isRequiredAuthentication, parameters).Stay()).ToObject<T>();
-        }
-
         internal async Task<JObject> GetAsync(string url, bool isRequiredAuthentication, List<KeyValuePair<string, object>>? parameters = null)
         {
             if (parameters != null && parameters.Count > 0)
@@ -108,14 +103,9 @@ namespace Pixiv
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<T> PostAsync<T>(string url, bool isRequiredAuthentication, IEnumerable<KeyValuePair<string, object>> parameters)
+        internal async Task<JObject> PostAsync(string url, bool isRequiredAuthentication, IEnumerable<KeyValuePair<string, object>>? parameters)
         {
-            return (await PostAsync(url, isRequiredAuthentication, parameters).Stay()).ToObject<T>();
-        }
-
-        internal async Task<JObject> PostAsync(string url, bool isRequiredAuthentication, IEnumerable<KeyValuePair<string, object>> parameters)
-        {
-            using var content = new FormUrlEncodedContent(parameters.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
+            using var content = new FormUrlEncodedContent(parameters?.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
             ApplyPixivHeaders(isRequiredAuthentication);
 
             var response = await _httpClient.PostAsync(url, content).Stay();
