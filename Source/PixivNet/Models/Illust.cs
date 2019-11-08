@@ -57,7 +57,7 @@ namespace Pixiv.Models
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("meta_pages")]
-        public IEnumerable<ImageUrls> MetaPages { get; set; }
+        public IEnumerable<MetaPage> MetaPages { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
