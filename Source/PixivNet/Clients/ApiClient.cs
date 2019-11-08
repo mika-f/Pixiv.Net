@@ -16,14 +16,14 @@ namespace Pixiv.Clients
         private readonly string _host;
         protected PixivClient Client { get; }
 
-        public ApiClient(PixivClient client, string @base, string host = "app-api.pixiv.net")
+        protected ApiClient(PixivClient client, string @base, string host = "app-api.pixiv.net")
         {
             Client = client;
             _base = @base;
             _host = host;
         }
 
-        public async Task<T> GetAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
+        protected async Task<T> GetAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
             var isRequiredAuthentication = false;
             if (!string.IsNullOrWhiteSpace(caller))
@@ -32,7 +32,7 @@ namespace Pixiv.Clients
             return (await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay()).ToObject<T>();
         }
 
-        public async Task<JObject> GetAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
+        protected async Task<JObject> GetAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
             var isRequiredAuthentication = false;
             if (!string.IsNullOrWhiteSpace(caller))
@@ -41,7 +41,7 @@ namespace Pixiv.Clients
             return await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay();
         }
 
-        public async Task<T> PostAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
+        protected async Task<T> PostAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
             var isRequiredAuthentication = false;
             if (!string.IsNullOrWhiteSpace(caller))
@@ -50,7 +50,7 @@ namespace Pixiv.Clients
             return (await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay()).ToObject<T>();
         }
 
-        public async Task<JObject> PostAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
+        protected async Task<JObject> PostAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
             var isRequiredAuthentication = false;
             if (!string.IsNullOrWhiteSpace(caller))
