@@ -115,7 +115,7 @@ namespace Pixiv
 
         private static string AsStringValue<T>(T w)
         {
-            return w is bool ? w.ToString().ToUpperInvariant() : w!.ToString();
+            return w is bool ? w.ToString().ToLowerInvariant() : w!.ToString();
         }
 
         private static void HandleErrors(HttpResponseMessage response)
