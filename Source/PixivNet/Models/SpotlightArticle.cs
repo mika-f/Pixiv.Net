@@ -1,62 +1,57 @@
-﻿using System;
+using System;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     Pixivision (旧 pixiv Spotlight) 個別記事
-    /// </summary>
     public class SpotlightArticle : ApiResponse
     {
-        /// <summary>
-        ///     ID
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("article_url")]
+        public Uri ArticleUrl { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("category")]
+        public string Category { get; set; }
+        
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("id")]
         public long Id { get; set; }
-
-        /// <summary>
-        ///     タイトル
-        /// </summary>
-        [JsonProperty("title")]
-        public string Title { get; set; }
-
-        /// <summary>
-        ///     タイトル
-        /// </summary>
-        [JsonProperty("pure_title")]
-        public string PureTitle { get; set; }
-
-        /// <summary>
-        ///     サムネイル画像 URL
-        /// </summary>
-        [JsonProperty("thumbnail")]
-        public string Thumbnail { get; set; }
-
-        /// <summary>
-        ///     記事 URL
-        /// </summary>
-        [JsonProperty("article_url")]
-        public string ArticleUrl { get; set; }
-
-        /// <summary>
-        ///     投稿日時
-        /// </summary>
+        
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("publish_date")]
         [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime PublishDate { get; set; }
+        
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("pure_title")]
+        public string PureTitle { get; set; }
 
-        /// <summary>
-        ///     カテゴリー
-        /// </summary>
-        [JsonProperty("category")]
-        public string Category { get; set; }
-
-        /// <summary>
-        ///     サブカテゴリー
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("subcategory_label")]
-        public string Subcategory { get; set; }
+        public string SubcategoryLabel { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("thumbnail")]
+        public string Thumbnail { get; set; }
+        
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

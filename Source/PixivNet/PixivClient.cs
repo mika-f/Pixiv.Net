@@ -47,6 +47,7 @@ namespace Pixiv
         public AuthenticationClient Authentication { get; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
+        public SpotlightClient Spotlight { get; }
         public TrendingTagsClient TrendingTags { get; }
         public UserClient User { get; }
         public WalkthroughClient Walkthrough { get; }
@@ -72,12 +73,12 @@ namespace Pixiv
             Notification = new NotificationClient(this);
             Novel = new NovelClient(this);
             Search = new SearchClient(this);
-            Spotlight = new SpotlightClient(this);
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
             SearchV1 = new SearchV1Client(this);
             SearchV2 = new SearchV2Client(this);
+            Spotlight = new SpotlightClient(this);
             TrendingTags = new TrendingTagsClient(this);
             User = new UserClient(this);
             Walkthrough = new WalkthroughClient(this);
@@ -195,11 +196,6 @@ namespace Pixiv
         ///     検索関連 API へのアクセサー
         /// </summary>
         public SearchClient Search { get; }
-
-        /// <summary>
-        ///     Pixivision (旧 pixiv Spotlight)  関連 API へのアクセサー
-        /// </summary>
-        public SpotlightClient Spotlight { get; }
 
         /// <summary>
         ///     Pixiv ファイル関連 API へのアクセサー
