@@ -18,6 +18,8 @@ using Pixiv.Clients.V1;
 using Pixiv.Exceptions;
 using Pixiv.Extensions;
 
+using SearchV2Client = Pixiv.Clients.V2.SearchClient;
+
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
@@ -42,6 +44,7 @@ namespace Pixiv
 
         public ApplicationInfoClient ApplicationInfo { get; }
         public AuthenticationClient Authentication { get; }
+        public SearchV2Client SearchV2 { get; }
         public TrendingTagsClient TrendingTags { get; }
         public WalkthroughClient Walkthrough { get; }
 
@@ -71,6 +74,7 @@ namespace Pixiv
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
+            SearchV2 = new SearchV2Client(this);
             TrendingTags = new TrendingTagsClient(this);
             Walkthrough = new WalkthroughClient(this);
         }

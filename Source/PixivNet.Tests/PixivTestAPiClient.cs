@@ -17,9 +17,11 @@ namespace Pixiv.Tests
     {
         private readonly PixivClient _pixivClient;
 
-        protected PixivTestAPiClient()
+        protected PixivTestAPiClient(string? accessToken = null, string? refreshToken = null)
         {
-            _pixivClient = PixivClientFactory.CreateWith("v2", new MockedHttpClientHandler($"../../../cassettes/{PixivClient.AppVersion}/cassette"));
+            _pixivClient = PixivClientFactory.CreateWith("v2", new MockedHttpClientHandler($"../../../cassettes/{PixivClient.AppVersion}/cassette.json"));
+            _pixivClient.AccessToken = accessToken;
+            _pixivClient.RefreshToken = refreshToken;
         }
 
         protected void ShouldHaveAttributes<T>(Expression<Func<PixivClient, Task<T>>> expression)
