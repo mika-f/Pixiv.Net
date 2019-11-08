@@ -91,3 +91,6 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/intellij
+#
+# I do not want to depend to IntelliJ IDEs
+.idea/**
