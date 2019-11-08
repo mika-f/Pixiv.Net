@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 using Pixiv.Clients;
+using Pixiv.Clients.Auth;
 using Pixiv.Clients.V1;
 using Pixiv.Exceptions;
 using Pixiv.Extensions;
@@ -40,6 +41,7 @@ namespace Pixiv
         public string? RefreshToken { get; internal set; }
 
         public ApplicationInfoClient ApplicationInfo { get; }
+        public AuthenticationClient Authentication { get; }
         public TrendingTagsClient TrendingTags { get; }
         public WalkthroughClient Walkthrough { get; }
 
@@ -55,9 +57,7 @@ namespace Pixiv
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
             _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
-            // Initialize accessors
             Application = new ApplicationInfoClient(this);
-            Authentication = new AuthenticationClient(this);
             Illust = new IllustClient(this);
             IllustSeries = new IllustSeriesClient(this);
             Live = new LiveClient(this);
@@ -70,6 +70,7 @@ namespace Pixiv
             User = new UserClient(this);
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
+            Authentication = new AuthenticationClient(this);
             TrendingTags = new TrendingTagsClient(this);
             Walkthrough = new WalkthroughClient(this);
         }
@@ -115,7 +116,9 @@ namespace Pixiv
 
         private static string AsStringValue<T>(T w)
         {
+#pragma warning disable CA1308 // 文字列を大文字に標準化します
             return w is bool ? w.ToString().ToLowerInvariant() : w!.ToString();
+#pragma warning restore CA1308 // 文字列を大文字に標準化します
         }
 
         private static void HandleErrors(HttpResponseMessage response)
@@ -144,11 +147,6 @@ namespace Pixiv
         ///     アプリケーション情報関連 API へのアクセサー
         /// </summary>
         public ApplicationInfoClient Application { get; }
-
-        /// <summary>
-        ///     認証関連 API へのアクセサー
-        /// </summary>
-        public AuthenticationClient Authentication { get; }
 
         /// <summary>
         ///     イラスト関連 API へのアクセサー

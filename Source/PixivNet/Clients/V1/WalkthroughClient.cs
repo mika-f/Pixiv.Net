@@ -8,7 +8,7 @@ namespace Pixiv.Clients.V1
 {
     public class WalkthroughClient : ApiClient
     {
-        public WalkthroughClient(PixivClient client) : base(client, "/v1/walkthrough") { }
+        internal WalkthroughClient(PixivClient client) : base(client, "/v1/walkthrough") { }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]

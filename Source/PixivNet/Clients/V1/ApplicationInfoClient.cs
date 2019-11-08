@@ -8,7 +8,7 @@ namespace Pixiv.Clients.V1
 {
     public class ApplicationInfoClient : ApiClient
     {
-        public ApplicationInfoClient(PixivClient client) : base(client, "/v1/application-info") { }
+        internal ApplicationInfoClient(PixivClient client) : base(client, "/v1/application-info") { }
 
         // ReSharper disable once UnusedMember.Global
         // ReSharper disable once InconsistentNaming

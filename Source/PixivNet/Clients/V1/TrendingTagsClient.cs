@@ -9,7 +9,7 @@ namespace Pixiv.Clients.V1
 {
     public class TrendingTagsClient : ApiClient
     {
-        public TrendingTagsClient(PixivClient client) : base(client, "/v1/trending-tags") { }
+        internal TrendingTagsClient(PixivClient client) : base(client, "/v1/trending-tags") { }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
