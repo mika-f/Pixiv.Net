@@ -1,22 +1,23 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
+
+using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     TODO
-    /// </summary>
     public class BookmarkRange : ApiResponse
     {
-        /// <summary>
-        ///     TODO
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("bookmark_num_max")]
+        public string BookmarkNumMax { get; set; } // integer or "*"
+        
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("bookmark_num_min")]
         public string BookmarkNumMin { get; set; }
-
-        /// <summary>
-        ///     TODO
-        /// </summary>
-        [JsonProperty("bookmark_num_max")]
-        public string BookmarkNumMax { get; set; }
+        
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }
