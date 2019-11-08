@@ -65,7 +65,6 @@ namespace Pixiv
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
             _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
-            Application = new ApplicationInfoClient(this);
             Illust = new IllustClient(this);
             Live = new LiveClient(this);
             Manga = new MangaClient(this);
@@ -151,13 +150,6 @@ namespace Pixiv
 
         #region API Accessors
 
-        // ReSharper disable MemberCanBePrivate.Global
-
-        /// <summary>
-        ///     アプリケーション情報関連 API へのアクセサー
-        /// </summary>
-        public ApplicationInfoClient Application { get; }
-
         /// <summary>
         ///     イラスト関連 API へのアクセサー
         /// </summary>
@@ -189,16 +181,10 @@ namespace Pixiv
         public NovelClient Novel { get; }
 
         /// <summary>
-        ///     検索関連 API へのアクセサー
-        /// </summary>
-        public SearchClient Search { get; }
-
-        /// <summary>
         ///     Pixiv ファイル関連 API へのアクセサー
         /// </summary>
         public FileClient File { get; }
 
-        // ReSharper restore MemberCanBePrivate.Global
 
         #endregion
         [SuppressMessage("Security", "CA5351:破られた暗号アルゴリズムを使用しない", Justification = "<保留中>")]
