@@ -1,23 +1,16 @@
-﻿namespace Pixiv.Enum
+using System.Runtime.Serialization;
+
+namespace Pixiv.Enum
 {
-    /// <summary>
-    ///     イラストの種類
-    /// </summary>
     public enum IllustType
     {
-        /// <summary>
-        ///     イラスト
-        /// </summary>
+        [EnumMember(Value = "illust")]
         Illust,
-
-        /// <summary>
-        ///     マンガ
-        /// </summary>
+        
+        [EnumMember(Value = "manga")]
         Manga,
-
-        /// <summary>
-        ///     うごイラ
-        /// </summary>
-        Ugoira
+        
+        [EnumMember(Value = "ugoira")]
+        Ugoira,
     }
 }

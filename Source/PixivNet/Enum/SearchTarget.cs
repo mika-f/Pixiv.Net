@@ -1,33 +1,22 @@
-﻿namespace Pixiv.Enum
+using System.Runtime.Serialization;
+
+namespace Pixiv.Enum
 {
-    /// <summary>
-    ///     検索対象
-    /// </summary>
     public enum SearchTarget
     {
-        /// <summary>
-        ///     タイトルとキャプション
-        /// </summary>
-        TitleAndCaption,
-
-        /// <summary>
-        ///     厳密なタグ一致
-        /// </summary>
+        [EnumMember(Value = "exact_match_for_tags")]
         ExactMatchForTags,
-
-        /// <summary>
-        ///     部分的なタグ一致
-        /// </summary>
+        
+        [EnumMember(Value = "keyword")]
+        Keyword,
+        
+        [EnumMember(Value =  "partial_match_for_tags")]
         PartialMatchForTags,
-
-        /// <summary>
-        ///     小説本文
-        /// </summary>
+        
+        [EnumMember(Value = "text")]
         Text,
-
-        /// <summary>
-        ///     小説本文
-        /// </summary>
-        Keyword
+        
+        [EnumMember(Value = "title_and_caption")]
+        TitleAndCaption,
     }
 }
