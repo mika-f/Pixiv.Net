@@ -36,9 +36,9 @@ namespace Pixiv
         internal string ClientSecret { get; }
         internal string ClientHash { get; }
 
-        public string? AccessToken { get; internal set; }
+        public string? AccessToken { get; set; }
 
-        public string? RefreshToken { get; internal set; }
+        public string? RefreshToken { get; set; }
 
         public ApplicationInfoClient ApplicationInfo { get; }
         public AuthenticationClient Authentication { get; }
