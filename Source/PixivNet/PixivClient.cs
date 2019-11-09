@@ -22,6 +22,7 @@ using IllustV2Client = Pixiv.Clients.V2.IllustClient;
 using SearchV1Client = Pixiv.Clients.V1.SearchClient;
 using SearchV2Client = Pixiv.Clients.V2.SearchClient;
 using UserV1Client = Pixiv.Clients.V1.UserClient;
+using UserV2Client = Pixiv.Clients.V2.UserClient;
 
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
@@ -54,6 +55,7 @@ namespace Pixiv
         public SpotlightClient Spotlight { get; }
         public TrendingTagsClient TrendingTags { get; }
         public UserV1Client UserV1 { get; }
+        public UserV2Client UserV2 { get; }
         public WalkthroughClient Walkthrough { get; }
 
         public PixivClient(string clientId, string clientSecret, string clientHash, HttpMessageHandler? handler = null)
@@ -84,6 +86,7 @@ namespace Pixiv
             Spotlight = new SpotlightClient(this);
             TrendingTags = new TrendingTagsClient(this);
             UserV1 = new UserV1Client(this);
+            UserV2 = new UserV2Client(this);
             Walkthrough = new WalkthroughClient(this);
         }
 
