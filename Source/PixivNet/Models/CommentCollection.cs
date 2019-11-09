@@ -1,18 +1,22 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     ページング可能なコメントのリスト
-    /// </summary>
-    public class CommentCollection : Cursorable<CommentCollection>
+    public class CommentCollection : ApiResponse
     {
-        /// <summary>
-        ///     コメントリスト
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("comments")]
         public IEnumerable<Comment> Comments { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("next_url")]
+        public Uri? NextUrl { get; set; }
     }
 }

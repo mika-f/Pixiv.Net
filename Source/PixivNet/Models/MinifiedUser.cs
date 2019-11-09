@@ -21,7 +21,7 @@ namespace Pixiv.Models
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("is_followed")]
-        public bool IsFollowed { get; set; }
+        public bool? IsFollowed { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]

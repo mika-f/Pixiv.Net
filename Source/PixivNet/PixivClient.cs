@@ -18,6 +18,7 @@ using Pixiv.Clients.V1;
 using Pixiv.Exceptions;
 using Pixiv.Extensions;
 
+using IllustV2Client = Pixiv.Clients.V2.IllustClient;
 using SearchV1Client = Pixiv.Clients.V1.SearchClient;
 using SearchV2Client = Pixiv.Clients.V2.SearchClient;
 using UserV1Client = Pixiv.Clients.V1.UserClient;
@@ -47,6 +48,7 @@ namespace Pixiv
         public ApplicationInfoClient ApplicationInfo { get; }
         public AuthenticationClient Authentication { get; }
         public IllustSeriesClient IllustSeries { get; }
+        public IllustV2Client IllustV2 { get; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
         public SpotlightClient Spotlight { get; }
@@ -66,7 +68,6 @@ namespace Pixiv
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
             _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
-            Illust = new IllustClient(this);
             Live = new LiveClient(this);
             Manga = new MangaClient(this);
             Mute = new MuteClient(this);
@@ -77,6 +78,7 @@ namespace Pixiv
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
             IllustSeries = new IllustSeriesClient(this);
+            IllustV2 = new IllustV2Client(this);
             SearchV1 = new SearchV1Client(this);
             SearchV2 = new SearchV2Client(this);
             Spotlight = new SpotlightClient(this);
@@ -150,11 +152,6 @@ namespace Pixiv
         }
 
         #region API Accessors
-
-        /// <summary>
-        ///     イラスト関連 API へのアクセサー
-        /// </summary>
-        public IllustClient Illust { get; }
 
         /// <summary>
         ///     生放送関連 API へのアクセサー
