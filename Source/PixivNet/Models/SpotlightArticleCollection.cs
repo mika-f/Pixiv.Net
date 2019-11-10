@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using Newtonsoft.Json;
@@ -14,12 +15,12 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("spotlight_articles")]
         public IEnumerable<SpotlightArticle> SpotlightArticles { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("next_url")]
-        public string? NextUrl { get; set; }
-        
+        public Uri? NextUrl { get; set; }
+
 #pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

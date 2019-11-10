@@ -12,7 +12,7 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("is_registered")]
         public bool IsRegistered { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("name")]

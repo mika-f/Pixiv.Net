@@ -6,11 +6,11 @@ namespace Pixiv.Enum
     {
         [EnumMember(Value = "illust")]
         Illust,
-        
+
         [EnumMember(Value = "manga")]
         Manga,
-        
+
         [EnumMember(Value = "ugoira")]
-        Ugoira,
+        Ugoira
     }
 }

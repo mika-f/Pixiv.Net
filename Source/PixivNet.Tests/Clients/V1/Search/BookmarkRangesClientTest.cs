@@ -19,10 +19,10 @@ namespace Pixiv.Tests.Clients.V1.Search
         public void Illust_ShouldHaveAttributes()
         {
             ShouldHaveAttributes(w => w.SearchV1.BookmarkRanges.IllustAsync(
-                "", SearchTarget.TitleAndCaption, Sort.DateDesc, 
-                0, 999, 
-                true, true, 
-                DateTime.Now, DateTime.Now, 
+                "", SearchTarget.TitleAndCaption, Sort.DateDesc,
+                0, 999,
+                true, true,
+                DateTime.Now, DateTime.Now,
                 "for_ios"));
         }
 

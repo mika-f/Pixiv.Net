@@ -6,10 +6,10 @@ namespace Pixiv.Enum
     {
         [EnumMember(Value = "all")]
         All,
-        
+
         [EnumMember(Value = "public")]
         Public,
-        
+
         [EnumMember(Value = "private")]
         Private
     }

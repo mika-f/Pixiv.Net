@@ -31,7 +31,7 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("height")]
         public long Height { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("id")]

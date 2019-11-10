@@ -75,7 +75,6 @@ namespace Pixiv
             Mute = new MuteClient(this);
             Notification = new NotificationClient(this);
             Novel = new NovelClient(this);
-            Search = new SearchClient(this);
             File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);

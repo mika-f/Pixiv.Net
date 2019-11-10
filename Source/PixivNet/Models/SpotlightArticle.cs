@@ -20,18 +20,18 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("category")]
         public string Category { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("id")]
         public long Id { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("publish_date")]
         [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime PublishDate { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("pure_title")]
@@ -51,7 +51,7 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("thumbnail")]
         public string Thumbnail { get; set; }
-        
+
 #pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

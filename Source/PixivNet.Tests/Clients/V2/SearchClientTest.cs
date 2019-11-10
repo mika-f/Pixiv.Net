@@ -7,7 +7,7 @@ namespace Pixiv.Tests.Clients.V2
     public class SearchClientTest : PixivTestAPiClient
     {
         public SearchClientTest() : base("**REDACTED**") { }
-        
+
         [Fact]
         public async Task AutoComplete_ShouldExtendsIsNullObject()
         {

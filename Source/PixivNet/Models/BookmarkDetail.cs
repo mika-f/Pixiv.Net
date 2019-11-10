@@ -27,7 +27,7 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("tags")]
         public IEnumerable<BookmarkTag> Tags { get; set; }
-        
+
 #pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

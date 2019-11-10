@@ -26,7 +26,7 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("has_replies")]
         public bool HasReplies { get; set; }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("id")]
@@ -36,7 +36,7 @@ namespace Pixiv.Models
         [MarkedAs("7.7.7")]
         [JsonProperty("user")]
         public MinifiedUser User { get; set; } // Should I create a new class that dropped is_followed property from MinifiedUser?
-        
+
 #pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

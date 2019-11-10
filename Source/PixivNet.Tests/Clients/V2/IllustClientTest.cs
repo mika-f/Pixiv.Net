@@ -55,6 +55,5 @@ namespace Pixiv.Tests.Clients.V2
         {
             ShouldHaveAttributes(w => w.IllustV2.RelatedAsync(52274754, "for_ios", null, null));
         }
-
     }
 }
