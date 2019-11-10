@@ -25,7 +25,7 @@ namespace Pixiv.Clients.V2.Illust
 
             await PostAsync("/add", parameters).Stay();
         }
-        
+
         // TODO: Remove
 
         [ApiVersion]
