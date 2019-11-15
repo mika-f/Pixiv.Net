@@ -17,6 +17,6 @@ namespace Pixiv.Enum
         PopularFemaleDesc,
 
         [EnumMember(Value = "popular_male_desc")]
-        PopularMaleDesc,
+        PopularMaleDesc
     }
 }
