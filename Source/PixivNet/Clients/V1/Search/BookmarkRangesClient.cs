@@ -17,7 +17,8 @@ namespace Pixiv.Clients.V1.Search
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [RequiredAuthentication]
-        public async Task<IEnumerable<BookmarkRange>> IllustAsync(string word, SearchTarget searchTarget, Sort sort, long? bookmarkNumMax = null, long? bookmarkNumMin = null, bool includeTranslatedTagResults = true, bool mergePlainKeywordResults = true, DateTime? startDate = null, DateTime? endDate = null, string filter = "for_ios")
+        public async Task<IEnumerable<BookmarkRange>> IllustAsync(string word, SearchTarget searchTarget, Sort sort, long? bookmarkNumMax = null, long? bookmarkNumMin = null, bool includeTranslatedTagResults = true, bool mergePlainKeywordResults = true, DateTime? startDate = null,
+                                                                  DateTime? endDate = null, string? filter = "for_ios")
         {
             var parameters = new List<KeyValuePair<string, object>>
             {
@@ -25,9 +26,9 @@ namespace Pixiv.Clients.V1.Search
                 new KeyValuePair<string, object>("merge_plain_keyword_results", mergePlainKeywordResults),
                 new KeyValuePair<string, object>("search_target", searchTarget.ToValue()),
                 new KeyValuePair<string, object>(nameof(sort), sort.ToValue()),
-                new KeyValuePair<string, object>(nameof(word), word),
+                new KeyValuePair<string, object>(nameof(word), word)
             };
-            
+
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, object>(nameof(filter), filter));
             if (bookmarkNumMax.HasValue)
@@ -39,14 +40,15 @@ namespace Pixiv.Clients.V1.Search
             if (startDate.HasValue)
                 parameters.Add(new KeyValuePair<string, object>("start_date", startDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
 
-            var response = await this.GetAsync("/illust", parameters).Stay();
+            var response = await GetAsync("/illust", parameters).Stay();
             return response["bookmark_ranges"].ToObject<IEnumerable<BookmarkRange>>();
         }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [RequiredAuthentication]
-        public async Task<IEnumerable<BookmarkRange>> NovelAsync(string word, SearchTarget searchTarget, Sort sort, long? bookmarkNumMax = null, long? bookmarkNumMin = null, bool includeTranslatedTagResults = true, bool mergePlainKeywordResults = true, DateTime? startDate = null, DateTime? endDate = null, string filter = "for_ios")
+        public async Task<IEnumerable<BookmarkRange>> NovelAsync(string word, SearchTarget searchTarget, Sort sort, long? bookmarkNumMax = null, long? bookmarkNumMin = null, bool includeTranslatedTagResults = true, bool mergePlainKeywordResults = true, DateTime? startDate = null,
+                                                                 DateTime? endDate = null, string filter = "for_ios")
         {
             var parameters = new List<KeyValuePair<string, object>>
             {
@@ -54,9 +56,9 @@ namespace Pixiv.Clients.V1.Search
                 new KeyValuePair<string, object>("merge_plain_keyword_results", mergePlainKeywordResults),
                 new KeyValuePair<string, object>("search_target", searchTarget.ToValue()),
                 new KeyValuePair<string, object>(nameof(sort), sort.ToValue()),
-                new KeyValuePair<string, object>(nameof(word), word),
+                new KeyValuePair<string, object>(nameof(word), word)
             };
-            
+
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, object>(nameof(filter), filter));
             if (bookmarkNumMax.HasValue)
@@ -68,7 +70,7 @@ namespace Pixiv.Clients.V1.Search
             if (startDate.HasValue)
                 parameters.Add(new KeyValuePair<string, object>("start_date", startDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
 
-            var response = await this.GetAsync("/novel", parameters).Stay();
+            var response = await GetAsync("/novel", parameters).Stay();
             return response["bookmark_ranges"].ToObject<IEnumerable<BookmarkRange>>();
         }
     }

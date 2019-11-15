@@ -14,13 +14,13 @@ namespace Pixiv.Clients.V1
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [RequiredAuthentication]
-        public async Task<SpotlightArticleCollection> ArticlesAsync(string category, string filter = "for_ios", int? offset = null)
+        public async Task<SpotlightArticleCollection> ArticlesAsync(string category, string? filter = "for_ios", int? offset = null)
         {
             var parameters = new List<KeyValuePair<string, object>>
             {
                 new KeyValuePair<string, object>(nameof(category), category)
             };
-            
+
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, object>(nameof(filter), filter));
             if (offset.HasValue)
