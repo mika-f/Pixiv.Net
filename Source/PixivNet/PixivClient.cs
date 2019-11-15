@@ -135,7 +135,7 @@ namespace Pixiv
         internal async Task<JObject> PostAsync(string url, bool isRequiredAuthentication, bool isRequiredReferrer, IEnumerable<KeyValuePair<string, object>>? parameters)
         {
             using var content = new FormUrlEncodedContent(parameters?.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
-            ApplyPixivHeaders(isRequiredAuthentication);
+            ApplyPixivHeaders(isRequiredAuthentication, isRequiredReferrer);
 
             var response = await _httpClient.PostAsync(url, content).Stay();
             HandleErrors(response);
