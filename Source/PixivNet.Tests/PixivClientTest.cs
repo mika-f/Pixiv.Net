@@ -20,7 +20,7 @@ namespace Pixiv.Tests
             var mock = new Mock<PixivClient>(() => new PixivClient("", "", PixivClientFactory.ClientHash, handler));
             mock.Setup(w => w.GetCurrentDate()).Returns(new DateTimeOffset(new DateTime(2019, 11, 4, 17, 12, 12)));
 
-            await mock.Object.GetAsync("https://example.com", false); // no stuff
+            await mock.Object.GetAsync("https://example.com", false, false); // no stuff
 
             var request = handler.LastRequest;
 
@@ -35,7 +35,7 @@ namespace Pixiv.Tests
             var mock = new Mock<PixivClient>(() => new PixivClient("", "", PixivClientFactory.ClientHash, handler));
             mock.Setup(w => w.GetCurrentDate()).Returns(new DateTimeOffset(new DateTime(2019, 11, 4, 17, 11, 38)));
 
-            await mock.Object.GetAsync("https://example.com", false); // no stuff
+            await mock.Object.GetAsync("https://example.com", false, false); // no stuff
 
             var request = handler.LastRequest;
 
