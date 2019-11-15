@@ -14,7 +14,7 @@ namespace Pixiv.Clients.V2.User.BrowsingHistory
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [RequiredAuthentication]
-        public async Task AddAsync(long[] illustIds)
+        public async Task AddAsync(IEnumerable<long> illustIds)
         {
             var parameters = illustIds.Select(illustId => new KeyValuePair<string, object>("illust_ids[]", illustId)).ToList();
 

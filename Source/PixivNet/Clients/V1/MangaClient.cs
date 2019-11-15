@@ -14,7 +14,7 @@ namespace Pixiv.Clients.V1
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [RequiredAuthentication]
-        public async Task<IllustCollection> RecommendedAsync(List<long> bookmarkIllustIds, bool includeRankingIllusts, string? filter = "for_ios", bool includePrivacyPolicy = true, long? maxBookmarkId = null, long? offset = null)
+        public async Task<IllustCollection> RecommendedAsync(IEnumerable<long> bookmarkIllustIds, bool includeRankingIllusts, string? filter = "for_ios", bool includePrivacyPolicy = true, long? maxBookmarkId = null, long? offset = null)
         {
             var parameters = new List<KeyValuePair<string, object>>
             {

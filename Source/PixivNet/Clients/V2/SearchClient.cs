@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace Pixiv.Clients.V2
                 new KeyValuePair<string, object>("merge_plain_keyword_results", mergePlainKeywordResults)
             };
 
-            var response = await this.GetAsync("/autocomplete", parameters).Stay();
+            var response = await GetAsync("/autocomplete", parameters).Stay();
             return response["tags"].ToObject<IEnumerable<Tag>>();
         }
     }
