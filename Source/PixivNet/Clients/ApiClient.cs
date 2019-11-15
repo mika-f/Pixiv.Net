@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -25,38 +27,49 @@ namespace Pixiv.Clients
 
         protected async Task<T> GetAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
-            var isRequiredAuthentication = false;
-            if (!string.IsNullOrWhiteSpace(caller))
-                isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
-
-            return (await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay()).ToObject<T>();
+            var (isRequiredAuthentication, isRequiredReferrer) = CheckCallerMethodAttributes(caller);
+            return (await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, isRequiredReferrer, parameters).Stay()).ToObject<T>();
         }
 
         protected async Task<JObject> GetAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
-            var isRequiredAuthentication = false;
-            if (!string.IsNullOrWhiteSpace(caller))
-                isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
+            var (isRequiredAuthentication, isRequiredReferrer) = CheckCallerMethodAttributes(caller);
+            return await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, isRequiredReferrer, parameters).Stay();
+        }
 
-            return await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay();
+        protected async Task<Stream> GetAsyncAsStream(Uri uri, [CallerMemberName] string? caller = null)
+        {
+            if (uri == null)
+                throw new ArgumentNullException(nameof(uri));
+
+            var (isRequiredAuthentication, isRequiredReferrer) = CheckCallerMethodAttributes(caller);
+            return await Client.GetAsyncAsStream(uri.ToString(), isRequiredAuthentication, isRequiredReferrer).Stay();
         }
 
         protected async Task<T> PostAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
-            var isRequiredAuthentication = false;
-            if (!string.IsNullOrWhiteSpace(caller))
-                isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
-
-            return (await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay()).ToObject<T>();
+            var (isRequiredAuthentication, isRequiredReferrer) = CheckCallerMethodAttributes(caller);
+            return (await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, isRequiredReferrer, parameters).Stay()).ToObject<T>();
         }
 
         protected async Task<JObject> PostAsync(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
         {
-            var isRequiredAuthentication = false;
-            if (!string.IsNullOrWhiteSpace(caller))
-                isRequiredAuthentication = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public)?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
+            var (isRequiredAuthentication, isRequiredReferrer) = CheckCallerMethodAttributes(caller);
+            return await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, isRequiredReferrer, parameters).Stay();
+        }
 
-            return await Client.PostAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, parameters).Stay();
+        private (bool, bool) CheckCallerMethodAttributes(string? caller)
+        {
+            var isRequiredAuthentication = false;
+            var isRequiredReferrer = false;
+            if (!string.IsNullOrWhiteSpace(caller))
+            {
+                var method = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public);
+                isRequiredAuthentication = method?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
+                isRequiredReferrer = method?.GetCustomAttribute<RequiredReferrerAttribute>() != null;
+            }
+
+            return (isRequiredAuthentication, isRequiredReferrer);
         }
     }
 }

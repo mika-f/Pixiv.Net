@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,6 +15,7 @@ using Newtonsoft.Json.Linq;
 
 using Pixiv.Clients;
 using Pixiv.Clients.Auth;
+using Pixiv.Clients.IO;
 using Pixiv.Clients.V1;
 using Pixiv.Exceptions;
 using Pixiv.Extensions;
@@ -48,6 +50,7 @@ namespace Pixiv
 
         public ApplicationInfoClient ApplicationInfo { get; }
         public AuthenticationClient Authentication { get; }
+        public FileClient File { get; set; }
         public IllustSeriesClient IllustSeries { get; }
         public IllustV2Client IllustV2 { get; }
         public MangaClient Manga { get; }
@@ -75,9 +78,9 @@ namespace Pixiv
             Mute = new MuteClient(this);
             Notification = new NotificationClient(this);
             Novel = new NovelClient(this);
-            File = new FileClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
+            File = new FileClient(this);
             IllustSeries = new IllustSeriesClient(this);
             IllustV2 = new IllustV2Client(this);
             Manga = new MangaClient(this);
@@ -107,11 +110,11 @@ namespace Pixiv
             Dispose(false);
         }
 
-        internal async Task<JObject> GetAsync(string url, bool isRequiredAuthentication, List<KeyValuePair<string, object>>? parameters = null)
+        internal async Task<JObject> GetAsync(string url, bool isRequiredAuthentication, bool isRequiredReferrer, List<KeyValuePair<string, object>>? parameters = null)
         {
             if (parameters != null && parameters.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
-            ApplyPixivHeaders(isRequiredAuthentication);
+            ApplyPixivHeaders(isRequiredAuthentication, isRequiredReferrer);
 
             var response = await _httpClient.GetAsync(url).Stay();
             HandleErrors(response);
@@ -119,7 +122,17 @@ namespace Pixiv
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<JObject> PostAsync(string url, bool isRequiredAuthentication, IEnumerable<KeyValuePair<string, object>>? parameters)
+        internal async Task<Stream> GetAsyncAsStream(string url, bool isRequiredAuthentication, bool isRequiredReferrer)
+        {
+            ApplyPixivHeaders(isRequiredAuthentication, isRequiredReferrer);
+
+            var response = await _httpClient.GetAsync(url).Stay();
+            HandleErrors(response);
+
+            return await response.Content.ReadAsStreamAsync().Stay();
+        }
+
+        internal async Task<JObject> PostAsync(string url, bool isRequiredAuthentication, bool isRequiredReferrer, IEnumerable<KeyValuePair<string, object>>? parameters)
         {
             using var content = new FormUrlEncodedContent(parameters?.Select(w => new KeyValuePair<string, string>(w.Key, AsStringValue(w.Value))));
             ApplyPixivHeaders(isRequiredAuthentication);
@@ -176,15 +189,10 @@ namespace Pixiv
         /// </summary>
         public NovelClient Novel { get; }
 
-        /// <summary>
-        ///     Pixiv ファイル関連 API へのアクセサー
-        /// </summary>
-        public FileClient File { get; }
-
 
         #endregion
         [SuppressMessage("Security", "CA5351:破られた暗号アルゴリズムを使用しない", Justification = "<保留中>")]
-        private void ApplyPixivHeaders(bool isRequiredAuthentication)
+        private void ApplyPixivHeaders(bool isRequiredAuthentication, bool appendReferrer)
         {
             // Add X-Client-Hash, X-Client-Time and Authorization Header for Pixiv Authorization Protocol
             if (!string.IsNullOrWhiteSpace(ClientHash))
@@ -204,8 +212,11 @@ namespace Pixiv
             if (isRequiredAuthentication && string.IsNullOrWhiteSpace(AccessToken))
                 throw new InvalidOperationException();
 
-            if (!string.IsNullOrWhiteSpace(AccessToken))
+            if (isRequiredAuthentication)
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+
+            if (appendReferrer)
+                _httpClient.DefaultRequestHeaders.Referrer = new Uri("https://app-api.pixiv.net/");
         }
 
         internal virtual DateTimeOffset GetCurrentDate()

@@ -74,7 +74,7 @@ namespace Pixiv.Tests
                 await func.Invoke(_pixivClient);
                 Assert.True(true);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
             }
