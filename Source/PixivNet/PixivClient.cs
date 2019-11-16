@@ -54,6 +54,7 @@ namespace Pixiv
         public IllustSeriesClient IllustSeries { get; }
         public IllustV2Client IllustV2 { get; }
         public MangaClient Manga { get; }
+        public PPointClient PPoint { get; set; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
         public SpotlightClient Spotlight { get; }
@@ -84,6 +85,7 @@ namespace Pixiv
             IllustSeries = new IllustSeriesClient(this);
             IllustV2 = new IllustV2Client(this);
             Manga = new MangaClient(this);
+            PPoint = new PPointClient(this);
             SearchV1 = new SearchV1Client(this);
             SearchV2 = new SearchV2Client(this);
             Spotlight = new SpotlightClient(this);
