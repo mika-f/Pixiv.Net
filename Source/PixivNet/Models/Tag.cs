@@ -10,6 +10,11 @@ namespace Pixiv.Models
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
+        [JsonProperty("added_by_uploaded_user")]
+        public bool? AddedByUploadedUser { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("name")]
         public string Name { get; set; }
 

@@ -19,12 +19,17 @@ namespace Pixiv.Models
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("privacy_policy")]
-        public PrivacyPolicy PrivacyPolicy { get; set; }
+        public PrivacyPolicy? PrivacyPolicy { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [JsonProperty("ranking_illusts")]
         public IEnumerable<Illust>? RankingIllusts { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("search_span_limit")]
+        public long? SearchSpanLimit { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
