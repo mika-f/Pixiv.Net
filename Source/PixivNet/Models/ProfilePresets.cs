@@ -2,35 +2,34 @@
 
 using Newtonsoft.Json;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     プロフィールのプリセット情報
-    /// </summary>
     public class ProfilePresets : ApiResponse
     {
-        /// <summary>
-        ///     住所 (都道府県)
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("addresses")]
         public IEnumerable<Address> Addresses { get; set; }
 
-        /// <summary>
-        ///     国
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("countries")]
         public IEnumerable<Country> Countries { get; set; }
 
-        /// <summary>
-        ///     職業
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("jobs")]
         public IEnumerable<Job> Jobs { get; set; }
 
-        /// <summary>
-        ///     デフォルトのプロフィール画像 URL
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("default_profile_image_urls")]
         public ProfileImageUrls DefaultProfileImageUrls { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

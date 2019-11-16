@@ -1,28 +1,28 @@
 ﻿using Newtonsoft.Json;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     住所
-    /// </summary>
     public class Address : ApiResponse
     {
-        /// <summary>
-        ///     ID
-        /// </summary>
-        [JsonProperty("id")]
-        public int Id { get; set; }
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
 
-        /// <summary>
-        ///     名前
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("is_global")]
+        public bool IsGlobal { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        /// <summary>
-        ///     TODO
-        /// </summary>
-        [JsonProperty("is_global")]
-        public bool IsGlobal { get; set; }
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }
