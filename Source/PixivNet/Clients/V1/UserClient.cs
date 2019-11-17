@@ -9,6 +9,7 @@ namespace Pixiv.Clients.V1
         public BrowsingHistoryClient BrowsingHistory { get; }
         public MeClient Me { get; }
         public ProfileClient Profile { get; }
+        public WorkspaceClient Workspace { get; }
 
         internal UserClient(PixivClient client) : base(client, "/v1/user")
         {
@@ -17,6 +18,7 @@ namespace Pixiv.Clients.V1
             BrowsingHistory = new BrowsingHistoryClient(client);
             Me = new MeClient(client);
             Profile = new ProfileClient(client);
+            Workspace = new WorkspaceClient(client);
         }
     }
 }

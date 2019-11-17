@@ -41,7 +41,7 @@ namespace Pixiv.Clients.V1.Search
                 parameters.Add(new KeyValuePair<string, object>("start_date", startDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
 
             var response = await GetAsync("/illust", parameters).Stay();
-            return response["bookmark_ranges"].ToObject<IEnumerable<BookmarkRange>>();
+            return response["bookmark_ranges"]!.ToObject<IEnumerable<BookmarkRange>>()!;
         }
 
         [ApiVersion]
@@ -71,7 +71,7 @@ namespace Pixiv.Clients.V1.Search
                 parameters.Add(new KeyValuePair<string, object>("start_date", startDate.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
 
             var response = await GetAsync("/novel", parameters).Stay();
-            return response["bookmark_ranges"].ToObject<IEnumerable<BookmarkRange>>();
+            return response["bookmark_ranges"]!.ToObject<IEnumerable<BookmarkRange>>()!;
         }
     }
 }

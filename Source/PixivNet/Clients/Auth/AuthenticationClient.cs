@@ -30,7 +30,7 @@ namespace Pixiv.Clients.Auth
                 parameters.Add(new KeyValuePair<string, object>("device_token", deviceToken));
 
             var response = await PostAsync("/token", parameters).Stay();
-            var credential = response["response"].ToObject<Credential>();
+            var credential = response["response"]!.ToObject<Credential>()!;
             Client.AccessToken = credential.AccessToken;
             Client.RefreshToken = credential.RefreshToken;
 
@@ -55,7 +55,7 @@ namespace Pixiv.Clients.Auth
             };
 
             var response = await PostAsync("/token", parameters).Stay();
-            var credential = response["response"].ToObject<Credential>();
+            var credential = response["response"]!.ToObject<Credential>()!;
             Client.AccessToken = credential.AccessToken;
             Client.RefreshToken = credential.RefreshToken;
 
