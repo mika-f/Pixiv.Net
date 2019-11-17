@@ -2,23 +2,24 @@
 
 using Newtonsoft.Json;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     通知設定
-    /// </summary>
     public class NotificationSettings : ApiResponse
     {
-        /// <summary>
-        ///     デバイスが登録済みであるか
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("device_registered")]
         public bool IsDeviceRegistered { get; set; }
 
-        /// <summary>
-        ///     通知タイプのリスト
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("types")]
         public IEnumerable<NotificationType> Types { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

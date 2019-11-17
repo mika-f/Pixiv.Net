@@ -54,6 +54,7 @@ namespace Pixiv
         public IllustSeriesClient IllustSeries { get; }
         public IllustV2Client IllustV2 { get; }
         public MangaClient Manga { get; }
+        public NotificationClient Notification { get; }
         public PPointClient PPoint { get; set; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
@@ -77,7 +78,6 @@ namespace Pixiv
 
             Live = new LiveClient(this);
             Mute = new MuteClient(this);
-            Notification = new NotificationClient(this);
             Novel = new NovelClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
@@ -85,6 +85,7 @@ namespace Pixiv
             IllustSeries = new IllustSeriesClient(this);
             IllustV2 = new IllustV2Client(this);
             Manga = new MangaClient(this);
+            Notification = new NotificationClient(this);
             PPoint = new PPointClient(this);
             SearchV1 = new SearchV1Client(this);
             SearchV2 = new SearchV2Client(this);
@@ -182,15 +183,9 @@ namespace Pixiv
         public MuteClient Mute { get; }
 
         /// <summary>
-        ///     通知関連 API へのアクセサー
-        /// </summary>
-        public NotificationClient Notification { get; }
-
-        /// <summary>
         ///     小説関連 API へのアクセサー
         /// </summary>
         public NovelClient Novel { get; }
-
 
         #endregion
         [SuppressMessage("Security", "CA5351:破られた暗号アルゴリズムを使用しない", Justification = "<保留中>")]
