@@ -49,7 +49,7 @@ namespace Pixiv.Clients.V1
             };
 
             var response = await GetAsync("/summary", parameters).Stay();
-            return response["summary"].ToObject<PointSummary>();
+            return response["summary"]!.ToObject<PointSummary>()!;
         }
     }
 }

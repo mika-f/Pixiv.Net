@@ -16,7 +16,7 @@ namespace Pixiv.Clients.V1.User
         public async Task<UserState> StateAsync()
         {
             var response = await GetAsync("/state").Stay();
-            return response["user_state"].ToObject<UserState>();
+            return response["user_state"]!.ToObject<UserState>()!;
         }
     }
 }

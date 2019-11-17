@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 
 using Pixiv.Attributes;
-using Pixiv.Enum;
+using Pixiv.Enums;
 
 namespace Pixiv.Models
 {

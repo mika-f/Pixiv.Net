@@ -17,7 +17,7 @@ namespace Pixiv.Clients.V1
         public async Task<ApplicationInfo> IOSAsync()
         {
             var obj = await GetAsync("/ios").Stay();
-            return obj["application_info"].ToObject<ApplicationInfo>();
+            return obj["application_info"]!.ToObject<ApplicationInfo>()!;
         }
     }
 }

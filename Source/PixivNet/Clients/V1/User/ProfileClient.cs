@@ -17,7 +17,7 @@ namespace Pixiv.Clients.V1.User
         public async Task<ProfilePresets> PresetsAsync()
         {
             var response = await GetAsync("/presets").Stay();
-            return response["profile_presets"].ToObject<ProfilePresets>();
+            return response["profile_presets"]!.ToObject<ProfilePresets>()!;
         }
 
         [ApiVersion]

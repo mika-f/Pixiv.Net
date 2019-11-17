@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 using Pixiv.Attributes;
 using Pixiv.Clients.V2.Illust;
-using Pixiv.Enum;
+using Pixiv.Enums;
 using Pixiv.Extensions;
 using Pixiv.Models;
 
@@ -13,7 +13,7 @@ namespace Pixiv.Clients.V2
     public class IllustClient : ApiClient
     {
         public BookmarkClient Bookmark { get; }
-        
+
         internal IllustClient(PixivClient client) : base(client, "/v2/illust")
         {
             Bookmark = new BookmarkClient(client);
@@ -28,7 +28,7 @@ namespace Pixiv.Clients.V2
             {
                 new KeyValuePair<string, object>("illust_id", illustId)
             };
-            
+
             if (lastCommentId.HasValue)
                 parameters.Add(new KeyValuePair<string, object>("last_comment_id", lastCommentId.Value));
 
@@ -44,7 +44,7 @@ namespace Pixiv.Clients.V2
             {
                 new KeyValuePair<string, object>(nameof(restrict), restrict.ToValue())
             };
-            
+
             if (offset.HasValue)
                 parameters.Add(new KeyValuePair<string, object>(nameof(offset), offset.Value));
 
@@ -62,7 +62,7 @@ namespace Pixiv.Clients.V2
 
             return await GetAsync<IllustCollection>("/mypixiv", parameters).Stay();
         }
-        
+
         [ApiVersion]
         [MarkedAs("7.7.7")]
         [RequiredAuthentication]
@@ -72,7 +72,7 @@ namespace Pixiv.Clients.V2
             {
                 new KeyValuePair<string, object>("illust_id", illustId)
             };
-            
+
             if (!string.IsNullOrWhiteSpace(filter))
                 parameters.Add(new KeyValuePair<string, object>(nameof(filter), filter));
             if (offset.HasValue)

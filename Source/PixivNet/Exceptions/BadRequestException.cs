@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http;
 
@@ -7,6 +8,7 @@ namespace Pixiv.Exceptions
     /// <summary>
     ///     Pixiv.Net 内部で、 HTTP 400 Bad Request が返された場合に発生する例外です。
     /// </summary>
+    [SuppressMessage("Design", "CA1032:標準例外コンストラクターを実装します", Justification = "<保留中>")]
     public class BadRequestException : ApiException
     {
         public override HttpStatusCode StatusCode => HttpStatusCode.BadRequest;

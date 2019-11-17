@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Pixiv.Attributes;
-using Pixiv.Enum;
+using Pixiv.Enums;
 using Pixiv.Extensions;
 using Pixiv.Models;
 
@@ -39,7 +39,7 @@ namespace Pixiv.Clients.V2.Illust
             };
 
             var response = await GetAsync("/detail", parameters).Stay();
-            return response["bookmark_detail"].ToObject<BookmarkDetail>();
+            return response["bookmark_detail"]!.ToObject<BookmarkDetail>()!;
         }
     }
 }

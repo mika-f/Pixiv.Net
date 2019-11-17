@@ -23,7 +23,7 @@ namespace Pixiv.Clients.V2
             };
 
             var response = await GetAsync("/autocomplete", parameters).Stay();
-            return response["tags"].ToObject<IEnumerable<Tag>>();
+            return response["tags"]!.ToObject<IEnumerable<Tag>>()!;
         }
     }
 }

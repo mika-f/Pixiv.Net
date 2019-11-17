@@ -21,7 +21,7 @@ namespace Pixiv.Clients.V1
                 parameters.Add(new KeyValuePair<string, object>(nameof(filter), filter));
 
             var obj = await GetAsync("/illust", parameters).Stay();
-            return obj["trend_tags"].ToObject<IEnumerable<TrendTag>>();
+            return obj["trend_tags"]!.ToObject<IEnumerable<TrendTag>>()!;
         }
 
         [ApiVersion]
@@ -34,7 +34,7 @@ namespace Pixiv.Clients.V1
                 parameters.Add(new KeyValuePair<string, object>(nameof(filter), filter));
 
             var obj = await GetAsync("/novel", parameters).Stay();
-            return obj["trend_tags"].ToObject<IEnumerable<TrendTag>>();
+            return obj["trend_tags"]!.ToObject<IEnumerable<TrendTag>>()!;
         }
     }
 }

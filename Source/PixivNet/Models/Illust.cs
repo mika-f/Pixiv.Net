@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 using Pixiv.Attributes;
-using Pixiv.Enum;
+using Pixiv.Enums;
 
 namespace Pixiv.Models
 {

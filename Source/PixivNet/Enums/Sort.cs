@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Pixiv.Enum
+namespace Pixiv.Enums
 {
     public enum Sort
     {

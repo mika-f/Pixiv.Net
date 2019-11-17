@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 using Pixiv.Attributes;
-using Pixiv.Enum;
+using Pixiv.Enums;
 using Pixiv.Extensions;
 using Pixiv.Models;
 

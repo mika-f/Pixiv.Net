@@ -6,11 +6,11 @@ namespace Pixiv.Extensions
 {
     public static class EnumExtensions
     {
-        public static string ToValue<T>(this T @enum) where T : System.Enum
+        public static string ToValue<T>(this T @enum) where T : Enum
         {
-            var name = System.Enum.GetName(typeof(T), @enum);
+            var name = Enum.GetName(typeof(T), @enum);
             var attribute = typeof(T).GetField(name)?.GetCustomAttribute<EnumMemberAttribute>() ?? throw new InvalidOperationException();
-            return attribute?.Value;
+            return attribute.Value;
         }
     }
 }

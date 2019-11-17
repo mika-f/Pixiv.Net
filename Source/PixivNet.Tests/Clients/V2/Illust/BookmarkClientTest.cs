@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-using Pixiv.Enum;
+using Pixiv.Enums;
 
 using Xunit;
 
