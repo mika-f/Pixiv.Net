@@ -6,6 +6,7 @@ namespace Pixiv.Clients.V1
     {
         public BookmarksClient Bookmarks { get; }
         public BookmarkTagsClient BookmarkTags { get; }
+        public BrowsingHistoryClient BrowsingHistory { get; }
         public MeClient Me { get; }
         public ProfileClient Profile { get; }
 
@@ -13,6 +14,7 @@ namespace Pixiv.Clients.V1
         {
             Bookmarks = new BookmarksClient(client);
             BookmarkTags = new BookmarkTagsClient(client);
+            BrowsingHistory = new BrowsingHistoryClient(client);
             Me = new MeClient(client);
             Profile = new ProfileClient(client);
         }
