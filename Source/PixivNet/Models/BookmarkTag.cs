@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 using Pixiv.Attributes;
 
@@ -10,8 +10,8 @@ namespace Pixiv.Models
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("is_registered")]
-        public bool IsRegistered { get; set; }
+        [JsonProperty("count")]
+        public long Count { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]

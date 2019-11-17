@@ -1,22 +1,23 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
+
+using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     ブックマーク詳細に関するタグ情報
-    /// </summary>
     public class BookmarkDetailTag : ApiResponse
     {
-        /// <summary>
-        ///     タグ名
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("is_registered")]
+        public bool IsRegistered { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        /// <summary>
-        ///     ブックマークにタグ登録済みか
-        /// </summary>
-        [JsonProperty("is_registered")]
-        public bool IsRegistered { get; set; }
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }
