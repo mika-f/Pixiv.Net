@@ -56,6 +56,7 @@ namespace Pixiv
         public IllustV1Client IllustV1 { get; }
         public IllustV2Client IllustV2 { get; }
         public MangaClient Manga { get; }
+        public MuteClient Mute { get; }
         public NotificationClient Notification { get; }
         public PPointClient PPoint { get; }
         public SearchV1Client SearchV1 { get; }
@@ -79,7 +80,6 @@ namespace Pixiv
             _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
             Live = new LiveClient(this);
-            Mute = new MuteClient(this);
             Novel = new NovelClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
@@ -88,6 +88,7 @@ namespace Pixiv
             IllustV1 = new IllustV1Client(this);
             IllustV2 = new IllustV2Client(this);
             Manga = new MangaClient(this);
+            Mute = new MuteClient(this);
             Notification = new NotificationClient(this);
             PPoint = new PPointClient(this);
             SearchV1 = new SearchV1Client(this);
@@ -179,11 +180,6 @@ namespace Pixiv
         ///     生放送関連 API へのアクセサー
         /// </summary>
         public LiveClient Live { get; }
-
-        /// <summary>
-        ///     ミュート関連 API へのアクセサー
-        /// </summary>
-        public MuteClient Mute { get; }
 
         /// <summary>
         ///     小説関連 API へのアクセサー

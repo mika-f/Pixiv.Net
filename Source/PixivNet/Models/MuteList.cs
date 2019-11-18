@@ -2,41 +2,44 @@
 
 using Newtonsoft.Json;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     ミュートタグリスト
-    /// </summary>
     public class MuteList : ApiResponse
     {
-        /// <summary>
-        ///     ミュートしているタグリスト
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("muted_tags")]
-        public IEnumerable<MutedTag> MutedTags { get; set; }
+        public IEnumerable<ApiResponse> MutedTags { get; set; }
 
-        /// <summary>
-        ///     ミュートしている数
-        /// </summary>
-        [JsonProperty("muted_count")]
-        public int MutedCount { get; set; }
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("muted_users")]
+        public IEnumerable<ApiResponse> MutedUsers { get; set; }
 
-        /// <summary>
-        ///     ミュートしているタグの数
-        /// </summary>
-        [JsonProperty("muted_tags_count")]
-        public int MutedTagsCount { get; set; }
-
-        /// <summary>
-        ///     ミュートしているユーザーの数
-        /// </summary>
-        [JsonProperty("muted_users_count")]
-        public int MutedUsersCount { get; set; }
-
-        /// <summary>
-        ///     最大ミュート数
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("mute_limit_count")]
-        public int MuteLimitCount { get; set; }
+        public long MuteLimitCount { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("muted_count")]
+        public long MutedCount { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("muted_tags_count")]
+        public long MutedTagsCount { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("muted_users_count")]
+        public long MutedUsersCount { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }
