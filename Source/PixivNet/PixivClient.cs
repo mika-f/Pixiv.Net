@@ -20,6 +20,7 @@ using Pixiv.Clients.V1;
 using Pixiv.Exceptions;
 using Pixiv.Extensions;
 
+using IllustV1Client = Pixiv.Clients.V1.IllustClient;
 using IllustV2Client = Pixiv.Clients.V2.IllustClient;
 using SearchV1Client = Pixiv.Clients.V1.SearchClient;
 using SearchV2Client = Pixiv.Clients.V2.SearchClient;
@@ -50,12 +51,13 @@ namespace Pixiv
 
         public ApplicationInfoClient ApplicationInfo { get; }
         public AuthenticationClient Authentication { get; }
-        public FileClient File { get; set; }
+        public FileClient File { get; }
         public IllustSeriesClient IllustSeries { get; }
+        public IllustV1Client IllustV1 { get; }
         public IllustV2Client IllustV2 { get; }
         public MangaClient Manga { get; }
         public NotificationClient Notification { get; }
-        public PPointClient PPoint { get; set; }
+        public PPointClient PPoint { get; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
         public SpotlightClient Spotlight { get; }
@@ -83,6 +85,7 @@ namespace Pixiv
             Authentication = new AuthenticationClient(this);
             File = new FileClient(this);
             IllustSeries = new IllustSeriesClient(this);
+            IllustV1 = new IllustV1Client(this);
             IllustV2 = new IllustV2Client(this);
             Manga = new MangaClient(this);
             Notification = new NotificationClient(this);
