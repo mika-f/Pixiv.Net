@@ -1,61 +1,18 @@
 ﻿using Newtonsoft.Json;
 
+using Pixiv.Attributes;
+
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     ユーザー
-    /// </summary>
-    public class User : ApiResponse
+    public class User : MinifiedUser
     {
-        /// <summary>
-        ///     ユーザー ID
-        /// </summary>
-        [JsonProperty("id")]
-        public int Id { get; set; }
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
 
-        /// <summary>
-        ///     ユーザー名
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("comment")]
+        public string Comment { get; set; }
 
-        /// <summary>
-        ///     アカウント名
-        /// </summary>
-        [JsonProperty("account")]
-        public string Account { get; set; }
-
-        [JsonProperty("profile_image_urls")]
-        public ProfileImageUrls ProfileImageUrls { get; set; }
-
-        /// <summary>
-        ///     フォローしているか否か
-        /// </summary>
-        [JsonProperty("is_followed")]
-        public bool IsFollowed { get; set; }
-
-        /// <summary>
-        ///     メールアドレス (※認証ユーザーのもののみ取得可能)
-        /// </summary>
-        [JsonProperty("mail_address")]
-        public string MailAddress { get; set; }
-
-        /// <summary>
-        ///     プレミアムユーザーか否か
-        /// </summary>
-        [JsonProperty("is_premium")]
-        public bool IsPremium { get; set; }
-
-        /// <summary>
-        ///     制限レベル
-        /// </summary>
-        [JsonProperty("x_restrict")]
-        public int RestrictLevel { get; set; }
-
-        /// <summary>
-        ///     メール認証済みかどうか (※認証ユーザーのもののみ取得可能)
-        /// </summary>
-        [JsonProperty("is_mail_authorized")]
-        public bool IsMailAuthorized { get; set; }
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

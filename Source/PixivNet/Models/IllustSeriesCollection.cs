@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
@@ -6,29 +7,19 @@ using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    public class UserPreview : ApiResponse
+    public class IllustSeriesCollection : ApiResponse
     {
 #pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("illusts")]
-        public IEnumerable<Illust> Illusts { get; set; }
+        [JsonProperty("illust_series_details")]
+        public IEnumerable<IllustSeriesDetail> IllustSeriesDetails { get; set; }
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
-        [JsonProperty("is_muted")]
-        public bool IsMuted { get; set; }
-
-        [ApiVersion]
-        [MarkedAs("7.7.7")]
-        [JsonProperty("novels")]
-        public IEnumerable<Novel> Novels { get; set; }
-
-        [ApiVersion]
-        [MarkedAs("7.7.7")]
-        [JsonProperty("user")]
-        public MinifiedUser User { get; set; }
+        [JsonProperty("next_url")]
+        public Uri NextUrl { get; set; }
 
 #pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }

@@ -3,160 +3,135 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-using Pixiv.Converters;
-using Pixiv.Enum;
+using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     プロフィール
-    /// </summary>
     public class Profile : ApiResponse
     {
-        /// <summary>
-        ///     住所 ID
-        /// </summary>
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("address_id")]
-        public int? AddressId { get; set; }
+        public long AddressId { get; set; }
 
-        /// <summary>
-        ///     背景画像 URL
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("background_image_url")]
-        public string BackgroundImageUrl { get; set; }
+        public Uri BackgroundImageUrl { get; set; }
 
-        /// <summary>
-        ///     誕生日
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("birth")]
-        [JsonConverter(typeof(DateTimeConverter))]
+        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime? Birth { get; set; }
 
-        /// <summary>
-        ///     誕生日 (日時)
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("birth_day")]
         public string BirthDay { get; set; }
 
-        /// <summary>
-        ///     誕生日 (年)
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("birth_year")]
-        public int? BirthYear { get; set; }
+        public long BirthYear { get; set; }
 
-        /// <summary>
-        ///     国コード
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("country_code")]
         public string CountryCode { get; set; }
 
-        /// <summary>
-        ///     性別
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("gender")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public Gender? Gender { get; set; }
+        public string Gender { get; set; }
 
-        /// <summary>
-        ///     職業
-        /// </summary>
-        [JsonProperty("job")]
-        public string Job { get; set; }
-
-        /// <summary>
-        ///     職業 ID
-        /// </summary>
-        [JsonProperty("job_id")]
-        public int? JobId { get; set; }
-
-        /// <summary>
-        ///     地域
-        /// </summary>
-        [JsonProperty("region")]
-        public string Region { get; set; }
-
-        /// <summary>
-        ///     フォロー数
-        /// </summary>
-        [JsonProperty("total_follow_users")]
-        public int TotalFollowUsers { get; set; }
-
-        /// <summary>
-        ///     フォロワー数
-        /// </summary>
-        [JsonProperty("total_follower")]
-        public int TotalFollower { get; set; }
-
-        /// <summary>
-        ///     マイピク数
-        /// </summary>
-        [JsonProperty("total_mypixiv_users")]
-        public int TotalMypixivUsers { get; set; }
-
-        /// <summary>
-        ///     イラスト投稿数
-        /// </summary>
-        [JsonProperty("total_illusts")]
-        public int TotalIllusts { get; set; }
-
-        /// <summary>
-        ///     マンガ投稿数
-        /// </summary>
-        [JsonProperty("total_manga")]
-        public int TotalManga { get; set; }
-
-        /// <summary>
-        ///     小説投稿数
-        /// </summary>
-        [JsonProperty("total_novels")]
-        public int TotalNovels { get; set; }
-
-        /// <summary>
-        ///     イラストブックマーク数 (公開のみ)
-        /// </summary>
-        [JsonProperty("total_illust_bookmarks_public")]
-        public int TotalIllustBookmarksPublic { get; set; }
-
-        /// <summary>
-        ///     イラストシリーズ投稿数
-        /// </summary>
-        [JsonProperty("total_illust_series")]
-        public int TotalIllustSeries { get; set; }
-
-        /// <summary>
-        ///     Twitter アカウント
-        /// </summary>
-        [JsonProperty("twitter_account")]
-        public string TwitterAccount { get; set; }
-
-        /// <summary>
-        ///     Twitter URL
-        /// </summary>
-        [JsonProperty("twitter_url")]
-        public string TwitterUrl { get; set; }
-
-        /// <summary>
-        ///     Pawoo URL
-        /// </summary>
-        [JsonProperty("pawoo_url")]
-        public string PawooUrl { get; set; }
-
-        /// <summary>
-        ///     ホームページ
-        /// </summary>
-        [JsonProperty("webpage")]
-        public string Webpage { get; set; }
-
-        /// <summary>
-        ///     プレミアムユーザーか
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("is_premium")]
         public bool IsPremium { get; set; }
 
-        /// <summary>
-        ///     プロフィール画像をプリセット以外の物を使用しているか
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("is_using_custom_profile_image")]
         public bool IsUsingCustomProfileImage { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("job")]
+        public string Job { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("job_id")]
+        public long JobId { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("pawoo_url")]
+        public Uri? PawooUrl { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("region")]
+        public string Region { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_follow_users")]
+        public long TotalFollowUsers { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_illusts")]
+        public long TotalIllusts { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_illust_bookmarks_public")]
+        public long TotalIllustBookmarksPublic { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_illust_series")]
+        public long TotalIllustSeries { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_manga")]
+        public long TotalManga { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_novels")]
+        public long TotalNovels { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_novel_series")]
+        public long TotalNovelSeries { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("total_mypixiv_users")]
+        public long TotalMypixivUsers { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("twitter_account")]
+        public string? TwitterAccount { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("twitter_url")]
+        public Uri? TwitterUrl { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("webpage")]
+        public string? Webpage { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }

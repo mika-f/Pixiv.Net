@@ -1,88 +1,80 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+
+using Newtonsoft.Json;
+
+using Pixiv.Attributes;
 
 namespace Pixiv.Models
 {
-    /// <summary>
-    ///     作業環境
-    /// </summary>
     public class Workspace : ApiResponse
     {
-        /// <summary>
-        ///     コンピュータ
-        /// </summary>
-        [JsonProperty("pc")]
-        public string Pc { get; set; }
+#pragma warning disable CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
 
-        /// <summary>
-        ///     モニター
-        /// </summary>
-        [JsonProperty("monitor")]
-        public string Monitor { get; set; }
-
-        /// <summary>
-        ///     ソフト
-        /// </summary>
-        [JsonProperty("tool")]
-        public string Tool { get; set; }
-
-        /// <summary>
-        ///     スキャナー
-        /// </summary>
-        [JsonProperty("scanner")]
-        public string Scanner { get; set; }
-
-        /// <summary>
-        ///     タブレット
-        /// </summary>
-        [JsonProperty("tablet")]
-        public string Tablet { get; set; }
-
-        /// <summary>
-        ///     マウス
-        /// </summary>
-        [JsonProperty("mouse")]
-        public string Mouse { get; set; }
-
-        /// <summary>
-        ///     プリンター
-        /// </summary>
-        [JsonProperty("printer")]
-        public string Printer { get; set; }
-
-        /// <summary>
-        ///     机の上にあるもの
-        /// </summary>
-        [JsonProperty("desktop")]
-        public string Desktop { get; set; }
-
-        /// <summary>
-        ///     絵を描く時に聞く音楽
-        /// </summary>
-        [JsonProperty("music")]
-        public string Music { get; set; }
-
-        /// <summary>
-        ///     机
-        /// </summary>
-        [JsonProperty("desk")]
-        public string Desk { get; set; }
-
-        /// <summary>
-        ///     椅子
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("chair")]
         public string Chair { get; set; }
 
-        /// <summary>
-        ///     その他
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("comment")]
         public string Comment { get; set; }
 
-        /// <summary>
-        ///     作業環境画像 URL
-        /// </summary>
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("desk")]
+        public string Desk { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("desktop")]
+        public string Desktop { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("monitor")]
+        public string Monitor { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("music")]
+        public string Music { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("mouse")]
+        public string Mouse { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("pc")]
+        public string Pc { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("printer")]
+        public string Printer { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("scanner")]
+        public string Scanner { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("tablet")]
+        public string Tablet { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("tool")]
+        public string Tool { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("workspace_image_url")]
-        public string WorkspaceImageUrl { get; set; }
+        public Uri WorkspaceImageUrl { get; set; }
+
+#pragma warning restore CS8618 // Null 非許容フィールドは初期化されていません。null 許容として宣言することを検討してください。
     }
 }
