@@ -4,13 +4,13 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Pixiv.Net</AssemblyName>
     <RootNamespace>Pixiv</RootNamespace>
-    <Version>7.7.3.1</Version>
-    <AssemblyVersion>7.7.3.1</AssemblyVersion>
+    <Version>7.7.7.1</Version>
+    <AssemblyVersion>7.7.7.1</AssemblyVersion>
     <Authors>Mikazuki</Authors>
     <RepositoryType>Git</RepositoryType>
     <PackageProjectUrl>https://sagitta.mochizuki.moe</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mika-f/Pixiv.Net</RepositoryUrl>
-    <Description>pixiv API wrapper for .NET Standard 2.0.</Description>
+    <Description>Fully-typed pixiv API client wrapper for .NET Standard 2.1.</Description>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
