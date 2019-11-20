@@ -37,13 +37,13 @@ namespace Pixiv.Clients
             return await Client.GetAsync($"https://{_host}{_base}{endpoint}", isRequiredAuthentication, isRequiredReferrer, parameters).Stay();
         }
 
-        protected async Task<Stream> GetAsyncAsStream(Uri uri, [CallerMemberName] string? caller = null)
+        protected async Task<Stream> GetAsStreamAsync(Uri uri, [CallerMemberName] string? caller = null)
         {
             if (uri == null)
                 throw new ArgumentNullException(nameof(uri));
 
             var (isRequiredAuthentication, isRequiredReferrer) = CheckCallerMethodAttributes(caller);
-            return await Client.GetAsyncAsStream(uri.ToString(), isRequiredAuthentication, isRequiredReferrer).Stay();
+            return await Client.GetAsStreamAsync(uri.ToString(), isRequiredAuthentication, isRequiredReferrer).Stay();
         }
 
         protected async Task<T> PostAsync<T>(string endpoint = "", List<KeyValuePair<string, object>>? parameters = null, [CallerMemberName] string? caller = null)
@@ -60,14 +60,12 @@ namespace Pixiv.Clients
 
         private (bool, bool) CheckCallerMethodAttributes(string? caller)
         {
-            var isRequiredAuthentication = false;
-            var isRequiredReferrer = false;
-            if (!string.IsNullOrWhiteSpace(caller))
-            {
-                var method = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public);
-                isRequiredAuthentication = method?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
-                isRequiredReferrer = method?.GetCustomAttribute<RequiredReferrerAttribute>() != null;
-            }
+            if (string.IsNullOrWhiteSpace(caller))
+                return (false, false);
+
+            var method = GetType().GetMethod(caller, BindingFlags.Instance | BindingFlags.Public);
+            var isRequiredAuthentication = method?.GetCustomAttribute<RequiredAuthenticationAttribute>() != null;
+            var isRequiredReferrer = method?.GetCustomAttribute<RequiredReferrerAttribute>() != null;
 
             return (isRequiredAuthentication, isRequiredReferrer);
         }

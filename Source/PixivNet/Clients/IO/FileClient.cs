@@ -16,7 +16,7 @@ namespace Pixiv.Clients.IO
         [RequiredReferrer]
         public async Task<Stream> GetAsync(Uri uri)
         {
-            return await GetAsyncAsStream(uri).Stay();
+            return await GetAsStreamAsync(uri).Stay();
         }
     }
 }

@@ -129,7 +129,7 @@ namespace Pixiv
             return JObject.Parse(await response.Content.ReadAsStringAsync().Stay());
         }
 
-        internal async Task<Stream> GetAsyncAsStream(string url, bool isRequiredAuthentication, bool isRequiredReferrer)
+        internal async Task<Stream> GetAsStreamAsync(string url, bool isRequiredAuthentication, bool isRequiredReferrer)
         {
             ApplyPixivHeaders(isRequiredAuthentication, isRequiredReferrer);
 
