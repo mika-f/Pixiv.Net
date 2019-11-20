@@ -23,6 +23,16 @@ namespace Pixiv.Models
 
         [ApiVersion]
         [MarkedAs("7.7.7")]
+        [JsonProperty("privacy_policy")]
+        public PrivacyPolicy? PrivacyPolicy { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
+        [JsonProperty("ranking_novels")]
+        public IEnumerable<Novel>? RankingNovels { get; set; }
+
+        [ApiVersion]
+        [MarkedAs("7.7.7")]
         [JsonProperty("search_span_limit")]
         public long? SearchSpanLimit { get; set; }
 

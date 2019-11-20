@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
 
-using Pixiv.Clients;
 using Pixiv.Clients.Auth;
 using Pixiv.Clients.IO;
 using Pixiv.Clients.V1;
@@ -58,6 +57,7 @@ namespace Pixiv
         public MangaClient Manga { get; }
         public MuteClient Mute { get; }
         public NotificationClient Notification { get; }
+        public NovelClient Novel { get; }
         public PPointClient PPoint { get; }
         public SearchV1Client SearchV1 { get; }
         public SearchV2Client SearchV2 { get; }
@@ -79,8 +79,6 @@ namespace Pixiv
             _httpClient.DefaultRequestHeaders.Add("App-Version", AppVersion);
             _httpClient.DefaultRequestHeaders.Add("User-Agent", $"PixivIOSApp/{AppVersion} (iOS {OsVersion}; iPhone11,2)");
 
-            Live = new LiveClient(this);
-            Novel = new NovelClient(this);
             ApplicationInfo = new ApplicationInfoClient(this);
             Authentication = new AuthenticationClient(this);
             File = new FileClient(this);
@@ -90,6 +88,7 @@ namespace Pixiv
             Manga = new MangaClient(this);
             Mute = new MuteClient(this);
             Notification = new NotificationClient(this);
+            Novel = new NovelClient(this);
             PPoint = new PPointClient(this);
             SearchV1 = new SearchV1Client(this);
             SearchV2 = new SearchV2Client(this);
@@ -119,7 +118,7 @@ namespace Pixiv
 
         internal async Task<JObject> GetAsync(string url, bool isRequiredAuthentication, bool isRequiredReferrer, List<KeyValuePair<string, object>>? parameters = null)
         {
-            if (parameters != null && parameters.Count > 0)
+            if (parameters?.Count > 0)
                 url += "?" + string.Join("&", parameters.Select(w => $"{w.Key}={Uri.EscapeDataString(AsStringValue(w.Value))}"));
             ApplyPixivHeaders(isRequiredAuthentication, isRequiredReferrer);
 
@@ -174,19 +173,6 @@ namespace Pixiv
             }
         }
 
-        #region API Accessors
-
-        /// <summary>
-        ///     生放送関連 API へのアクセサー
-        /// </summary>
-        public LiveClient Live { get; }
-
-        /// <summary>
-        ///     小説関連 API へのアクセサー
-        /// </summary>
-        public NovelClient Novel { get; }
-
-        #endregion
         [SuppressMessage("Security", "CA5351:破られた暗号アルゴリズムを使用しない", Justification = "<保留中>")]
         private void ApplyPixivHeaders(bool isRequiredAuthentication, bool appendReferrer)
         {
