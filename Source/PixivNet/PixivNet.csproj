@@ -8,7 +8,7 @@
     <AssemblyVersion>7.7.7.1</AssemblyVersion>
     <Authors>Mikazuki</Authors>
     <RepositoryType>Git</RepositoryType>
-    <PackageProjectUrl>https://sagitta.mochizuki.moe</PackageProjectUrl>
+    <PackageProjectUrl>https://pixiv-cs.mochizuki.dev</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mika-f/Pixiv.Net</RepositoryUrl>
     <Description>Fully-typed pixiv API client wrapper for .NET Standard 2.1.</Description>
     <Nullable>enable</Nullable>
