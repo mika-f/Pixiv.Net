@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Pixiv.Net.Shims</AssemblyName>
+    <RootNamespace>Pixiv.Shims</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PixivNet\PixivNet.csproj" />
+  </ItemGroup>
+</Project>
